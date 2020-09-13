@@ -1,36 +1,38 @@
 <template>
-    <nav
-        class="navbar"
-        :class="{
-            'navbar--hidden': !showNavbar,
-            'navbar--shown': !onTop,
-            onTop,
-        }"
-    >
-        <div class="navbar-left">
-            <div class="nav-item menu">
-                <CustomHamburger />
-                <span class="desktop-only">Menu</span>
+    <transition name="slide">
+        <nav
+            class="navbar"
+            :class="{
+                'navbar--hidden': !showNavbar || menuActivated,
+                'navbar--shown': !onTop,
+                onTop,
+            }"
+        >
+            <div class="navbar-left">
+                <div class="nav-item menu" @click="toggleMenu">
+                    <CustomHamburger />
+                    <span class="desktop-only">Menu</span>
+                </div>
+                <div class="nav-item desktop-only">Watches</div>
+                <div class="nav-item desktop-only">Story of Banitz</div>
             </div>
-            <div class="nav-item desktop-only">Watches</div>
-            <div class="nav-item desktop-only">Story of Banitz</div>
-        </div>
-        <div class="logo">
-            <div class="logo-image"></div>
-            <span>Banitz</span>
-        </div>
-        <div class="navbar-right">
-            <div class="nav-item search">
-                <SearchIcon />
-                <span class="desktop-only">Search</span>
+            <div class="logo">
+                <div class="logo-image"></div>
+                <span>Banitz</span>
             </div>
+            <div class="navbar-right">
+                <div class="nav-item search">
+                    <SearchIcon />
+                    <span class="desktop-only">Search</span>
+                </div>
 
-            <div class="nav-item cart">
-                <CartIcon />
-                <span class="desktop-only">Cart</span>
+                <div class="nav-item cart">
+                    <CartIcon />
+                    <span class="desktop-only">Cart</span>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </transition>
 </template>
 
 <script>
@@ -40,6 +42,7 @@ import SearchIcon from '../../assets/icons/Search';
 
 export default {
     name: 'Navbar',
+    props: ['toggleMenu', 'menuActivated'],
     data() {
         return {
             showNavbar: true,
@@ -99,14 +102,16 @@ export default {
     justify-content: space-between;
     transform: translate3d(0, 0, 0);
     transition: 0.3s all ease-out;
+
     &.navbar--hidden {
         transform: translate3d(0, -100%, 0);
+        transition: all 0.3s ease-in;
     }
 
     &:hover,
     &.navbar--shown {
         background: rgba(255, 255, 255, 0.9);
-
+        /* transition: all 0.3s ease-in 0.3s; */
         & .logo-image {
             background-image: url('../../assets/icons/logo-gold.png');
         }
@@ -297,4 +302,16 @@ export default {
         }
     }
 }
+
+/* .slide-enter-active,
+.slide-leave-active {
+    transition: all 0.3s ease-in-out;
+}
+
+.slide-enter,
+.slide-leave-to {
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.17, 0.67, 0.83, 0.67),
+        opacity 0.2s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+} */
 </style>

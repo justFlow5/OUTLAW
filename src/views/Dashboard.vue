@@ -1,7 +1,13 @@
 <template>
     <div>
         <div class="section-container">
-            <Navbar />
+            <Navbar :toggleMenu="toggleMenu" :menuActivated="menuActivated" />
+
+            <Menu
+                :menuActivated="menuActivated"
+                v-on:menu-activated="toggleMenu"
+            />
+
             <div class="content-container">
                 <div class="overlay"></div>
                 <div class="title-wrapper" :class="{ 'slide-down': dropText }">
@@ -23,17 +29,21 @@
 
 <script>
 import Navbar from '../components/navbar/Navbar';
+import Menu from '../components/menu/Menu';
 
 export default {
-    name: 'Home',
+    name: 'Dashboard',
     components: {
         Navbar,
+        Menu,
     },
     data() {
         return {
             timer: 35,
             dropText: false,
             src: '',
+
+            menuActivated: false,
         };
     },
     methods: {
@@ -47,6 +57,10 @@ export default {
             } else if (window.matchMedia('(orientation: landscape)').matches) {
                 this.src = this.getVideoPath('omega2.mp4');
             }
+        },
+
+        toggleMenu() {
+            this.menuActivated = !this.menuActivated;
         },
     },
     mounted() {
