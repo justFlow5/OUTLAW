@@ -1,6 +1,7 @@
 <template>
     <div>
         <div class="section-container">
+            <Navbar />
             <div class="content-container">
                 <div class="overlay"></div>
                 <div class="title-wrapper" :class="{ 'slide-down': dropText }">
@@ -21,9 +22,13 @@
 </template>
 
 <script>
+import Navbar from '../components/navbar/Navbar';
+
 export default {
     name: 'Home',
-    components: {},
+    components: {
+        Navbar,
+    },
     data() {
         return {
             timer: 35,

@@ -10,6 +10,7 @@
 html {
     min-height: 100%;
     position: relative;
+    background-color: rgb(87, 133, 145);
 }
 
 body {
@@ -21,10 +22,13 @@ body {
     bottom: 0;
     right: 0;
     left: 0;
+    height: 500vh;
+    background-color: rgb(87, 133, 145);
 }
 
 #app {
     height: 100%;
+    background-color: rgb(87, 133, 145);
 }
 
 
