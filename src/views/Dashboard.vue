@@ -78,6 +78,16 @@ export default {
             this.timer--;
         }, 1000);
     },
+
+    watch: {
+        menuActivated: function() {
+            if (this.menuActivated) {
+                document.documentElement.style.overflow = 'hidden';
+                return;
+            }
+            document.documentElement.style.overflow = 'auto';
+        },
+    },
 };
 </script>
 
