@@ -5,27 +5,69 @@
             :class="{ open: menuActivated }"
             @click="closeSidebarPanel"
         ></div>
+
         <transition name="slide">
             <div v-if="menuActivated" class="sidebar-panel">
-                <div class="menu-header">
+                <div class="sidebar-header">
                     <button class="leave-menu-button"></button>
+
+                    <div class="logo">
+                        <div class="logo-image"></div>
+                        <span>Banitz</span>
+                    </div>
                 </div>
+                <ul class="watch-collection">
+                    <li v-for="(watch, index) in watchesData" :key="index">
+                        <WatchTemplate :watchData="watch" />
+                    </li>
+                    <div class="spacing"></div>
+                </ul>
+
+                <section class="references">
+                    <ul class="references-container">
+                        <li><a>Banitz watches</a></li>
+                        <li>
+                            <a>New watches {{ new Date().getFullYear() }}</a>
+                        </li>
+                        <li><a>Clients favourites</a></li>
+                        <li><a>Configure your watch</a></li>
+                        <li><a>History & watchmaking</a></li>
+                    </ul>
+
+                    <ul class="references-container">
+                        <li><a>Find a retailer</a></li>
+                        <li><a>Watch care & service</a></li>
+                    </ul>
+                </section>
+
+                <div class="padding"></div>
             </div>
         </transition>
     </div>
 </template>
 
 <script>
+import { watches } from '../../assets/watchesData/watchesData';
+import WatchTemplate from './Watch-template';
 export default {
     name: 'Menu',
     props: ['menuActivated'],
-    data() {},
+    data() {
+        return {};
+    },
     methods: {
         closeSidebarPanel() {
             this.$emit('menu-activated', false);
         },
     },
-    components: {},
+    components: { WatchTemplate },
+
+    computed: {
+        watchesData: function() {
+            console.log('eloooo: ', watches);
+            return watches;
+        },
+    },
 };
 </script>
 
@@ -74,8 +116,15 @@ export default {
     top: 0;
     height: 100vh;
     z-index: 999;
-    padding: 3rem 20px 2rem 20px;
+    /* padding: 20px 0; */
     width: 90vw;
+    /* padding-bottom: 60px; */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 
     @media (min-width: $tablet) {
         width: 70vw;
@@ -86,10 +135,12 @@ export default {
 }
 
 .leave-menu-button {
-    position: relative;
+    position: absolute;
+    left: 0;
+    bottom: 0;
     padding: 20px;
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     outline: none;
     cursor: pointer;
     border: none;
@@ -103,13 +154,11 @@ export default {
     &::before,
     &::after {
         content: '';
-        width: 18px;
+        width: 20px;
         border-radius: 2px;
         display: block;
         height: 2px;
         position: absolute;
-        top: 20px;
-        left: 11px;
         background-color: rgb(255, 255, 255);
         transition: background-color 0.2s;
     }
@@ -121,5 +170,186 @@ export default {
     &::after {
         transform: rotate(-45deg);
     }
+}
+
+.sidebar-header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    margin: 40px 50px 50px;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    pointer-events: none;
+
+    & span {
+        font-family: 'PT Serif', serif;
+        color: white;
+        letter-spacing: 1.4px;
+        font-size: 15px;
+        text-transform: uppercase;
+        font-weight: 600;
+        text-shadow: 0px 0px 0px transparent;
+        transition: all 0.3s;
+
+        @media (min-width: $mobileL) {
+            font-size: 21px;
+        }
+
+        @media (min-width: $laptop) {
+            font-size: 26px;
+        }
+    }
+
+    & .logo-image {
+        background-image: url('../../assets/icons/logo-white.png');
+        width: 30px;
+        height: 30px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        transition: all 0.3s;
+
+        @media (min-width: $laptop) {
+            width: 55px;
+            height: 55px;
+        }
+    }
+}
+
+.watch-collection {
+    position: relative;
+    /* height: 200px; */
+    /* white-space: nowrap; */
+    overflow: scroll hidden;
+    /* overflow: hidden; */
+    display: flex;
+    /* flex-wrap: nowrap; */
+    position: relative;
+
+    height: 290px;
+    margin: 0 70px;
+    scrollbar-width: thin;
+    scrollbar-color: white rgba(255, 255, 255, 0.2);
+    scroll-margin: 0px 0px 90px;
+
+    & li {
+        list-style-type: none;
+    }
+    &::-webkit-scrollbar {
+        /* margin-top: 40px; */
+
+        /* background-color: rgb(33, 33, 33);
+        height: 47px; */
+
+        width: 4px;
+        height: 5px;
+        padding: 5px 0;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    &::-webkit-scrollbar-track {
+        position: relative;
+        background: rgba(255, 255, 255, 0.2);
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: white;
+
+        border-radius: 4px;
+
+        &:active {
+            background: rgba(255, 255, 255, 0.4);
+        }
+        &:hover {
+            background: rgba(255, 255, 255, 0.7);
+        }
+    }
+
+    & ::-webkit-scrollbar-button {
+        width: 0;
+        height: 0;
+        display: none;
+    }
+    & ::-webkit-scrollbar-corner {
+        background-color: transparent;
+    }
+    /* 
+    & * {
+        cursor: pointer;
+        position: relative;
+        min-height: 200px;
+        min-width: 170px;
+        background: coral;
+        margin: 5px;
+        border: 1px solid black;
+        margin-bottom: 40px;
+    } */
+}
+
+.references {
+    margin: 30px 70px;
+
+    & .references-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        list-style-type: none;
+        padding: 30px 0;
+
+        &:last-child {
+            /* margin: 20px 0; */
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        & li {
+            margin-top: 20px;
+            font-family: 'PT Serif', serif;
+            font-size: 18px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: color 0.3s;
+            &:first-child {
+                margin-top: unset;
+            }
+
+            &:hover {
+                color: #daa520;
+            }
+        }
+    }
+}
+
+.padding {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 30px;
+    width: 90vw;
+    background: rgb(33, 33, 33);
+
+    @media (min-width: $tablet) {
+        width: 70vw;
+    }
+    @media (min-width: $laptop) {
+        width: 50vw;
+    }
+}
+
+.spacing {
+    pointer-events: none;
+    height: 10px;
+    background: transparent;
+    outline: none;
+    border: 0;
 }
 </style>

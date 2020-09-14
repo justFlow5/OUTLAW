@@ -1,0 +1,100 @@
+<template>
+    <div class="watch-container">
+        <div class="img-container">
+            <img :src="getImgPath(watchData.name)" :alt="watchData.name" />
+        </div>
+        <div class="description">
+            <h3>{{ watchData.name.toUpperCase() }}</h3>
+            <span>{{ watchData.ad }}</span>
+            <span class="moreInfo">Learn more</span>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    name: 'MenuWatchTemplate',
+    props: ['watchData'],
+    methods: {
+        getImgPath(watch) {
+            return require('../../assets/watchesImages/' + watch + '.webp');
+        },
+    },
+};
+</script>
+
+<style lang="scss" scoped>
+.watch-container {
+    cursor: pointer;
+    position: relative;
+    height: 265px;
+    width: 170px;
+    margin-bottom: 40px;
+    margin: 0 5px;
+    transition: all 0.3s;
+
+    & .img-container {
+        position: relative;
+        height: 200px;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    &:hover .description {
+        transform: translateY(-20px);
+        transform-origin: 50% 50% 0px;
+        transition: transform 0.2s ease 0s;
+    }
+    &:hover img {
+        transform: scale(1.05);
+        transform-origin: 50% 50% 0px;
+        transition: transform 0.6s ease 0s;
+    }
+
+    &:hover .moreInfo {
+        opacity: 1;
+        transition: opacity 0.2s ease 0s;
+    }
+
+    & > .description {
+        display: flex;
+        flex-direction: column;
+        padding-top: 6px;
+        background-color: rgb(33, 33, 33);
+        transform: translateY(0px);
+        text-align: left;
+        transition: transform 0.2s ease 0s;
+    }
+
+    & img {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transform: scale(1);
+        object-fit: cover;
+        display: block;
+        transition: all 0.3s ease-in-out;
+    }
+
+    & h3 {
+        font-family: 'PT Serif', serif;
+
+        font-size: 18px;
+        letter-spacing: 1.1px;
+        color: white;
+    }
+
+    & span {
+        font-size: 13px;
+        color: white;
+        margin: 4px 0;
+    }
+
+    & .moreInfo {
+        opacity: 0;
+        font-size: 17px;
+        font-weight: 600;
+        transition: opacity 0.2s ease 0s;
+    }
+}
+</style>
