@@ -6,4 +6,8 @@ export default {
     TOGGLE_SEARCH(state) {
         state.isSearchOpen = !state.isSearchOpen;
     },
+
+    TOGGLE_CART(state) {
+        state.isCartOpen = !state.isCartOpen;
+    },
 };

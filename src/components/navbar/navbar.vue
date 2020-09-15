@@ -3,7 +3,8 @@
         <nav
             class="navbar"
             :class="{
-                'navbar--hidden': !showNavbar || isMenuOpen || isSearchOpen,
+                'navbar--hidden':
+                    !showNavbar || isMenuOpen || isSearchOpen || isCartOpen,
                 'navbar--shown': !onTop,
                 onTop,
             }"
@@ -26,7 +27,7 @@
                     <span class="desktop-only">Search</span>
                 </div>
 
-                <div class="nav-item cart">
+                <div class="nav-item cart" @click="toggleCart">
                     <CartIcon />
                     <span class="desktop-only">Cart</span>
                 </div>
@@ -57,12 +58,14 @@ export default {
         ...mapState({
             isMenuOpen: (state) => state.appStore.isMenuOpen,
             isSearchOpen: (state) => state.appStore.isSearchOpen,
+            isCartOpen: (state) => state.appStore.isCartOpen,
         }),
     },
     methods: {
         ...mapActions({
             toggleMenu: 'appStore/toggleMenu',
             toggleSearch: 'appStore/toggleSearch',
+            toggleCart: 'appStore/toggleCart',
         }),
 
         onScroll() {
