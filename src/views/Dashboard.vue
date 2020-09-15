@@ -2,6 +2,8 @@
     <div>
         <div class="section-container">
             <Navbar />
+            <Menu />
+
             <div class="content-container">
                 <div class="overlay"></div>
                 <div class="title-wrapper" :class="{ 'slide-down': dropText }">
@@ -23,11 +25,15 @@
 
 <script>
 import Navbar from '../components/navbar/Navbar';
+import Menu from '../components/menu/Menu';
+
+import { mapState, mapActions } from 'vuex';
 
 export default {
-    name: 'Home',
+    name: 'Dashboard',
     components: {
         Navbar,
+        Menu,
     },
     data() {
         return {
@@ -37,6 +43,10 @@ export default {
         };
     },
     methods: {
+        ...mapActions({
+            toggleMenu: 'appStore/toggleMenu',
+        }),
+
         getVideoPath(watch) {
             return require('../assets/watchVideo/' + watch);
         },
@@ -63,6 +73,22 @@ export default {
             }
             this.timer--;
         }, 1000);
+    },
+
+    computed: {
+        ...mapState({
+            isMenuOpen: (state) => state.appStore.isMenuOpen,
+        }),
+    },
+
+    watch: {
+        isMenuOpen: function() {
+            if (this.isMenuOpen) {
+                document.documentElement.style.overflow = 'hidden';
+                return;
+            }
+            document.documentElement.style.overflow = 'auto';
+        },
     },
 };
 </script>
