@@ -1,11 +1,7 @@
 <template>
     <div>
         <div class="section-container">
-            <Navbar />
-            <Menu />
-            <Search />
-            <Cart />
-
+            <!-- <Navbar /> -->
             <div class="content-container">
                 <div class="overlay"></div>
                 <div class="title-wrapper" :class="{ 'slide-down': dropText }">
@@ -26,20 +22,14 @@
 </template>
 
 <script>
-import Navbar from '../components/navbar/Navbar';
-import Menu from '../components/menu/Menu';
-import Search from '../components/search/Search';
-import Cart from '../components/cart/Cart';
+// import Navbar from '../components/navbar/NavbarDeep';
 
 import { mapState, mapActions } from 'vuex';
 
 export default {
     name: 'Dashboard',
     components: {
-        Navbar,
-        Menu,
-        Search,
-        Cart,
+        // Navbar,
     },
     data() {
         return {

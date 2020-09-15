@@ -14,7 +14,10 @@
                     <CustomHamburger />
                     <span class="desktop-only">Menu</span>
                 </div>
-                <div class="nav-item desktop-only">Watches</div>
+
+                <div class="nav-item desktop-only">
+                    <router-link to="/watches">Watches</router-link>
+                </div>
                 <div class="nav-item desktop-only">Story of Banitz</div>
             </div>
             <div class="logo">
