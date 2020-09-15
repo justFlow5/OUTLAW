@@ -1,0 +1,15 @@
+.overlay {
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 998;
+    transition: background-color 0.3s cubic-bezier(0.17, 0.67, 0.83, 0.67) 0.3s;
+
+    &.open {
+        cursor: pointer;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+}

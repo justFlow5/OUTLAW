@@ -3,7 +3,7 @@
         <nav
             class="navbar"
             :class="{
-                'navbar--hidden': !showNavbar || isMenuOpen,
+                'navbar--hidden': !showNavbar || isMenuOpen || isSearchOpen,
                 'navbar--shown': !onTop,
                 onTop,
             }"
@@ -21,7 +21,7 @@
                 <span>Banitz</span>
             </div>
             <div class="navbar-right">
-                <div class="nav-item search">
+                <div class="nav-item search" @click="toggleSearch">
                     <SearchIcon />
                     <span class="desktop-only">Search</span>
                 </div>
@@ -56,11 +56,13 @@ export default {
     computed: {
         ...mapState({
             isMenuOpen: (state) => state.appStore.isMenuOpen,
+            isSearchOpen: (state) => state.appStore.isSearchOpen,
         }),
     },
     methods: {
         ...mapActions({
             toggleMenu: 'appStore/toggleMenu',
+            toggleSearch: 'appStore/toggleSearch',
         }),
 
         onScroll() {

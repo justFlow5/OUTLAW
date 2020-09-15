@@ -1,35 +1,30 @@
 <template>
-    <button class="leave-menu-button" @click="toggleMenu"></button>
+    <button class="leave-menu-button" :class="{ isDark: type }"></button>
 </template>
 
 <script>
-import { mapActions } from 'vuex';
-
 export default {
     name: 'ToggleMenuButton',
-    methods: {
-        ...mapActions({
-            toggleMenu: 'appStore/toggleMenu',
-        }),
-    },
+    props: ['type'],
 };
 </script>
 
 <style lang="scss" scoped>
 .leave-menu-button {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    padding: 20px;
+    position: relative;
     width: 20px;
     height: 20px;
     outline: none;
     cursor: pointer;
     border: none;
     background-color: transparent;
-    position: fixed;
     left: 0;
     top: 10px;
+
+    &.isDark::before,
+    &.isDark::after {
+        background-color: rgb(33, 33, 33);
+    }
 
     @media (min-width: $laptop) {
         position: absolute;

@@ -1,7 +1,7 @@
 <template>
     <div class="sidebar">
         <div
-            class="sidebar-backdrop"
+            class="overlay"
             :class="{ open: isMenuOpen }"
             @click="toggleMenu"
         ></div>
@@ -9,8 +9,10 @@
         <transition name="slide">
             <div v-if="isMenuOpen" class="sidebar-panel">
                 <div class="sidebar-header">
-                    <ToggleMenuButton />
-                    <MenuLogo />
+                    <div class="exit-button-container" @click="toggleMenu">
+                        <ExitButton />
+                    </div>
+                    <Logo />
                 </div>
                 <WatchCollection />
                 <ReferenceLinks />
@@ -22,9 +24,9 @@
 
 <script>
 import WatchCollection from './WatchCollection';
-import ToggleMenuButton from './ToggleMenuButton';
+import ExitButton from '../ExitButton';
+import Logo from '../Logo';
 import ReferenceLinks from './ReferenceLinks';
-import MenuLogo from './MenuLogo';
 
 import { mapState, mapActions } from 'vuex';
 export default {
@@ -32,7 +34,7 @@ export default {
     data() {
         return {};
     },
-    components: { WatchCollection, ToggleMenuButton, ReferenceLinks, MenuLogo },
+    components: { WatchCollection, ExitButton, ReferenceLinks, Logo },
 
     computed: {
         ...mapState({
@@ -50,23 +52,7 @@ export default {
 
 <style lang="scss" scoped>
 @import './menu-transition.scss';
-.sidebar-backdrop {
-    background-color: transparent;
-    z-index: 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 999;
-    transition: background-color 0.3s cubic-bezier(0.17, 0.67, 0.83, 0.67) 0.3s;
-
-    &.open {
-        z-index: 999;
-        cursor: pointer;
-        width: 100vw;
-        height: 100vh;
-        background-color: rgba(0, 0, 0, 0.8);
-    }
-}
+@import '../../styles/overlay.scss';
 
 .sidebar-panel {
     position: relative;
@@ -117,6 +103,20 @@ export default {
     }
     @media (min-width: $laptop) {
         width: 50vw;
+    }
+}
+
+.exit-button-container {
+    left: 0;
+    top: 0;
+    padding: 20px;
+    position: fixed;
+
+    @media (min-width: $laptop) {
+        position: absolute;
+        top: unset;
+        left: 20px;
+        bottom: 0;
     }
 }
 </style>

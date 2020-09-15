@@ -1,7 +1,7 @@
 <template>
     <div class="logo">
         <div class="logo-image"></div>
-        <span>Banitz</span>
+        <span class="logo-name">Banitz</span>
     </div>
 </template>
 
@@ -19,15 +19,17 @@ export default {
     align-items: center;
     padding-bottom: 5px;
     padding-top: 5px;
-    cursor: pointer;
+    pointer-events: none;
 
-    & span {
+    & .logo-name {
         font-family: 'PT Serif', serif;
         color: white;
         letter-spacing: 1.4px;
         font-size: 15px;
         text-transform: uppercase;
         font-weight: 600;
+        text-shadow: 0px 0px 0px transparent;
+        transition: all 0.3s;
 
         @media (min-width: $mobileL) {
             font-size: 21px;
@@ -39,7 +41,7 @@ export default {
     }
 
     & .logo-image {
-        background-image: url('../../assets/icons/logo-white.png');
+        background-image: url('../assets/icons/logo-white.png');
         width: 30px;
         height: 30px;
         background-position: center;

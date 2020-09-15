@@ -3,6 +3,7 @@
         <div class="section-container">
             <Navbar />
             <Menu />
+            <Search />
 
             <div class="content-container">
                 <div class="overlay"></div>
@@ -26,6 +27,7 @@
 <script>
 import Navbar from '../components/navbar/Navbar';
 import Menu from '../components/menu/Menu';
+import Search from '../components/search/Search';
 
 import { mapState, mapActions } from 'vuex';
 
@@ -34,6 +36,7 @@ export default {
     components: {
         Navbar,
         Menu,
+        Search,
     },
     data() {
         return {
@@ -78,12 +81,21 @@ export default {
     computed: {
         ...mapState({
             isMenuOpen: (state) => state.appStore.isMenuOpen,
+            isSearchOpen: (state) => state.appStore.isSearchOpen,
         }),
     },
 
     watch: {
         isMenuOpen: function() {
             if (this.isMenuOpen) {
+                document.documentElement.style.overflow = 'hidden';
+                return;
+            }
+            document.documentElement.style.overflow = 'auto';
+        },
+
+        isSearchOpen: function() {
+            if (this.isSearchOpen) {
                 document.documentElement.style.overflow = 'hidden';
                 return;
             }

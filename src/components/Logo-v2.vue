@@ -7,7 +7,7 @@
 
 <script>
 export default {
-    name: 'MenuLogo',
+    name: 'Logo',
 };
 </script>
 
@@ -29,6 +29,8 @@ export default {
         text-transform: uppercase;
         font-weight: 600;
         text-shadow: 0px 0px 0px transparent;
+        color: #252727;
+        text-shadow: 1px 1px 1px rgba(218, 165, 32, 0.8);
         transition: all 0.3s;
 
         @media (min-width: $mobileL) {
@@ -41,7 +43,7 @@ export default {
     }
 
     & .logo-image {
-        background-image: url('../../assets/icons/logo-white.png');
+        background-image: url('../assets/icons/logo-gold.png');
         width: 30px;
         height: 30px;
         background-position: center;
