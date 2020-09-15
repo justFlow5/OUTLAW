@@ -2,10 +2,11 @@ import actions from './actions';
 import mutations from './mutations';
 
 const state = {
-    menuActivated: false,
+    isMenuOpen: false,
 };
 
 export default {
+    namespaced: true,
     state,
     actions,
     mutations,

@@ -5,8 +5,8 @@
         </div>
         <div class="description">
             <h3>{{ watchData.name.toUpperCase() }}</h3>
-            <span>{{ watchData.ad }}</span>
-            <span class="moreInfo">Learn more</span>
+            <span class="tablet-up-only">{{ watchData.ad }}</span>
+            <span class="moreInfo tablet-up-only'">Learn more</span>
         </div>
     </div>
 </template>
@@ -27,15 +27,30 @@ export default {
 .watch-container {
     cursor: pointer;
     position: relative;
-    height: 265px;
-    width: 170px;
+    height: 155px;
+    width: 135px;
     margin-bottom: 40px;
     margin: 0 5px;
     transition: all 0.3s;
 
+    @media (min-width: $mobileL) {
+        height: 205px;
+        width: 160px;
+    }
+
+    @media (min-width: $laptop) {
+        height: 285px;
+        width: 190px;
+    }
+
+    @media (min-width: $laptop) {
+        height: 285px;
+        width: 190px;
+    }
+
     & .img-container {
         position: relative;
-        height: 200px;
+        height: 220px;
         width: 100%;
         overflow: hidden;
     }
@@ -78,10 +93,20 @@ export default {
 
     & h3 {
         font-family: 'PT Serif', serif;
-
-        font-size: 18px;
         letter-spacing: 1.1px;
         color: white;
+        font-size: 14px;
+        font-weight: 400;
+        margin-top: 4px;
+
+        @media (min-width: $mobileL) {
+            font-size: 16px;
+        }
+
+        @media (min-width: $laptop) {
+            font-size: 18px;
+            font-weight: 700;
+        }
     }
 
     & span {
@@ -94,7 +119,16 @@ export default {
         opacity: 0;
         font-size: 17px;
         font-weight: 600;
+        pointer-events: none;
         transition: opacity 0.2s ease 0s;
+    }
+}
+
+.tablet-up-only {
+    display: none;
+
+    @media (min-width: $tablet) {
+        display: inline-block;
     }
 }
 </style>

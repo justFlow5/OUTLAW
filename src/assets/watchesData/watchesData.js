@@ -46,6 +46,18 @@ export const watches = [
     },
 
     {
+        name: 'gmt-master II',
+        price: 12000000,
+        ad: 'The cosmopopolitan watch',
+    },
+
+    {
+        name: 'new datejust',
+        price: 12000000,
+        ad: 'The classic watch of reference',
+    },
+
+    {
         name: 'day-date',
         price: 12000000,
         ad: 'The ultimate watch of prestige',

@@ -2,14 +2,17 @@
     <div class="sidebar">
         <div
             class="sidebar-backdrop"
-            :class="{ open: menuActivated }"
-            @click="closeSidebarPanel"
+            :class="{ open: isMenuOpen }"
+            @click="toggleMenu"
         ></div>
 
         <transition name="slide">
-            <div v-if="menuActivated" class="sidebar-panel">
+            <div v-if="isMenuOpen" class="sidebar-panel">
                 <div class="sidebar-header">
-                    <button class="leave-menu-button"></button>
+                    <button
+                        class="leave-menu-button"
+                        @click="toggleMenu"
+                    ></button>
 
                     <div class="logo">
                         <div class="logo-image"></div>
@@ -47,26 +50,29 @@
 </template>
 
 <script>
-import { watches } from '../../assets/watchesData/watchesData';
 import WatchTemplate from './Watch-template';
+import { watches } from '../../assets/watchesData/watchesData';
+import { mapState, mapActions } from 'vuex';
 export default {
     name: 'Menu',
-    props: ['menuActivated'],
     data() {
         return {};
-    },
-    methods: {
-        closeSidebarPanel() {
-            this.$emit('menu-activated', false);
-        },
     },
     components: { WatchTemplate },
 
     computed: {
+        ...mapState({
+            isMenuOpen: (state) => state.appStore.isMenuOpen,
+        }),
         watchesData: function() {
-            console.log('eloooo: ', watches);
             return watches;
         },
+    },
+
+    methods: {
+        ...mapActions({
+            toggleMenu: 'appStore/toggleMenu',
+        }),
     },
 };
 </script>
@@ -146,6 +152,17 @@ export default {
     border: none;
     background-color: transparent;
 
+    position: fixed;
+    left: 0;
+    top: 10px;
+
+    @media (min-width: $laptop) {
+        position: absolute;
+        top: unset;
+        left: 0;
+        bottom: 0;
+    }
+
     &:hover::before,
     &:hover::after {
         background-color: #daa520;
@@ -176,8 +193,11 @@ export default {
     position: relative;
     display: flex;
     justify-content: center;
+    margin: 10px 50px 50px;
 
-    margin: 40px 50px 50px;
+    @media (min-width: $laptop) {
+        margin: 40px 50px 50px;
+    }
 }
 
 .logo {
@@ -233,15 +253,26 @@ export default {
     display: flex;
     /* flex-wrap: nowrap; */
     position: relative;
+    height: 280px;
 
-    height: 290px;
     margin: 0 70px;
     scrollbar-width: thin;
     scrollbar-color: white rgba(255, 255, 255, 0.2);
     scroll-margin: 0px 0px 90px;
 
+    margin: 0 10px;
+    @media (min-width: $tablet) {
+        height: 290px;
+    }
+
+    @media (min-width: $laptop) {
+        margin: 0 70px;
+    }
+
     & li {
         list-style-type: none;
+        height: 95%;
+        position: relative;
     }
     &::-webkit-scrollbar {
         /* margin-top: 40px; */
@@ -295,7 +326,11 @@ export default {
 }
 
 .references {
-    margin: 30px 70px;
+    margin: 10px 15px;
+
+    @media (min-width: $laptop) {
+        margin: 30px 70px;
+    }
 
     & .references-container {
         display: flex;
@@ -315,9 +350,15 @@ export default {
             font-family: 'PT Serif', serif;
             font-size: 18px;
             color: white;
-            font-weight: 600;
+            font-weight: 500;
             cursor: pointer;
+            text-align: left;
             transition: color 0.3s;
+
+            @media (min-width: $tablet) {
+                font-weight: 600;
+            }
+
             &:first-child {
                 margin-top: unset;
             }

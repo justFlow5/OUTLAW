@@ -1,12 +1,8 @@
 <template>
     <div>
         <div class="section-container">
-            <Navbar :toggleMenu="toggleMenu" :menuActivated="menuActivated" />
-
-            <Menu
-                :menuActivated="menuActivated"
-                v-on:menu-activated="toggleMenu"
-            />
+            <Navbar />
+            <Menu />
 
             <div class="content-container">
                 <div class="overlay"></div>
@@ -31,6 +27,8 @@
 import Navbar from '../components/navbar/Navbar';
 import Menu from '../components/menu/Menu';
 
+import { mapState, mapActions } from 'vuex';
+
 export default {
     name: 'Dashboard',
     components: {
@@ -42,11 +40,13 @@ export default {
             timer: 35,
             dropText: false,
             src: '',
-
-            menuActivated: false,
         };
     },
     methods: {
+        ...mapActions({
+            toggleMenu: 'appStore/toggleMenu',
+        }),
+
         getVideoPath(watch) {
             return require('../assets/watchVideo/' + watch);
         },
@@ -57,10 +57,6 @@ export default {
             } else if (window.matchMedia('(orientation: landscape)').matches) {
                 this.src = this.getVideoPath('omega2.mp4');
             }
-        },
-
-        toggleMenu() {
-            this.menuActivated = !this.menuActivated;
         },
     },
     mounted() {
@@ -79,9 +75,15 @@ export default {
         }, 1000);
     },
 
+    computed: {
+        ...mapState({
+            isMenuOpen: (state) => state.appStore.isMenuOpen,
+        }),
+    },
+
     watch: {
-        menuActivated: function() {
-            if (this.menuActivated) {
+        isMenuOpen: function() {
+            if (this.isMenuOpen) {
                 document.documentElement.style.overflow = 'hidden';
                 return;
             }

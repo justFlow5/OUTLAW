@@ -3,7 +3,7 @@
         <nav
             class="navbar"
             :class="{
-                'navbar--hidden': !showNavbar || menuActivated,
+                'navbar--hidden': !showNavbar || isMenuOpen,
                 'navbar--shown': !onTop,
                 onTop,
             }"
@@ -40,9 +40,11 @@ import CustomHamburger from './CustomHamburger';
 import CartIcon from '../../assets/icons/Cart';
 import SearchIcon from '../../assets/icons/Search';
 
+import { mapState, mapActions } from 'vuex';
+
 export default {
     name: 'Navbar',
-    props: ['toggleMenu', 'menuActivated'],
+    // props: ['menuActivated'],
     data() {
         return {
             showNavbar: true,
@@ -50,7 +52,17 @@ export default {
             onTop: true,
         };
     },
+
+    computed: {
+        ...mapState({
+            isMenuOpen: (state) => state.appStore.isMenuOpen,
+        }),
+    },
     methods: {
+        ...mapActions({
+            toggleMenu: 'appStore/toggleMenu',
+        }),
+
         onScroll() {
             if (window.scrollY > 0) this.onTop = false;
             else this.onTop = true;
