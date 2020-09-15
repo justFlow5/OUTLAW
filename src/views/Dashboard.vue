@@ -4,6 +4,7 @@
             <Navbar />
             <Menu />
             <Search />
+            <Cart />
 
             <div class="content-container">
                 <div class="overlay"></div>
@@ -28,6 +29,7 @@
 import Navbar from '../components/navbar/Navbar';
 import Menu from '../components/menu/Menu';
 import Search from '../components/search/Search';
+import Cart from '../components/cart/Cart';
 
 import { mapState, mapActions } from 'vuex';
 
@@ -37,6 +39,7 @@ export default {
         Navbar,
         Menu,
         Search,
+        Cart,
     },
     data() {
         return {
@@ -82,6 +85,7 @@ export default {
         ...mapState({
             isMenuOpen: (state) => state.appStore.isMenuOpen,
             isSearchOpen: (state) => state.appStore.isSearchOpen,
+            isCartOpen: (state) => state.appStore.isCartOpen,
         }),
     },
 
@@ -96,6 +100,14 @@ export default {
 
         isSearchOpen: function() {
             if (this.isSearchOpen) {
+                document.documentElement.style.overflow = 'hidden';
+                return;
+            }
+            document.documentElement.style.overflow = 'auto';
+        },
+
+        isCartOpen: function() {
+            if (this.isCartOpen) {
                 document.documentElement.style.overflow = 'hidden';
                 return;
             }

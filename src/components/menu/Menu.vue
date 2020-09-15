@@ -55,7 +55,6 @@ export default {
 @import '../../styles/overlay.scss';
 
 .sidebar-panel {
-    position: relative;
     overflow-y: auto;
     background: rgb(33, 33, 33);
     position: fixed;
