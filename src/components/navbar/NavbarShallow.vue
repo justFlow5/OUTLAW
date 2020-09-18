@@ -130,7 +130,7 @@ export default {
 
     &:hover,
     &.navbar--shown {
-        background: rgba(255, 255, 255, 0.9);
+        background: rgba(255, 255, 255, 1);
         /* transition: all 0.3s ease-in 0.3s; */
         & .logo-image {
             background-image: url('../../assets/icons/logo-gold.png');

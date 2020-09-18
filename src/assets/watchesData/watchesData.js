@@ -1,21 +1,20 @@
-export const watches = [
-    {
+export const watches = [{
         name: 'air-king',
         price: 12000000,
         ad: 'A homage to aviation',
     },
     {
-        name: 'PEARLMASTER',
+        name: 'pearlmaster',
         price: 12000000,
         ad: 'The pearl in the Oyster collection',
     },
     {
-        name: 'Cellini',
+        name: 'cellini',
         price: 12000000,
         ad: 'The classical watch',
     },
     {
-        name: 'Milgauss',
+        name: 'milgauss',
         price: 12000000,
         ad: 'Honouring science',
     },
@@ -25,12 +24,12 @@ export const watches = [
         ad: 'Scaling new heights',
     },
     {
-        name: 'Sea-dweller',
+        name: 'sea-dweller',
         price: 12000000,
         ad: 'The watch that conquered the deep',
     },
     {
-        name: 'Lady-datejust',
+        name: 'lady-datejust',
         price: 12000000,
         ad: 'The classic feminine watch',
     },
@@ -64,9 +63,9 @@ export const watches = [
     },
 
     {
-        name: 'the sky-dweller',
+        name: 'new sky-dweller',
         price: 12000000,
-        ad: 'The watch for the world travellers',
+        ad: 'For the world travellers',
     },
 
     {

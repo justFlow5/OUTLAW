@@ -17,7 +17,7 @@ export default {
     props: ['watchData'],
     methods: {
         getImgPath(watch) {
-            return require('../../assets/watchesImages/' + watch + '.webp');
+            return require('../assets/watchesImages/' + watch + '.webp');
         },
     },
 };
@@ -27,30 +27,13 @@ export default {
 .watch-container {
     cursor: pointer;
     position: relative;
-    height: 155px;
-    width: 135px;
-    margin-bottom: 40px;
-    margin: 0 5px;
+    height: 100%;
+    width: 100%;
     transition: all 0.3s;
-
-    @media (min-width: $mobileL) {
-        height: 205px;
-        width: 160px;
-    }
-
-    @media (min-width: $laptop) {
-        height: 285px;
-        width: 190px;
-    }
-
-    @media (min-width: $laptop) {
-        height: 285px;
-        width: 190px;
-    }
 
     & .img-container {
         position: relative;
-        height: 220px;
+        height: 100%;
         width: 100%;
         overflow: hidden;
     }

@@ -14,7 +14,7 @@
                     </div>
                     <Logo />
                 </div>
-                <WatchCollection />
+                <WatchesMenuGallery />
                 <ReferenceLinks />
                 <div class="padding"></div>
             </div>
@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import WatchCollection from './WatchCollection';
+import WatchesMenuGallery from './Watches-Menu-Gallery';
 import ExitButton from '../ExitButton';
 import Logo from '../Logo';
 import ReferenceLinks from './ReferenceLinks';
@@ -34,7 +34,7 @@ export default {
     data() {
         return {};
     },
-    components: { WatchCollection, ExitButton, ReferenceLinks, Logo },
+    components: { WatchesMenuGallery, ExitButton, ReferenceLinks, Logo },
 
     computed: {
         ...mapState({

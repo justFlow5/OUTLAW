@@ -1,59 +1,41 @@
 <template>
-    <div watches-collection>
+    <div class="watches-collection">
         <div class="video-container">
-            <div class="overlay"></div>
-            <video autoplay muted loop>
-                <source :src="src" type="video/mp4" />
-            </video>
+            <Overlay />
+            <VideoBG />
+            <Intruduction
+                title="Banitz offers a wide range of models ranging from professional to classic watches to suit any wrist."
+                subtitle="Explore the Banitz collection by selecting your favourite models, materials, bezels, dials and bracelets to find the watch that was made for you."
+            />
         </div>
     </div>
 </template>
 
 <script>
+import VideoBG from '../components/watches/VideoBG';
+import Overlay from '../components/watches/Overlay';
+import Intruduction from '../components/watches/Intruduction';
+
+// import WatchesCollection from '../components/watches/WatchesCollection';
+
 export default {
     name: 'Watches',
-    data() {
-        return {
-            src: '',
-        };
+
+    components: {
+        VideoBG,
+        Overlay,
+        Intruduction,
+        // WatchesCollection,
     },
-
-    methods: {
-        getVideoPath(watch) {
-            return require('../assets/watchVideo/' + watch);
-        },
-
-        setVideoPath() {
-            if (window.matchMedia('(orientation: portrait)').matches) {
-                this.src = this.getVideoPath('watches-collection-small.webm');
-            } else if (window.matchMedia('(orientation: landscape)').matches) {
-                this.src = this.getVideoPath('watches-collection-big.mp4');
-            }
-        },
-    },
-
-    mounted() {
-        this.setVideoPath();
-    },
-
-    components: {},
 };
 </script>
 
 <style lang="scss" scoped>
 .video-container {
     position: absolute;
-    height: 100%;
+    height: 90%;
     width: 100%;
-    overflow: hidden;
-
-    .overlay {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        z-index: 3;
-        background: rgba(0, 0, 0, 0.5);
-    }
+    /* overflow: hidden; */
 
     & > video {
         position: relative;
