@@ -27,6 +27,7 @@
                 title="Banitz offers a wide range of models ranging from professional to classic watches to suit any wrist."
                 subtitle="Explore the Banitz collection by selecting your favourite models, materials, bezels, dials and bracelets to find the watch that was made for you."
             />
+            <WatchCategories />
         </div>
     </div>
 </template>
@@ -36,6 +37,7 @@ import VideoBG from '../components/watches/VideoBG';
 import Overlay from '../components/watches/Overlay';
 import Heading from '../components/watches/Heading';
 import WatchGallery from '../components/watches/WatchGallery';
+import WatchCategories from '../components/watches/WatchCategory';
 
 // import WatchesCollection from '../components/watches/WatchesCollection';
 
@@ -47,12 +49,14 @@ export default {
         Overlay,
         Heading,
         WatchGallery,
+        WatchCategories,
     },
 };
 </script>
 
 <style lang="scss" scoped>
 .watches-collection {
+    overflow: hidden;
 }
 
 .video-container {

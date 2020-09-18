@@ -1,12 +1,27 @@
 <template>
     <div class="watch-container">
         <div class="img-container">
-            <img :src="getImgPath(watchData.name)" :alt="watchData.name" />
+            <img :src="getImgPath(title)" :alt="title" />
         </div>
         <div class="description" :class="{ darkTheme: theme }">
-            <h3>{{ watchData.name.toUpperCase() }}</h3>
-            <span class="tablet-up-only">{{ watchData.ad }}</span>
-            <span class="moreInfo tablet-up-only'">Learn more</span>
+            <h3>{{ title.toUpperCase() }}</h3>
+            <span
+                class="tablet-up-only"
+                :class="{
+                    'tablet-up-only': sourceType === 'watchesImages',
+                    'watch-only': sourceType === 'watchesCategories',
+                    categories: sourceType === 'watchesCategories',
+                }"
+                >{{ subtitle }}</span
+            >
+            <span
+                class="moreInfo"
+                :class="{
+                    categories: sourceType === 'watchesCategories',
+                    'tablet-up-only': sourceType === 'watchesImages',
+                }"
+                >Learn more</span
+            >
         </div>
     </div>
 </template>
@@ -14,10 +29,10 @@
 <script>
 export default {
     name: 'MenuWatchTemplate',
-    props: ['watchData', 'theme'],
+    props: ['title', 'subtitle', 'theme', 'sourceType'],
     methods: {
         getImgPath(watch) {
-            return require('../assets/watchesImages/' + watch + '.webp');
+            return require(`../assets/${this.sourceType}/` + watch + '.webp');
         },
     },
 };
@@ -64,6 +79,10 @@ export default {
         text-align: left;
         transition: transform 0.2s ease 0s;
 
+        &.categories {
+            transform: translateY(-20px);
+        }
+
         &.darkTheme {
             background-color: rgb(33, 33, 33);
             color: rgb(255, 255, 255);
@@ -100,14 +119,24 @@ export default {
     & span {
         font-size: 13px;
         margin: 4px 0;
+
+        &.watch-only {
+            display: none;
+        }
     }
 
     & .moreInfo {
         opacity: 0;
         font-size: 17px;
-        font-weight: 600;
+        font-weight: 400;
         pointer-events: none;
         transition: opacity 0.2s ease 0s;
+
+        &.categories {
+            @media (max-width: $tablet) {
+                opacity: 1;
+            }
+        }
     }
 }
 

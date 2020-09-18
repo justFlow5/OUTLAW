@@ -3,7 +3,11 @@
         <WatchCollection theme="darkTheme">
             <li v-for="(watch, index) in watchesData" :key="index">
                 <div class="watch-template-container">
-                    <WatchTemplate :watchData="watch" />
+                    <WatchTemplate
+                        :title="watch.name"
+                        :subtitle="watch.ad"
+                        sourceType="watchesImages"
+                    />
                 </div>
             </li>
         </WatchCollection>
