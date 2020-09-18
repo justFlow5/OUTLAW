@@ -16,8 +16,8 @@ export default {
 
 <style lang="scss" scoped>
 .watches-collection-heading {
-    margin: 30px 10vw;
     text-align: left;
+    margin: 0 5vw 70px;
 
     & h3 {
         font-size: 42px;

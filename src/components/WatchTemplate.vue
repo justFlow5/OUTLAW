@@ -3,7 +3,7 @@
         <div class="img-container">
             <img :src="getImgPath(watchData.name)" :alt="watchData.name" />
         </div>
-        <div class="description">
+        <div class="description" :class="{ darkTheme: theme }">
             <h3>{{ watchData.name.toUpperCase() }}</h3>
             <span class="tablet-up-only">{{ watchData.ad }}</span>
             <span class="moreInfo tablet-up-only'">Learn more</span>
@@ -14,7 +14,7 @@
 <script>
 export default {
     name: 'MenuWatchTemplate',
-    props: ['watchData'],
+    props: ['watchData', 'theme'],
     methods: {
         getImgPath(watch) {
             return require('../assets/watchesImages/' + watch + '.webp');
@@ -58,10 +58,16 @@ export default {
         display: flex;
         flex-direction: column;
         padding-top: 6px;
-        background-color: rgb(33, 33, 33);
+        background-color: rgb(255, 255, 255);
+        color: rgb(33, 33, 33);
         transform: translateY(0px);
         text-align: left;
         transition: transform 0.2s ease 0s;
+
+        &.darkTheme {
+            background-color: rgb(33, 33, 33);
+            color: rgb(255, 255, 255);
+        }
     }
 
     & img {
@@ -77,7 +83,6 @@ export default {
     & h3 {
         font-family: 'PT Serif', serif;
         letter-spacing: 1.1px;
-        color: white;
         font-size: 14px;
         font-weight: 400;
         margin-top: 4px;
@@ -94,7 +99,6 @@ export default {
 
     & span {
         font-size: 13px;
-        color: white;
         margin: 4px 0;
     }
 

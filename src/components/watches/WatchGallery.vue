@@ -1,14 +1,18 @@
 <template>
-    <ul class="watch-collection">
-        <li v-for="(watch, index) in watchesData" :key="index">
-            <WatchTemplate :watchData="watch" />
-        </li>
-        <div class="spacing"></div>
-    </ul>
+    <div class="watch-gallery-container">
+        <WatchCollection theme="darkTheme">
+            <li v-for="(watch, index) in watchesData" :key="index">
+                <div class="watch-template-container">
+                    <WatchTemplate :watchData="watch" />
+                </div>
+            </li>
+        </WatchCollection>
+    </div>
 </template>
 
 <script>
-import WatchTemplate from './Watch-template';
+import WatchCollection from '../WatchCollection';
+import WatchTemplate from '../WatchTemplate';
 import { watches } from '../../assets/watchesData/watchesData';
 
 export default {
@@ -21,68 +25,69 @@ export default {
     },
 
     components: {
+        WatchCollection,
         WatchTemplate,
     },
 };
 </script>
+<style lang="scss">
+@import '../../styles/mixins.scss';
 
-<style lang="scss" scoped>
-.watch-collection {
-    position: relative;
-    overflow: scroll hidden;
-    display: flex;
-    position: relative;
-    height: 280px;
-    margin: 0 70px;
-    scrollbar-width: thin;
-    scrollbar-color: white rgba(255, 255, 255, 0.2);
-    scroll-margin: 0px 0px 90px;
-    margin: 0 10px;
+.watch-gallery-container {
+    /* margin: 0 10px; */
+    @media (min-width: $laptop) {
+        /* margin: 0 70px; */
+    }
+    & ul.darkTheme {
+        @include scrollbar;
+        padding-bottom: 50px;
+        @media (min-width: $tablet) {
+            padding-bottom: 75px;
+        }
+    }
+
+    & .watch-template-container {
+        height: 155px;
+        width: 135px;
+        margin-bottom: 40px;
+        margin: 0 5px;
+
+        @media (min-width: $mobileL) {
+            height: 235px;
+            width: 200px;
+        }
+
+        @media (min-width: $tablet) {
+            height: 245px;
+            width: 200px;
+        }
+
+        @media (min-width: $laptop) {
+            height: 380px;
+            width: 330px;
+        }
+    }
+}
+
+.watch-template-container {
+    height: 155px;
+    width: 135px;
+    margin-bottom: 40px;
+    margin: 0 5px;
+
+    @media (min-width: $mobileL) {
+        height: 235px;
+        width: 200px;
+    }
+
     @media (min-width: $tablet) {
-        height: 290px;
+        height: 245px;
+        width: 200px;
     }
 
     @media (min-width: $laptop) {
-        margin: 0 70px;
-    }
-
-    & li {
-        list-style-type: none;
-        height: 95%;
-        position: relative;
-    }
-    &::-webkit-scrollbar {
-        width: 4px;
-        height: 5px;
-        padding: 5px 0;
-        cursor: pointer;
-        transition: all 0.2s;
-    }
-    &::-webkit-scrollbar-track {
-        position: relative;
-        background: rgba(255, 255, 255, 0.2);
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background-color: white;
-
-        border-radius: 4px;
-
-        &:active {
-            background: rgba(255, 255, 255, 0.4);
-        }
-        &:hover {
-            background: rgba(255, 255, 255, 0.7);
-        }
-    }
-
-    & ::-webkit-scrollbar-button {
-        width: 0;
-        height: 0;
-        display: none;
-    }
-    & ::-webkit-scrollbar-corner {
-        background-color: transparent;
+        height: 225px;
+        width: 190px;
     }
 }
 </style>

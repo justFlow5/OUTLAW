@@ -3,7 +3,7 @@
         <WatchCollection>
             <li v-for="(watch, index) in watchesData" :key="index">
                 <div class="watch-template-container">
-                    <WatchTemplate :watchData="watch" />
+                    <WatchTemplate :watchData="watch" theme="darkTheme" />
                 </div>
             </li>
         </WatchCollection>
@@ -37,13 +37,14 @@ export default {
     @media (min-width: $laptop) {
         margin: 0 70px;
     }
-    & > ul {
+    & ul {
         padding-bottom: 50px;
         @include scrollbar(
             rgb(255, 255, 255),
             rgba(255, 255, 255, 0.7),
             rgba(255, 255, 255, 0.2)
         );
+
         @media (min-width: $tablet) {
             padding-bottom: 75px;
         }
