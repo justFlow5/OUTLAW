@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Dashboard from '../views/Dashboard.vue';
+import Watches from '../views/Watches.vue';
 
 Vue.use(VueRouter);
 
@@ -9,6 +10,12 @@ const routes = [
         path: '/',
         name: 'Dashboard',
         component: Dashboard,
+    },
+
+    {
+        path: '/watches',
+        name: 'Watches',
+        component: Watches,
     },
     {
         path: '/about',

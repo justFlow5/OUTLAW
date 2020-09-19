@@ -1,5 +1,5 @@
 <template>
-    <ul class="watch-collection">
+    <ul class="watch-collection" :class="{ darkTheme: theme }">
         <li v-for="(watch, index) in watchesData" :key="index">
             <WatchTemplate :watchData="watch" />
         </li>
@@ -13,6 +13,7 @@ import { watches } from '../../assets/watchesData/watchesData';
 
 export default {
     name: 'Watch-Collection',
+    props: ['theme'],
 
     computed: {
         watchesData: function() {
@@ -38,6 +39,7 @@ export default {
     scrollbar-color: white rgba(255, 255, 255, 0.2);
     scroll-margin: 0px 0px 90px;
     margin: 0 10px;
+
     @media (min-width: $tablet) {
         height: 290px;
     }

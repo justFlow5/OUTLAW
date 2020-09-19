@@ -14,7 +14,10 @@
                     <CustomHamburger />
                     <span class="desktop-only">Menu</span>
                 </div>
-                <div class="nav-item desktop-only">Watches</div>
+
+                <div class="nav-item desktop-only">
+                    <router-link to="/watches">Watches</router-link>
+                </div>
                 <div class="nav-item desktop-only">Story of Banitz</div>
             </div>
             <div class="logo">
@@ -127,7 +130,7 @@ export default {
 
     &:hover,
     &.navbar--shown {
-        background: rgba(255, 255, 255, 0.9);
+        background: rgba(255, 255, 255, 1);
         /* transition: all 0.3s ease-in 0.3s; */
         & .logo-image {
             background-image: url('../../assets/icons/logo-gold.png');
