@@ -3,14 +3,20 @@
         <ul class="watch-collection" :class="{ darkTheme: theme }" ref="slider">
             <slot></slot>
         </ul>
-        <!-- <div class="button-wrapper"> -->
-        <button class="left laptopOnly" @click="easyScroll(getLeftSettings)">
+        <button
+            class="left"
+            :class="{ nobutton: !theme }"
+            @click="easyScroll(getLeftSettings)"
+        >
             <Next />
         </button>
-        <button class="right laptopOnly" @click="easyScroll(settings)">
+        <button
+            class="right"
+            :class="{ nobutton: !theme }"
+            @click="easyScroll(settings)"
+        >
             <Next />
         </button>
-        <!-- </div> -->
     </div>
 </template>
 
@@ -84,7 +90,16 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
+        display: none;
         transition: all 0.3s;
+
+        &.nobutton {
+            display: none !important;
+        }
+
+        @media (min-width: $laptop) {
+            display: inline-block;
+        }
 
         & > svg {
             width: 30%;
@@ -94,8 +109,6 @@ export default {
         }
 
         &:hover {
-            background-color: #daa520;
-            background-color: #f9b201;
             background-color: #e6aa13;
 
             & > svg {
@@ -127,22 +140,6 @@ export default {
         list-style-type: none;
         height: 95%;
         position: relative;
-    }
-
-    & button {
-        width: 50px;
-        height: 50px;
-        background-color: rgb(255, 255, 255);
-        cursor: pointer;
-        position: absolute;
-        top: 0;
-        right: 0;
-        z-index: 21;
-        display: none;
-
-        &.laptopOnly {
-            display: inline-block;
-        }
     }
 }
 </style>

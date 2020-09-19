@@ -40,6 +40,10 @@ video {
     width: 100%;
     object-fit: cover;
     width: 100%;
-    height: 90%;
+    height: 80vh;
+
+    @media (min-width: $laptop) {
+        height: 90vh;
+    }
 }
 </style>

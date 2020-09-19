@@ -7,6 +7,7 @@
                         :title="watch.name"
                         :subtitle="watch.ad"
                         sourceType="watchesImages"
+                        placement="gallery"
                     />
                 </div>
             </li>
@@ -38,60 +39,37 @@ export default {
 @import '../../styles/mixins.scss';
 
 .watch-gallery-container {
-    /* margin: 0 10px; */
     @media (min-width: $laptop) {
         /* margin: 0 70px; */
     }
     & ul.darkTheme {
         @include scrollbar;
-        padding-bottom: 50px;
+        padding-bottom: 80px;
         @media (min-width: $tablet) {
             padding-bottom: 75px;
-        }
-    }
-
-    & .watch-template-container {
-        height: 155px;
-        width: 135px;
-        margin-bottom: 40px;
-        margin: 0 5px;
-
-        @media (min-width: $mobileL) {
-            height: 235px;
-            width: 200px;
-        }
-
-        @media (min-width: $tablet) {
-            height: 245px;
-            width: 200px;
-        }
-
-        @media (min-width: $laptop) {
-            height: 380px;
-            width: 330px;
         }
     }
 }
 
 .watch-template-container {
-    height: 155px;
-    width: 135px;
+    height: 275px;
+    width: 230px;
     margin-bottom: 40px;
     margin: 0 5px;
 
     @media (min-width: $mobileL) {
-        height: 235px;
-        width: 200px;
+        height: 390px;
+        width: 330px;
     }
 
     @media (min-width: $tablet) {
-        height: 245px;
-        width: 200px;
+        height: 415px;
+        width: 360px;
     }
 
     @media (min-width: $laptop) {
-        height: 225px;
-        width: 190px;
+        height: 430px;
+        width: 380px;
     }
 }
 </style>

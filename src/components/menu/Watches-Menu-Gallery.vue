@@ -8,6 +8,7 @@
                         :subtitle="watch.ad"
                         theme="darkTheme"
                         sourceType="watchesImages"
+                        placement="menu"
                     />
                 </div>
             </li>

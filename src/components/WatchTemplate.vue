@@ -4,21 +4,28 @@
             <img :src="getImgPath(title)" :alt="title" />
         </div>
         <div class="description" :class="{ darkTheme: theme }">
-            <h3>{{ title.toUpperCase() }}</h3>
-            <span
-                class="tablet-up-only"
+            <h3
                 :class="{
-                    'tablet-up-only': sourceType === 'watchesImages',
-                    'watch-only': sourceType === 'watchesCategories',
-                    categories: sourceType === 'watchesCategories',
+                    'font-mod':
+                        placement !== 'menu' &&
+                        sourceType === 'watchesCategories',
+                    'font-mod-watch':
+                        placement !== 'menu' &&
+                        sourceType !== 'watchesCategories',
                 }"
-                >{{ subtitle }}</span
             >
+                {{ upperCaseTitle }}
+            </h3>
+            <span class="shortDesc" :class="shortDescClass">{{
+                subtitle
+            }}</span>
             <span
                 class="moreInfo"
                 :class="{
-                    categories: sourceType === 'watchesCategories',
-                    'tablet-up-only': sourceType === 'watchesImages',
+                    menu: placement === 'menu',
+                    'font-mod':
+                        this.placement !== 'menu' &&
+                        sourceType !== 'watchesCategories',
                 }"
                 >Learn more</span
             >
@@ -29,10 +36,24 @@
 <script>
 export default {
     name: 'MenuWatchTemplate',
-    props: ['title', 'subtitle', 'theme', 'sourceType'],
+    props: ['title', 'subtitle', 'theme', 'sourceType', 'placement'],
     methods: {
         getImgPath(watch) {
             return require(`../assets/${this.sourceType}/` + watch + '.webp');
+        },
+    },
+
+    computed: {
+        upperCaseTitle() {
+            return this.title.toUpperCase();
+        },
+        shortDescClass() {
+            return {
+                'gallery-type': this.placement === 'gallery',
+                'font-mod':
+                    this.placement !== 'menu' &&
+                    this.sourceType !== 'watchesCategories',
+            };
         },
     },
 };
@@ -54,19 +75,27 @@ export default {
     }
 
     &:hover .description {
-        transform: translateY(-20px);
-        transform-origin: 50% 50% 0px;
-        transition: transform 0.2s ease 0s;
+        transform: translateY(0px);
+
+        @media (min-width: $laptop) {
+            transform: translateY(-20px);
+            transform-origin: 50% 50% 0px;
+            transition: transform 0.2s ease 0s;
+        }
     }
     &:hover img {
-        transform: scale(1.05);
-        transform-origin: 50% 50% 0px;
-        transition: transform 0.6s ease 0s;
+        @media (min-width: $laptop) {
+            transform: scale(1.05);
+            transform-origin: 50% 50% 0px;
+            transition: transform 0.6s ease 0s;
+        }
     }
 
     &:hover .moreInfo {
-        opacity: 1;
-        transition: opacity 0.2s ease 0s;
+        @media (min-width: $laptop) {
+            opacity: 1;
+            transition: opacity 0.2s ease 0s;
+        }
     }
 
     & > .description {
@@ -78,6 +107,12 @@ export default {
         transform: translateY(0px);
         text-align: left;
         transition: transform 0.2s ease 0s;
+
+        &.concise {
+            @media (max-width: $laptop) {
+                display: none;
+            }
+        }
 
         &.categories {
             transform: translateY(-20px);
@@ -106,45 +141,78 @@ export default {
         font-weight: 400;
         margin-top: 4px;
 
-        @media (min-width: $mobileL) {
-            font-size: 16px;
+        &.font-mod-watch {
+            font-size: 15px;
+            font-weight: 700;
+
+            @media (min-width: $mobileL) {
+                font-size: 17px;
+                margin-bottom: 3px;
+            }
+        }
+
+        &.font-mod {
+            font-weight: 700;
+            font-size: 15px;
+            margin-bottom: 3px;
+
+            @media (min-width: $laptop) {
+                margin-bottom: 7px;
+            }
         }
 
         @media (min-width: $laptop) {
             font-size: 18px;
+            margin-bottom: 6px;
             font-weight: 700;
         }
     }
 
-    & span {
+    & .shortDesc {
+        display: none;
         font-size: 13px;
         margin: 4px 0;
 
-        &.watch-only {
-            display: none;
+        &.font-mod {
+            @media (min-width: $mobileL) {
+                font-size: 15px;
+            }
+            @media (min-width: $laptop) {
+                display: inline-block;
+                font-size: 16px;
+                margin: 6px 0 10px;
+            }
+        }
+
+        &.gallery-type {
+            display: inline-block;
         }
     }
 
     & .moreInfo {
-        opacity: 0;
+        opacity: 1;
         font-size: 17px;
         font-weight: 400;
         pointer-events: none;
         transition: opacity 0.2s ease 0s;
+        &.font-mod {
+            font-weight: 700;
+        }
+        @media (min-width: $laptop) {
+            opacity: 0;
+        }
+
+        &.menu {
+            @media (max-width: $laptop) {
+                display: none;
+            }
+        }
 
         &.categories {
             @media (max-width: $tablet) {
                 opacity: 1;
             }
         }
-    }
-}
-
-.tablet-up-only {
-    display: none;
-
-    @media (min-width: $tablet) {
-        display: inline-block;
     }
 }
 </style>

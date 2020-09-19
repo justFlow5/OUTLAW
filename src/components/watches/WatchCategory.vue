@@ -43,13 +43,17 @@ export default {
     & .category {
         list-style: none;
 
-        flex: 0 0 40%;
+        flex: 1 0 40%;
         height: 240px;
-        margin: 30px 10px;
+        margin: 30px 5px;
 
         @media (min-width: $mobileL) {
             flex: 0 0 45%;
-            height: 430px;
+            height: 320px;
+        }
+        @media (min-width: $tablet) {
+            flex: 0 0 30%;
+            height: 370px;
         }
 
         @media (min-width: $laptop) {

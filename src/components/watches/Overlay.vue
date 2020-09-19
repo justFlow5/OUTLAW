@@ -23,14 +23,26 @@ export default {
     justify-content: center;
     align-items: center;
     text-transform: uppercase;
+    padding: 10vw;
 
     & h3 {
         font-family: 'PT Serif', serif;
-        font-size: 56px;
+        font-size: 36px;
         color: white;
         letter-spacing: 5px;
         font-weight: 200;
         text-transform: uppercase;
+        @media (min-width: $mobileL) {
+            font-size: 38px;
+        }
+
+        @media (min-width: $tablet) {
+            font-size: 40px;
+        }
+
+        @media (min-width: $laptop) {
+            font-size: 56px;
+        }
     }
 
     & span {
@@ -38,10 +50,19 @@ export default {
         font-family: 'Open Sans Condensed', sans-serif;
         font-family: 'Quicksand', sans-serif;
         font-weight: 300;
-        font-size: 26px;
+        font-size: 15px;
         color: white;
         letter-spacing: 6px;
-        margin-top: 25px;
+        margin-top: 18px;
+
+        @media (min-width: $mobileL) {
+            font-size: 22px;
+        }
+
+        @media (min-width: $laptop) {
+            font-size: 26px;
+            margin-top: 25px;
+        }
     }
 }
 </style>

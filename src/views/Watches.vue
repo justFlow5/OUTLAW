@@ -56,16 +56,17 @@ export default {
 
 <style lang="scss" scoped>
 .watches-collection {
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 .video-container {
     position: relative;
-    height: 90vh;
+    height: 85vh;
     width: 100vw;
-    /* margin-bottom: 10px; */
-    /* overflow: hidden; */
 
+    @media (min-width: $mobileL) {
+        height: 90vh;
+    }
     & > video {
         position: relative;
         width: 100%;
@@ -76,7 +77,19 @@ export default {
 }
 
 .watches-presentation {
-    margin: 30px 5vw;
+    margin: 0px 20px 30px;
+
+    @media (min-width: $mobileL) {
+        margin: 0px 35px 30px;
+    }
+
+    @media (min-width: $tablet) {
+        margin: 0px 50px 30px;
+    }
+
+    @media (min-width: $laptop) {
+        margin: 0px 5vw 30px;
+    }
 }
 
 .gallery-container {
