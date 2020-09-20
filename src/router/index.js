@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Dashboard from '../views/Dashboard.vue';
 import Watches from '../views/Watches.vue';
+import WatchDetails from '../views/WatchDetails.vue';
 
 Vue.use(VueRouter);
 
@@ -17,6 +18,8 @@ const routes = [
         name: 'Watches',
         component: Watches,
     },
+
+    { path: '/watches/:id', component: WatchDetails },
     {
         path: '/about',
         name: 'About',

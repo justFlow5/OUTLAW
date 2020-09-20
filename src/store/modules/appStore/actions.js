@@ -10,4 +10,8 @@ export default {
     toggleCart(context) {
         context.commit('TOGGLE_CART');
     },
+
+    toggleNavbarTheme(context) {
+        context.commit('TOGGLE_NAVBAR');
+    },
 };
