@@ -120,7 +120,7 @@ export default {
 .caret {
     position: absolute;
     top: 0;
-    right: 10px;
+    right: 25px;
     width: 20px;
     height: 20px;
     top: 50%;

@@ -29,15 +29,7 @@
 
         <div class="second-details">
             <div class="description">
-                <h3 class="description-header" @click="toggleAccordion">
-                    description
-                </h3>
-
-                <p class="description-details" v-show="isOpen">
-                    safas dfasd fasf asdhbh dasb hfdas bhjasfh asbdfhabsdhfash
-                    dbds jhbadsf hbaslhabh sldfbasdfadsl asd afsd asd f as d fas
-                    fasd fa sd dfsa fdas adsfasd asdf asd fasd fasd sda
-                </p>
+                <Description :description="deskTest" />
             </div>
             <div class="description-abridged">
                 <div class="warranty-info">
@@ -73,6 +65,7 @@ import BraceletSizeInput from '../components/watchtemplate/BraceletSizeInput';
 import AccordionInfo from '../components/watchtemplate/AccordionInfo';
 import ImageGallery from '../components/watchtemplate/ImageGallery';
 import CartButton from '../components/watchtemplate/CartButton';
+import Description from '../components/watchtemplate/Description';
 
 import { mapActions } from 'vuex';
 export default {
@@ -97,6 +90,15 @@ export default {
                 test3:
                     'ndsnfjsdnsdkjfsjdk sadj adsjnasj sd nasdj nsadjkfnas jnfas dsasd saddsa jk',
             },
+
+            deskTest: {
+                par1:
+                    'BANITZ first introduced the Seamaster 300 in 1957 - it was a watch designed especially for divers and professionals who worked underwater',
+                par2:
+                    'More than half a century later, the timepiece makes a comeback in a completely upgraded and enhanced form, ready for a new generation of adventurers. This Seamaster 300 has a sand-blasted black dial with rhodium-plated hands coated with  "vintage" Super-LumiNova. The polished ceramic bezel ring has a Liquidmetal™ diving scale.',
+                par3:
+                    'The 41 mm brushed and polished stainless steel case is presented on a matching bracelet. A transparent caseback makes it possible to see the anti-magnetic OMEGA Master Co-Axial calibre 8400 within.',
+            },
         };
     },
     components: {
@@ -105,6 +107,7 @@ export default {
         AccordionInfo,
         ImageGallery,
         CartButton,
+        Description,
     },
 
     methods: {
@@ -181,7 +184,7 @@ export default {
 
 .watch-presentation {
     margin: 0 auto;
-    width: 100%;
+    width: 80%;
     position: relative;
 }
 
@@ -234,16 +237,7 @@ export default {
 }
 
 .description {
-    margin: 20px 10px 40px;
-}
-
-.description-header {
-    font-family: 'Quicksand', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 6px;
-    font-weight: 400;
-    font-size: 37px;
-    color: #daa520;
-    text-align: center;
+    width: 80%;
+    margin: 20px auto 50px;
 }
 </style>
