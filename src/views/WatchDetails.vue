@@ -36,34 +36,35 @@
                 <h3 class="description-header" @click="toggleAccordion">
                     description
                 </h3>
-                <transition
-                    name="expand"
-                    @enter="enter"
-                    @after-enter="afterEnter"
-                    @leave="leave"
-                >
-                    <p class="description-details" v-show="isOpen">
-                        safas dfasd fasf asdhbh dasb hfdas bhjasfh
-                        asbdfhabsdhfash dbds jhbadsf hbaslhabh sldfbasdfadsl asd
-                        afsd asd f as d fas fasd fa sd dfsa fdas adsfasd asdf
-                        asd fasd fasd sda
-                    </p>
-                </transition>
+
+                <p class="description-details" v-show="isOpen">
+                    safas dfasd fasf asdhbh dasb hfdas bhjasfh asbdfhabsdhfash
+                    dbds jhbadsf hbaslhabh sldfbasdfadsl asd afsd asd f as d fas
+                    fasd fa sd dfsa fdas adsfasd asdf asd fasd fasd sda
+                </p>
             </div>
             <div class="description-abridged">
                 <div class="warranty-info">
-                    <h4>5-year warranty</h4>
-                    <p></p>
+                    <AccordionInfo
+                        header="5-year warranty"
+                        :content="test.test3"
+                        category="warranty"
+                    />
                 </div>
-
                 <div class="features-info">
-                    <h4>Features</h4>
-                    <p></p>
+                    <AccordionInfo
+                        header="Features"
+                        :content="test.test1"
+                        category="features"
+                    />
                 </div>
 
                 <div class="technical-data-info">
-                    <h4>Technical Data</h4>
-                    <p></p>
+                    <AccordionInfo
+                        header="Technical Data"
+                        category="tech-data"
+                        :content="test.test2"
+                    />
                 </div>
             </div>
         </div>
@@ -73,17 +74,37 @@
 <script>
 import QuantityCounter from '../components/watchtemplate/QuantityCounter';
 import BraceletSizeInput from '../components/watchtemplate/BraceletSizeInput';
+import AccordionInfo from '../components/watchtemplate/AccordionInfo';
+
 import { mapActions } from 'vuex';
 export default {
     name: 'WatchDetails',
     data() {
         return {
             isOpen: false,
+            test: {
+                test1: {
+                    a: 1,
+                    dupeczka: 'eloszkk',
+                    polka: 'duperka',
+                    kon: 'dasadsdas',
+                },
+                test2: {
+                    sadfasfasdffadsdasfsad: 'eloszkk',
+                    polasdfasdfaska: 'duperka',
+                    kosadfsaddsn: 'dsddsffdsfdsdsfdsfsd',
+                    ddddddd: 'sdaadsasd',
+                    asds: 'sdsdsa',
+                },
+                test3:
+                    'ndsnfjsdnsdkjfsjdk sadj adsjnasj sd nasdj nsadjkfnas jnfas dsasd saddsa jk',
+            },
         };
     },
     components: {
         QuantityCounter,
         BraceletSizeInput,
+        AccordionInfo,
     },
 
     methods: {
@@ -93,25 +114,6 @@ export default {
 
         toggleAccordion() {
             this.isOpen = !this.isOpen;
-        },
-        enter(el) {
-            el.style.height = 'auto';
-            const height = getComputedStyle(el).height;
-            el.style.height = 0;
-            getComputedStyle(el);
-            setTimeout(() => {
-                el.style.height = height;
-            });
-        },
-        afterEnter(el) {
-            el.style.height = 'auto';
-        },
-        leave(el) {
-            el.style.height = getComputedStyle(el).height;
-            getComputedStyle(el);
-            setTimeout(() => {
-                el.style.height = 0;
-            });
         },
     },
 
@@ -238,10 +240,14 @@ export default {
 }
 
 .second-details {
-    margin: 100px 0 20px;
-    padding: 100px 0;
+    margin: 50px 10px 20px;
+    padding: 50px 0;
 
     background-color: rgb(255, 255, 255);
+}
+
+.description {
+    margin: 20px 10px 40px;
 }
 
 .description-header {
@@ -253,19 +259,4 @@ export default {
     color: #daa520;
     text-align: center;
 }
-
-.expand-enter-active,
-.expand-leave-active {
-    transition: height 0.5s ease-in-out;
-    overflow: hidden;
-}
-
-/* .description-details {
-    margin: 0 15vw;
-    display: none;
-
-    &.open {
-        display: inline-block;
-    }
-} */
 </style>

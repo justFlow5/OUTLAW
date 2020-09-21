@@ -32,4 +32,8 @@ html {
     text-align: center;
     color: rgb(33, 33, 33);
 }
+
+ul {
+    list-style-type: none;
+}
 </style>
