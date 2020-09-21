@@ -2,7 +2,7 @@
     <div class="watch-container">
         <div class="main-details">
             <div class="watch-presentation">
-                <img src="../assets/watchesImages/air-king.webp" />
+                <ImageGallery />
             </div>
             <div class="product-order">
                 <div class="product-info product-identity">
@@ -75,6 +75,7 @@
 import QuantityCounter from '../components/watchtemplate/QuantityCounter';
 import BraceletSizeInput from '../components/watchtemplate/BraceletSizeInput';
 import AccordionInfo from '../components/watchtemplate/AccordionInfo';
+import ImageGallery from '../components/watchtemplate/ImageGallery';
 
 import { mapActions } from 'vuex';
 export default {
@@ -105,6 +106,7 @@ export default {
         QuantityCounter,
         BraceletSizeInput,
         AccordionInfo,
+        ImageGallery,
     },
 
     methods: {
@@ -130,10 +132,17 @@ export default {
 <style lang="scss">
 .watch-container {
     background: #f9f9f9;
-    margin-top: 100px;
+
     /* padding: 60px 20px; */
-    margin-top: 50px;
+    /* margin-top: 50px; */
+    margin-top: 100px;
     position: relative;
+
+    @media (min-width: $laptop) {
+        flex-direction: row;
+        /* margin-top: 100px; */
+        padding: 20px 60px 20px 0;
+    }
 }
 
 .main-details {
@@ -145,12 +154,11 @@ export default {
 
     @media (min-width: $laptop) {
         flex-direction: row;
+        padding: 20px 60px 20px 0;
     }
 }
 
 .product-order {
-    /* display: flex;
-    flex-direction: row; */
     width: 90%;
     height: 80%;
 
@@ -198,6 +206,13 @@ export default {
     /* padding: 10px 0 0;
     border-top: solid 1px #e2e2e2; */
 }
+
+.watch-presentation {
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+}
+
 .bracelet-size {
     display: flex;
     flex-direction: column;
