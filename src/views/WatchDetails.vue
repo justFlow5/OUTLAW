@@ -23,11 +23,7 @@
                         <BraceletSizeInput />
                     </div>
                 </div>
-
-                <div class="box-to-cart">
-                    <button>Add to cart</button>
-                    <span>Free shipping</span>
-                </div>
+                <CartButton />
             </div>
         </div>
 
@@ -76,6 +72,7 @@ import QuantityCounter from '../components/watchtemplate/QuantityCounter';
 import BraceletSizeInput from '../components/watchtemplate/BraceletSizeInput';
 import AccordionInfo from '../components/watchtemplate/AccordionInfo';
 import ImageGallery from '../components/watchtemplate/ImageGallery';
+import CartButton from '../components/watchtemplate/CartButton';
 
 import { mapActions } from 'vuex';
 export default {
@@ -107,6 +104,7 @@ export default {
         BraceletSizeInput,
         AccordionInfo,
         ImageGallery,
+        CartButton,
     },
 
     methods: {
@@ -166,32 +164,6 @@ export default {
         padding: 20px 0;
         border-top: solid 1px #e2e2e2;
         font-size: 20px;
-    }
-}
-
-.box-to-cart {
-    margin: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    & button {
-        width: 100%;
-        height: 50px;
-        padding: 10px;
-        font-size: 20px;
-        text-transform: uppercase;
-        font-family: 'Quicksand', sans-serif;
-        background-color: #daa520;
-        font-weight: 500;
-        margin-bottom: 10px;
-    }
-
-    & span {
-    }
-    @media (min-width: $laptop) {
-        flex-direction: row;
     }
 }
 

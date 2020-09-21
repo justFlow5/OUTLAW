@@ -92,6 +92,7 @@ export default {
 .accordion {
     position: relative;
     border-bottom: 1px solid #e2e2e2;
+    cursor: pointer;
 
     &:first-child {
         border-top: 1px solid #e2e2e2;
