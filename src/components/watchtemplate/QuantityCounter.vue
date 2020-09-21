@@ -36,12 +36,14 @@ export default {
     text-transform: uppercase;
     text-align: left;
     color: #555;
-    margin-bottom: 10px;
+    width: 100%;
+    display: inline-block;
 }
 
 .quantity-action-wrapper {
     display: flex;
     flex-direction: row;
+    margin-top: 5px;
 
     & button,
     & .quantity-number {

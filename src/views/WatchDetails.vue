@@ -20,13 +20,7 @@
                         <QuantityCounter />
                     </div>
                     <div class="bracelet-size">
-                        <label for="sizes">Choose a bracelet size:</label>
-                        <select id="size" name="sizes">
-                            <option value="39">39</option>
-                            <option value="40">40</option>
-                            <option value="41">41</option>
-                            <option value="42">42</option>
-                        </select>
+                        <BraceletSizeInput />
                     </div>
                 </div>
 
@@ -78,17 +72,18 @@
 
 <script>
 import QuantityCounter from '../components/watchtemplate/QuantityCounter';
+import BraceletSizeInput from '../components/watchtemplate/BraceletSizeInput';
 import { mapActions } from 'vuex';
 export default {
     name: 'WatchDetails',
     data() {
         return {
-            quantity: 0,
             isOpen: false,
         };
     },
     components: {
         QuantityCounter,
+        BraceletSizeInput,
     },
 
     methods: {
@@ -165,12 +160,14 @@ export default {
 }
 
 .box-to-cart {
-    width: 100%;
     margin: 20px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     & button {
+        width: 100%;
         height: 50px;
         padding: 10px;
         font-size: 20px;
@@ -193,6 +190,7 @@ export default {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 }
 .product-option-primary {
     /* padding: 10px 0 0;
@@ -201,11 +199,8 @@ export default {
 .bracelet-size {
     display: flex;
     flex-direction: column;
-
-    & label {
-        color: #555;
-        font-size: 16px;
-    }
+    flex: 2;
+    margin-left: 40px;
 }
 
 .product-identity {
@@ -228,12 +223,18 @@ export default {
 }
 
 .product-order {
-    width: 60%;
+    width: 90%;
+    position: relative;
+
+    @media (min-width: $mobileL) {
+        width: 80%;
+    }
 }
 
 .product-quantity {
     display: flex;
     flex-direction: column;
+    flex: 1;
 }
 
 .second-details {
