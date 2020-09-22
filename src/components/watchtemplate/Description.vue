@@ -37,7 +37,10 @@ export default {
     font-size: 17px;
     line-height: 1.5;
     margin-bottom: 15px;
-    color: rgb(33, 33, 33);
     color: #555;
+
+    @media (min-width: $laptop) {
+        text-align: left;
+    }
 }
 </style>

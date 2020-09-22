@@ -94,6 +94,11 @@ export default {
     border-bottom: 1px solid #e2e2e2;
     cursor: pointer;
 
+    @media (min-width: $laptop) {
+        pointer-events: none;
+        cursor: auto;
+    }
+
     &:first-child {
         border-top: 1px solid #e2e2e2;
     }
@@ -109,6 +114,12 @@ export default {
     & .content {
         padding-bottom: 20px;
         padding: 0 10px 20px;
+        @media (min-width: $laptop) {
+            display: inline-block !important;
+            width: 100%;
+            text-align: left;
+        }
+
         & > p {
             font-size: 17px;
             text-align: left;
@@ -138,6 +149,10 @@ export default {
     &.isOpen > svg {
         transform: rotate(360deg);
     }
+
+    @media (min-width: $laptop) {
+        display: none;
+    }
 }
 
 .tech-data,
@@ -155,6 +170,10 @@ export default {
     & span:first-child {
         font-weight: 700;
         margin-right: 5px;
+    }
+
+    @media (min-width: $laptop) {
+        width: 100%;
     }
 }
 

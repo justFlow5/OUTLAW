@@ -56,6 +56,7 @@
                 </div>
             </div>
         </div>
+        <div class="wishlist-container"><WishList :inWishlist="true" /></div>
     </div>
 </template>
 
@@ -66,6 +67,7 @@ import AccordionInfo from '../components/watchtemplate/AccordionInfo';
 import ImageGallery from '../components/watchtemplate/ImageGallery';
 import CartButton from '../components/watchtemplate/CartButton';
 import Description from '../components/watchtemplate/Description';
+import WishList from '../components/watchtemplate/WishList';
 
 import { mapActions } from 'vuex';
 export default {
@@ -108,6 +110,7 @@ export default {
         ImageGallery,
         CartButton,
         Description,
+        WishList,
     },
 
     methods: {
@@ -142,7 +145,7 @@ export default {
     @media (min-width: $laptop) {
         flex-direction: row;
         /* margin-top: 100px; */
-        padding: 20px 60px 20px 0;
+        padding: 60px 20px 0 20px;
     }
 }
 
@@ -155,7 +158,7 @@ export default {
 
     @media (min-width: $laptop) {
         flex-direction: row;
-        padding: 20px 60px 20px 0;
+        padding: 0 30px;
     }
 }
 
@@ -186,6 +189,10 @@ export default {
     margin: 0 auto;
     width: 80%;
     position: relative;
+
+    @media (min-width: $laptop) {
+        width: 50%;
+    }
 }
 
 .bracelet-size {
@@ -221,6 +228,10 @@ export default {
     @media (min-width: $mobileL) {
         width: 80%;
     }
+
+    @media (min-width: $laptop) {
+        width: 45%;
+    }
 }
 
 .product-quantity {
@@ -230,14 +241,39 @@ export default {
 }
 
 .second-details {
+    display: flex;
+    flex-direction: column;
     margin: 50px 10px 20px;
     padding: 50px 0;
 
     background-color: rgb(255, 255, 255);
+
+    @media (min-width: $laptop) {
+        flex-direction: row;
+        justify-content: space-around;
+
+        & > div {
+            flex: 0 0 40%;
+            /* &:first-child {
+                margin-right: 60px;
+            } */
+        }
+    }
 }
 
 .description {
     width: 80%;
     margin: 20px auto 50px;
+
+    @media (min-width: $laptop) {
+        width: unset;
+        margin: unset;
+    }
+}
+
+.wishlist-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
 }
 </style>
