@@ -74,6 +74,7 @@ export default {
     z-index: 998;
     position: fixed;
     padding: 20px 15px;
+    top: 0;
 
     @media (min-width: $laptop) {
         padding: 20px 40px;

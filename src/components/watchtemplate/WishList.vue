@@ -35,7 +35,7 @@ export default {
 
 .label {
     color: #f44336;
-    font-size: 12px;
+    font-size: 14px;
     text-transform: uppercase;
     margin-right: 10px;
     letter-spacing: 1px;

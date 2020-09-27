@@ -31,12 +31,16 @@ export default {
     color: #daa520;
     text-align: center;
     margin-bottom: 30px;
+
+    @media (min-width: $laptop) {
+        text-align: left;
+    }
 }
 
 .description-details {
     font-size: 17px;
-    line-height: 1.5;
-    margin-bottom: 15px;
+    line-height: 1.7;
+    margin-bottom: 16px;
     color: #555;
 
     @media (min-width: $laptop) {

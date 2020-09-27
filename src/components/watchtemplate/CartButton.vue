@@ -55,7 +55,7 @@ $hover-color: rgba(255, 255, 255, 1);
         height: 28px;
         margin-right: 15px;
         position: relative;
-        z-index: 999;
+        z-index: 990;
         transition: all 0.4s;
 
         @media (min-width: $laptop) {

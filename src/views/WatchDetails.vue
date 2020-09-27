@@ -1,5 +1,5 @@
 <template>
-    <div class="watch-container">
+    <div class="watch-wrapper">
         <div class="main-details">
             <div class="watch-presentation">
                 <ImageGallery />
@@ -134,18 +134,13 @@ export default {
 </script>
 
 <style lang="scss">
-.watch-container {
+.watch-wrapper {
     background: #f9f9f9;
-
-    /* padding: 60px 20px; */
-    /* margin-top: 50px; */
-    margin-top: 100px;
     position: relative;
 
     @media (min-width: $laptop) {
         flex-direction: row;
-        /* margin-top: 100px; */
-        padding: 60px 20px 0 20px;
+        padding: 160px 0px 0 20px;
     }
 }
 
@@ -155,10 +150,11 @@ export default {
     position: relative;
     width: 100%;
     align-items: center;
+    padding: 0 20px 80px;
 
     @media (min-width: $laptop) {
         flex-direction: row;
-        padding: 0 30px;
+        padding: 0 30px 80px;
     }
 }
 
@@ -189,9 +185,11 @@ export default {
     margin: 0 auto;
     width: 80%;
     position: relative;
+    margin-top: 175px;
 
     @media (min-width: $laptop) {
         width: 50%;
+        margin-top: unset;
     }
 }
 
@@ -243,20 +241,18 @@ export default {
 .second-details {
     display: flex;
     flex-direction: column;
-    margin: 50px 10px 20px;
-    padding: 50px 0;
+
+    padding: 70px 60px 20px;
 
     background-color: rgb(255, 255, 255);
 
     @media (min-width: $laptop) {
+        padding: 100px 60px 20px;
         flex-direction: row;
         justify-content: space-around;
 
         & > div {
             flex: 0 0 40%;
-            /* &:first-child {
-                margin-right: 60px;
-            } */
         }
     }
 }
@@ -273,7 +269,7 @@ export default {
 
 .wishlist-container {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 120px;
+    right: 50px;
 }
 </style>

@@ -39,6 +39,7 @@ export default {
     flex-wrap: wrap;
     justify-content: center;
     padding-left: 0;
+    margin-bottom: 100px;
 
     & .category {
         list-style: none;
