@@ -27,13 +27,14 @@ export default {
     text-transform: uppercase;
     letter-spacing: 6px;
     font-weight: 400;
-    font-size: 37px;
+    font-size: 28px;
     color: #daa520;
     text-align: center;
     margin-bottom: 30px;
 
     @media (min-width: $laptop) {
         text-align: left;
+        font-size: 37px;
     }
 }
 

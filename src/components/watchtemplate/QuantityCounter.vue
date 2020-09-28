@@ -60,13 +60,21 @@ export default {
     }
 
     & button {
-        width: 39px;
+        width: 33px;
         cursor: pointer;
+
+        @media (min-width: $laptop) {
+            width: 39px;
+        }
     }
 
     & .quantity-number {
         padding: 0 20px;
         font-size: 18px;
+
+        @media (min-width: $laptop) {
+            padding: 0 15px;
+        }
     }
 }
 </style>

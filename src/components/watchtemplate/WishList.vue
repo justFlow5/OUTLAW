@@ -1,7 +1,7 @@
 <template>
-    <div class="wishlist">
-        <span class="label">{{ getLabel }}</span>
-        <span v-if="inWishlist" class="icon-holder"><HeartIcon /></span>
+    <div class="wishlist" @click="toggleHeart">
+        <span class="label" :class="{ isHearted }">{{ getLabel }}</span>
+        <span v-if="isHearted" class="icon-holder"><HeartIcon /></span>
         <span v-else class="icon-holder"><EmptyHeartIcon /></span>
     </div>
 </template>
@@ -13,11 +13,25 @@ import EmptyHeartIcon from '../../assets/icons/EmptyHeart';
 export default {
     name: 'WishListIcon',
     props: ['inWishlist'],
+    data() {
+        return {
+            isHearted: false,
+        };
+    },
     computed: {
         getLabel() {
-            if (this.inWishlist) return 'Added to wishlist';
+            if (this.isHearted) return 'Added to wishlist';
             else return 'Add to wishlist';
         },
+    },
+
+    methods: {
+        toggleHeart() {
+            this.isHearted = !this.isHearted;
+        },
+    },
+    mounted() {
+        this.isHearted = this.inWishlist;
     },
     components: {
         HeartIcon,
@@ -39,6 +53,12 @@ export default {
     text-transform: uppercase;
     margin-right: 10px;
     letter-spacing: 1px;
+
+    &.isHearted {
+        @media (min-width: $laptop) {
+            font-weight: 600;
+        }
+    }
 }
 
 .icon-holder {

@@ -131,12 +131,20 @@ export default {
 .caret {
     position: absolute;
     top: 0;
-    right: 25px;
+    right: 0px;
     width: 20px;
     height: 20px;
     top: 50%;
     transform: translateY(-50%);
     transition: all 0.3s;
+
+    @media (min-width: $tablet) {
+        right: 15px;
+    }
+
+    @media (min-width: $laptop) {
+        right: 25px;
+    }
 
     & > svg {
         fill: rgb(33, 33, 33);

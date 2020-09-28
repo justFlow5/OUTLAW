@@ -11,8 +11,18 @@
                 </div>
 
                 <div class="product-info product-option-primary">
-                    <span class="product-info-material">Gold</span>
-                    <span class="product-info-price">18,000,00</span>
+                    <SingleDetail label="Material" value="Gold" />
+                    <!-- <div>
+                        <label>Material</label>
+                        <span class="product-info-material">Gold</span>
+                    </div> -->
+
+                    <!-- <div>
+                        <label>Price</label>
+                        <span class="product-info-price">18.000.00</span>
+                    </div> -->
+
+                    <SingleDetail label="Price" value="18.000.00" />
                 </div>
 
                 <div class="product-info product-option-secondary">
@@ -61,6 +71,7 @@
 </template>
 
 <script>
+import SingleDetail from '../components/watchtemplate/SingleDetail';
 import QuantityCounter from '../components/watchtemplate/QuantityCounter';
 import BraceletSizeInput from '../components/watchtemplate/BraceletSizeInput';
 import AccordionInfo from '../components/watchtemplate/AccordionInfo';
@@ -104,6 +115,7 @@ export default {
         };
     },
     components: {
+        SingleDetail,
         QuantityCounter,
         BraceletSizeInput,
         AccordionInfo,
@@ -154,7 +166,7 @@ export default {
 
     @media (min-width: $laptop) {
         flex-direction: row;
-        padding: 0 30px 80px;
+        padding: 0 60px 80px;
     }
 }
 
@@ -242,7 +254,7 @@ export default {
     display: flex;
     flex-direction: column;
 
-    padding: 70px 60px 20px;
+    padding: 70px 25px 20px;
 
     background-color: rgb(255, 255, 255);
 
