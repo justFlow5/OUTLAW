@@ -1,35 +1,37 @@
 <template>
     <div class="watch-container">
-        <div class="img-container">
-            <img :src="getImgPath(title)" :alt="title" />
-        </div>
-        <div class="description" :class="{ darkTheme: theme }">
-            <h3
-                :class="{
-                    'font-mod':
-                        placement !== 'menu' &&
-                        sourceType === 'watchesCategories',
-                    'font-mod-watch':
-                        placement !== 'menu' &&
-                        sourceType !== 'watchesCategories',
-                }"
-            >
-                {{ upperCaseTitle }}
-            </h3>
-            <span class="shortDesc" :class="shortDescClass">{{
-                subtitle
-            }}</span>
-            <span
-                class="moreInfo"
-                :class="{
-                    menu: placement === 'menu',
-                    'font-mod':
-                        this.placement !== 'menu' &&
-                        sourceType !== 'watchesCategories',
-                }"
-                >Learn more</span
-            >
-        </div>
+        <router-link :to="`/watches/${title}`">
+            <div class="img-container">
+                <img :src="getImgPath(title)" :alt="title" />
+            </div>
+            <div class="description" :class="{ darkTheme: theme }">
+                <h3
+                    :class="{
+                        'font-mod':
+                            placement !== 'menu' &&
+                            sourceType === 'watchesCategories',
+                        'font-mod-watch':
+                            placement !== 'menu' &&
+                            sourceType !== 'watchesCategories',
+                    }"
+                >
+                    {{ upperCaseTitle }}
+                </h3>
+                <span class="shortDesc" :class="shortDescClass">{{
+                    subtitle
+                }}</span>
+                <span
+                    class="moreInfo"
+                    :class="{
+                        menu: placement === 'menu',
+                        'font-mod':
+                            this.placement !== 'menu' &&
+                            sourceType !== 'watchesCategories',
+                    }"
+                    >Learn more</span
+                >
+            </div>
+        </router-link>
     </div>
 </template>
 
@@ -98,7 +100,7 @@ export default {
         }
     }
 
-    & > .description {
+    & .description {
         display: flex;
         flex-direction: column;
         padding-top: 6px;
@@ -107,16 +109,6 @@ export default {
         transform: translateY(0px);
         text-align: left;
         transition: transform 0.2s ease 0s;
-
-        &.concise {
-            @media (max-width: $laptop) {
-                display: none;
-            }
-        }
-
-        &.categories {
-            transform: translateY(-20px);
-        }
 
         &.darkTheme {
             background-color: rgb(33, 33, 33);
@@ -205,12 +197,6 @@ export default {
         &.menu {
             @media (max-width: $laptop) {
                 display: none;
-            }
-        }
-
-        &.categories {
-            @media (max-width: $tablet) {
-                opacity: 1;
             }
         }
     }

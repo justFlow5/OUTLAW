@@ -2,11 +2,12 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Dashboard from '../views/Dashboard.vue';
 import Watches from '../views/Watches.vue';
-
+import WatchDetails from '../views/WatchDetails.vue';
+import VueParallaxJs from 'vue-parallax-js';
+Vue.use(VueParallaxJs);
 Vue.use(VueRouter);
 
-const routes = [
-    {
+const routes = [{
         path: '/',
         name: 'Dashboard',
         component: Dashboard,
@@ -17,6 +18,11 @@ const routes = [
         name: 'Watches',
         component: Watches,
     },
+
+    {
+        path: '/watches/:id',
+        component: WatchDetails
+    },
     {
         path: '/about',
         name: 'About',
@@ -24,7 +30,7 @@ const routes = [
         // this generates a separate chunk (about.[hash].js) for this route
         // which is lazy-loaded when the route is visited.
         component: () =>
-            import(/* webpackChunkName: "about" */ '../views/About.vue'),
+            import( /* webpackChunkName: "about" */ '../views/About.vue'),
     },
 ];
 

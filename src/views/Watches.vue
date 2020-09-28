@@ -56,7 +56,8 @@ export default {
 
 <style lang="scss" scoped>
 .watches-collection {
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
+    overflow: hidden;
 }
 
 .video-container {

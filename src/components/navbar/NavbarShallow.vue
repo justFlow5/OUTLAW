@@ -6,6 +6,8 @@
                 'navbar--hidden':
                     !showNavbar || isMenuOpen || isSearchOpen || isCartOpen,
                 'navbar--shown': !onTop,
+                'watch-spec': isWatchSpeckOpen,
+
                 onTop,
             }"
         >
@@ -62,6 +64,7 @@ export default {
             isMenuOpen: (state) => state.appStore.isMenuOpen,
             isSearchOpen: (state) => state.appStore.isSearchOpen,
             isCartOpen: (state) => state.appStore.isCartOpen,
+            isWatchSpeckOpen: (state) => state.appStore.isWatchSpeckOpen,
         }),
     },
     methods: {
@@ -129,8 +132,10 @@ export default {
     }
 
     &:hover,
+    &.watch-spec,
     &.navbar--shown {
         background: rgba(255, 255, 255, 1);
+        /* box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08); */
         /* transition: all 0.3s ease-in 0.3s; */
         & .logo-image {
             background-image: url('../../assets/icons/logo-gold.png');
@@ -322,16 +327,4 @@ export default {
         }
     }
 }
-
-/* .slide-enter-active,
-.slide-leave-active {
-    transition: all 0.3s ease-in-out;
-}
-
-.slide-enter,
-.slide-leave-to {
-    transform: translateX(-100%);
-    transition: transform 0.3s cubic-bezier(0.17, 0.67, 0.83, 0.67),
-        opacity 0.2s cubic-bezier(0.17, 0.67, 0.83, 0.67);
-} */
 </style>

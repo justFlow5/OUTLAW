@@ -2,6 +2,7 @@
     <div id="app">
         <Navbar />
         <router-view />
+        <SubscribePanel />
         <Footer />
     </div>
 </template>
@@ -9,11 +10,13 @@
 <script>
 import Navbar from './components/navbar/NavbarDeep';
 import Footer from './components/footer/Footer';
+import SubscribePanel from './components//subscribePanel/SubscribePanel';
 
 export default {
     name: 'App',
     components: {
         Navbar,
+        SubscribePanel,
         Footer,
     },
 };
@@ -31,5 +34,9 @@ html {
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: rgb(33, 33, 33);
+}
+
+ul {
+    list-style-type: none;
 }
 </style>

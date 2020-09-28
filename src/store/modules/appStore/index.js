@@ -5,6 +5,8 @@ const state = {
     isMenuOpen: false,
     isSearchOpen: false,
     isCartOpen: false,
+    isWatchSpeckOpen: false,
+
 };
 
 export default {

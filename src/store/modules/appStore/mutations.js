@@ -10,4 +10,8 @@ export default {
     TOGGLE_CART(state) {
         state.isCartOpen = !state.isCartOpen;
     },
+
+    TOGGLE_NAVBAR(state) {
+        state.isWatchSpeckOpen = !state.isWatchSpeckOpen;
+    },
 };
