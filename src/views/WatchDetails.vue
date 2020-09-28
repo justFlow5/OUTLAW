@@ -12,15 +12,6 @@
 
                 <div class="product-info product-option-primary">
                     <SingleDetail label="Material" value="Gold" />
-                    <!-- <div>
-                        <label>Material</label>
-                        <span class="product-info-material">Gold</span>
-                    </div> -->
-
-                    <!-- <div>
-                        <label>Price</label>
-                        <span class="product-info-price">18.000.00</span>
-                    </div> -->
 
                     <SingleDetail label="Price" value="18.000.00" />
                 </div>
