@@ -1,21 +1,38 @@
 <template>
     <div class="overlay">
-        <h3>Banitz Watches</h3>
-        <span>The collection</span>
+        <h3>{{ modifyTitle }}</h3>
+        <span> {{ subtitle }}</span>
     </div>
 </template>
 
 <script>
 export default {
     name: 'WatchesOverlay',
+    props: ['title', 'subtitle'],
+    computed: {
+        modifyTitle() {
+            if (this.title === 'men watches') return `banitz men's watches`;
+            else if (this.title === 'womens watches')
+                return `banitz women's watches`;
+            else if (this.title === 'steel watches')
+                return `banitz steel watches`;
+            else if (this.title === 'gold watches')
+                return `banitz gold watches`;
+            else if (this.title === 'steel and gold')
+                return `steel & gold watches`;
+            else if (this.title === 'gem-set watches')
+                return `banitz gem-set watches`;
+            else return this.title;
+        },
+    },
 };
 </script>
 
 <style lang="scss" scoped>
 .overlay {
     position: absolute;
-    width: 100%;
-    height: 90%;
+    width: 100vw;
+    height: 100%;
     z-index: 3;
     background: rgba(0, 0, 0, 0.5);
     display: flex;
@@ -32,6 +49,8 @@ export default {
         letter-spacing: 5px;
         font-weight: 200;
         text-transform: uppercase;
+        width: 50%;
+        line-height: 1.3;
         @media (min-width: $mobileL) {
             font-size: 38px;
         }

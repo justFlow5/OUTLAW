@@ -1,7 +1,7 @@
 <template>
     <div class="watches-collection">
         <div class="video-container">
-            <Overlay />
+            <Overlay title="banitz watches" subtitle="the collection" />
             <VideoBG />
         </div>
 
@@ -34,7 +34,7 @@
 
 <script>
 import VideoBG from '../components/watches/VideoBG';
-import Overlay from '../components/watches/Overlay';
+import Overlay from '../components/Overlay';
 import Heading from '../components/watches/Heading';
 import WatchGallery from '../components/watches/WatchGallery';
 import WatchCategories from '../components/watches/WatchCategory';

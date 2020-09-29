@@ -5,7 +5,11 @@
             :key="index"
             class="category"
         >
-            <WatchTemplate :title="category" sourceType="watchesCategories" />
+            <WatchTemplate
+                :title="category"
+                sourceType="watchesCategories"
+                :category="category"
+            />
         </li>
     </ul>
 </template>

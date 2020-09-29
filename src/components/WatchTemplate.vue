@@ -1,6 +1,11 @@
 <template>
     <div class="watch-container">
-        <router-link :to="`/watches/${title}`">
+        <router-link
+            :to="{
+                name: 'WatchCategoryGallery',
+                params: { category: category },
+            }"
+        >
             <div class="img-container">
                 <img :src="getImgPath(title)" :alt="title" />
             </div>
@@ -36,16 +41,75 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 export default {
     name: 'MenuWatchTemplate',
-    props: ['title', 'subtitle', 'theme', 'sourceType', 'placement'],
+
+    props: [
+        'title',
+        'subtitle',
+        'category',
+        'theme',
+        'sourceType',
+        'placement',
+    ],
+
     methods: {
         getImgPath(watch) {
             return require(`../assets/${this.sourceType}/` + watch + '.webp');
         },
+
+        selectWatchesOfCategory(category) {
+            let selectedWatches;
+
+            if (category === 'men watches')
+                selectedWatches = this.watches.filter((watch) => {
+                    watch.sex === 'men';
+                });
+            else if (category === 'women watches')
+                selectedWatches = this.watches.filter((watch) => {
+                    watch.sex === 'women';
+                });
+            else if (category === 'steel watches')
+                selectedWatches = this.watches.filter((watch) => {
+                    watch.material === 'steel';
+                });
+            else if (category === 'gold watches')
+                selectedWatches = this.watches.filter((watch) => {
+                    watch.material === 'gold';
+                });
+            else if (category === 'steel and gold')
+                selectedWatches = this.watches.filter((watch) => {
+                    watch.material === 'steel and gold';
+                });
+            else if (category === 'gem-set watches')
+                selectedWatches = this.watches.filter((watch) => {
+                    watch.material === 'gem-set';
+                });
+
+            // console.log('TUTUTUUUUUUU', {
+            //     watches,
+            //     category,
+            // });
+
+            return {
+                selectedWatches,
+                category,
+            };
+        },
+
+        selectSingleWatch(name) {
+            return this.watches.find((watch) => {
+                // console.log(watch.name, name);
+                return watch.name === name;
+            });
+        },
     },
 
     computed: {
+        ...mapState({
+            watches: (state) => state.productsStore.watches,
+        }),
         upperCaseTitle() {
             return this.title.toUpperCase();
         },
@@ -56,6 +120,27 @@ export default {
                     this.placement !== 'menu' &&
                     this.sourceType !== 'watchesCategories',
             };
+        },
+
+        getPath() {
+            if (this.sourceType === 'watchesCategories')
+                return `/watches/${this.category}`.replace(/\s/g, '-');
+            else
+                return `/watches/${this.category}/${this.title}`.replace(
+                    /\s/g,
+                    '-'
+                );
+        },
+
+        selectProps() {
+            console.log('CATEEGOOGIRES');
+            if (this.sourceType === 'watchesCategories') {
+                // console.log(
+                //     '##################################',
+                //     this.selectWatchesOfCategory(this.category)
+                // );
+                return this.selectWatchesOfCategory(this.category);
+            } else return this.selectSingleWatch(this.title);
         },
     },
 };

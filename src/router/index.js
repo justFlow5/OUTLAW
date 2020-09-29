@@ -3,8 +3,8 @@ import VueRouter from 'vue-router';
 import Dashboard from '../views/Dashboard.vue';
 import Watches from '../views/Watches.vue';
 import WatchDetails from '../views/WatchDetails.vue';
-import VueParallaxJs from 'vue-parallax-js';
-Vue.use(VueParallaxJs);
+import WatchCategoryGallery from '../views/WatchCategoryGallery.vue'
+
 Vue.use(VueRouter);
 
 const routes = [{
@@ -20,7 +20,14 @@ const routes = [{
     },
 
     {
-        path: '/watches/:id',
+        path: '/watches/:category',
+        name: 'WatchCategoryGallery',
+        component: WatchCategoryGallery,
+        props: true
+    },
+
+    {
+        path: '/watches/:category/:id',
         component: WatchDetails
     },
     {
