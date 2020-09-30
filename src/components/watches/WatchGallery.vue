@@ -44,8 +44,9 @@ export default {
     }
     & ul.darkTheme {
         @include scrollbar;
-        padding-bottom: 80px;
-        @media (min-width: $tablet) {
+        padding-bottom: 110px;
+
+        @media (min-width: $laptop) {
             padding-bottom: 75px;
         }
     }

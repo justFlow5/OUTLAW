@@ -15,7 +15,7 @@ h3 {
     text-transform: uppercase;
     color: rgb(33, 33, 33);
     letter-spacing: 4px;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 700;
     font-family: 'PT Serif', serif;
 

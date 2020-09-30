@@ -144,6 +144,7 @@
         <div class="toTop-container">
             <span @click="backtoTop"><ArrowUpIcon /></span>
         </div>
+        <span class="caption">Made by JustFlow | 2020</span>
     </footer>
 </template>
 
@@ -336,6 +337,7 @@ li {
     text-align: left;
     transition: all 0.3s;
     margin: 10px 0;
+    cursor: pointer;
 
     @media (min-width: $laptop) {
         font-size: 16px;
@@ -344,5 +346,15 @@ li {
     &:hover {
         color: #daa520;
     }
+}
+
+.caption {
+    font-size: 14px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 999;
+    color: white;
+    pointer-events: none;
 }
 </style>

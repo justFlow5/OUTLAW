@@ -11,6 +11,11 @@
         </ul>
 
         <ul class="references-container">
+            <li><a>Contact</a></li>
+            <li><a>Story of Banitz</a></li>
+        </ul>
+
+        <ul class="references-container">
             <li><a>Find a retailer</a></li>
             <li><a>Watch care & service</a></li>
         </ul>
@@ -37,9 +42,10 @@ export default {
         align-items: flex-start;
         list-style-type: none;
         padding: 30px 0;
-
-        &:last-child {
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        &:first-child {
+            border-top: unset;
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
 

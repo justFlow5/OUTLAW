@@ -82,10 +82,16 @@ export default {
 }
 
 .exit-button-container {
-    right: 50px;
-    top: 50px;
+    right: 5px;
+    top: -15px;
     padding: 20px;
     position: absolute;
+    z-index: 20;
+
+    @media (min-width: $laptop) {
+        right: 50px;
+        top: 50px;
+    }
 }
 
 .searching-section {

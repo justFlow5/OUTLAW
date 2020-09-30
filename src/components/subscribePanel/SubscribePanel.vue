@@ -65,7 +65,7 @@ export default {
     }
 
     & h3 {
-        font-size: 28px;
+        font-size: 30px;
         color: white;
         margin-bottom: 15px;
 

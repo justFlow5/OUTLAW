@@ -24,7 +24,7 @@ export default {
     transition: all 0.3s;
     background-color: #daa520;
     border: 2px solid transparent;
-    width: 45px;
+    width: 55px;
     height: 45px;
     margin-left: 15px;
 

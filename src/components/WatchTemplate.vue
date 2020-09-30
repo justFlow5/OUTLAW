@@ -59,51 +59,46 @@ export default {
             return require(`../assets/${this.sourceType}/` + watch + '.webp');
         },
 
-        selectWatchesOfCategory(category) {
-            let selectedWatches;
+        // selectWatchesOfCategory(category) {
+        //     let selectedWatches;
 
-            if (category === 'men watches')
-                selectedWatches = this.watches.filter((watch) => {
-                    watch.sex === 'men';
-                });
-            else if (category === 'women watches')
-                selectedWatches = this.watches.filter((watch) => {
-                    watch.sex === 'women';
-                });
-            else if (category === 'steel watches')
-                selectedWatches = this.watches.filter((watch) => {
-                    watch.material === 'steel';
-                });
-            else if (category === 'gold watches')
-                selectedWatches = this.watches.filter((watch) => {
-                    watch.material === 'gold';
-                });
-            else if (category === 'steel and gold')
-                selectedWatches = this.watches.filter((watch) => {
-                    watch.material === 'steel and gold';
-                });
-            else if (category === 'gem-set watches')
-                selectedWatches = this.watches.filter((watch) => {
-                    watch.material === 'gem-set';
-                });
+        //     if (category === 'men watches')
+        //         selectedWatches = this.watches.filter((watch) => {
+        //             watch.sex === 'men';
+        //         });
+        //     else if (category === 'women watches')
+        //         selectedWatches = this.watches.filter((watch) => {
+        //             watch.sex === 'women';
+        //         });
+        //     else if (category === 'steel watches')
+        //         selectedWatches = this.watches.filter((watch) => {
+        //             watch.material === 'steel';
+        //         });
+        //     else if (category === 'gold watches')
+        //         selectedWatches = this.watches.filter((watch) => {
+        //             watch.material === 'gold';
+        //         });
+        //     else if (category === 'steel and gold')
+        //         selectedWatches = this.watches.filter((watch) => {
+        //             watch.material === 'steel and gold';
+        //         });
+        //     else if (category === 'gem-set watches')
+        //         selectedWatches = this.watches.filter((watch) => {
+        //             watch.material === 'gem-set';
+        //         });
 
-            // console.log('TUTUTUUUUUUU', {
-            //     watches,
-            //     category,
-            // });
+        //     return {
+        //         selectedWatches,
+        //         category,
+        //     };
+        // },
 
-            return {
-                selectedWatches,
-                category,
-            };
-        },
-
-        selectSingleWatch(name) {
-            return this.watches.find((watch) => {
-                // console.log(watch.name, name);
-                return watch.name === name;
-            });
-        },
+        // selectSingleWatch(name) {
+        //     return this.watches.find((watch) => {
+        //         // console.log(watch.name, name);
+        //         return watch.name === name;
+        //     });
+        // },
     },
 
     computed: {
@@ -134,13 +129,9 @@ export default {
 
         selectProps() {
             console.log('CATEEGOOGIRES');
-            if (this.sourceType === 'watchesCategories') {
-                // console.log(
-                //     '##################################',
-                //     this.selectWatchesOfCategory(this.category)
-                // );
+            if (this.sourceType === 'watchesCategories')
                 return this.selectWatchesOfCategory(this.category);
-            } else return this.selectSingleWatch(this.title);
+            else return this.selectSingleWatch(this.title);
         },
     },
 };

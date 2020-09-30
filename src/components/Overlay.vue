@@ -1,6 +1,6 @@
 <template>
     <div class="overlay">
-        <h3>{{ modifyTitle }}</h3>
+        <h3 :class="{ isBoundary: !isHome }">{{ modifyTitle }}</h3>
         <span> {{ subtitle }}</span>
     </div>
 </template>
@@ -8,7 +8,7 @@
 <script>
 export default {
     name: 'WatchesOverlay',
-    props: ['title', 'subtitle'],
+    props: ['title', 'subtitle', 'isHome'],
     computed: {
         modifyTitle() {
             if (this.title === 'men watches') return `banitz men's watches`;
@@ -49,8 +49,20 @@ export default {
         letter-spacing: 5px;
         font-weight: 200;
         text-transform: uppercase;
-        width: 50%;
         line-height: 1.3;
+
+        &.isBoundary {
+            @media (min-width: $tablet) {
+                width: 60%;
+            }
+            @media (min-width: $laptop) {
+                width: 70%;
+            }
+
+            @media (min-width: $laptopL) {
+                width: 60%;
+            }
+        }
         @media (min-width: $mobileL) {
             font-size: 38px;
         }

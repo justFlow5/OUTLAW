@@ -44,9 +44,5 @@ video {
     height: 100%;
     left: 0;
     top: 0;
-
-    /* @media (min-width: $laptop) {
-        height: 90vh;
-    } */
 }
 </style>

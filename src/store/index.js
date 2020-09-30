@@ -2,6 +2,8 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import appStore from './modules/appStore';
 import userStore from './modules/userStore';
+import productsStore from './modules/productsStore';
+
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -9,5 +11,6 @@ export default new Vuex.Store({
     modules: {
         appStore,
         userStore,
+        productsStore
     },
 });

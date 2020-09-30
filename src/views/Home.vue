@@ -39,10 +39,10 @@ import Heading from '../components/watches/Heading';
 import WatchGallery from '../components/watches/WatchGallery';
 import WatchCategories from '../components/watches/WatchCategory';
 
-// import WatchesCollection from '../components/watches/WatchesCollection';
+import { mapState } from 'vuex';
 
 export default {
-    name: 'Watches',
+    name: 'Home',
 
     components: {
         VideoBG,
@@ -50,6 +50,44 @@ export default {
         Heading,
         WatchGallery,
         WatchCategories,
+    },
+
+    computed: {
+        ...mapState({
+            isMenuOpen: (state) => state.appStore.isMenuOpen,
+            isSearchOpen: (state) => state.appStore.isSearchOpen,
+            isCartOpen: (state) => state.appStore.isCartOpen,
+        }),
+    },
+
+    watch: {
+        isMenuOpen: function() {
+            if (this.isMenuOpen) {
+                document.documentElement.style.overflow = 'hidden';
+                return;
+            }
+            document.documentElement.style.overflow = 'auto';
+        },
+
+        isSearchOpen: function() {
+            if (this.isSearchOpen) {
+                document.documentElement.style.overflow = 'hidden';
+                return;
+            }
+            document.documentElement.style.overflow = 'auto';
+        },
+
+        isCartOpen: function() {
+            if (this.isCartOpen) {
+                document.documentElement.style.overflow = 'hidden';
+                return;
+            }
+            document.documentElement.style.overflow = 'auto';
+        },
+    },
+
+    mounted() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     },
 };
 </script>
@@ -62,18 +100,14 @@ export default {
 
 .video-container {
     position: relative;
-    height: 85vh;
+    height: 73vh;
     width: 100vw;
+    margin-bottom: 30px;
+    border: none;
 
     @media (min-width: $mobileL) {
-        height: 90vh;
-    }
-    & > video {
-        position: relative;
-        width: 100%;
-        object-fit: cover;
-        width: 100%;
-        height: 90%;
+        height: 80vh;
+        margin-bottom: 40px;
     }
 }
 

@@ -82,6 +82,7 @@ export const watchDetails = [
         collection: 'Speedmaster',
         price: '5299.00',
         material: 'steel',
+        category: '',
         warranty: true,
         description: {
             par1:

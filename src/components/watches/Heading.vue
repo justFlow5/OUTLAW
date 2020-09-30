@@ -17,7 +17,11 @@ export default {
 <style lang="scss" scoped>
 .watches-collection-heading {
     text-align: left;
-    margin: 0 0 70px;
+    margin: 0;
+
+    @media (min-width: $mobileL) {
+        margin: 0 0 15px;
+    }
 
     @media (min-width: $laptop) {
         margin: 0 50px 70px;

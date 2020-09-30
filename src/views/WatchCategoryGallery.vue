@@ -2,11 +2,11 @@
     <div class="image-gallery-wrapper">
         <div class="video-container">
             <VideoBG :category="category" />
-            <Overlay :title="category" subtitle="" />
+            <Overlay :title="category" :isHome="false" />
         </div>
 
         <div class="gallery-container">
-            <WatchImageGallery />
+            <WatchCategoryImageGallery :category="category" />
         </div>
     </div>
 </template>
@@ -14,7 +14,7 @@
 <script>
 import VideoBG from '../components/WatchCategoryGallery/VideoBG';
 import Overlay from '../components/Overlay';
-import WatchImageGallery from '../components/WatchCategoryGallery/WatchImageGallery';
+import WatchCategoryImageGallery from '../components/WatchCategoryGallery/WatchCategoryImageGallery';
 
 export default {
     name: 'WatchCategoryGallery',
@@ -22,7 +22,11 @@ export default {
     components: {
         VideoBG,
         Overlay,
-        WatchImageGallery,
+        WatchCategoryImageGallery,
+    },
+
+    mounted() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     },
 };
 </script>
@@ -41,5 +45,8 @@ export default {
 }
 
 .gallery-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 100px 0;
 }
 </style>

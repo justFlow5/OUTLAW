@@ -50,7 +50,7 @@ export default {
 
         flex: 1 0 40%;
         height: 240px;
-        margin: 30px 5px;
+        margin: 40px 5px;
 
         @media (min-width: $mobileL) {
             flex: 0 0 45%;
@@ -64,6 +64,7 @@ export default {
         @media (min-width: $laptop) {
             flex: 0 0 30%;
             height: 480px;
+            margin: 30px 5px;
         }
     }
 }

@@ -29,7 +29,7 @@
         </div>
 
         <div class="second-details">
-            <div class="description">
+            <div class="watch-description">
                 <Description :description="deskTest" />
             </div>
             <div class="description-abridged">
@@ -127,6 +127,7 @@ export default {
     },
 
     mounted() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         const currentURL = this.$route.params.id;
         if (currentURL) this.toggleNavbarTheme();
     },
@@ -260,7 +261,7 @@ export default {
     }
 }
 
-.description {
+.watch-description {
     width: 80%;
     margin: 20px auto 50px;
 

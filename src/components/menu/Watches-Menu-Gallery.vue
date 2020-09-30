@@ -44,7 +44,7 @@ export default {
         margin: 0 70px;
     }
     & ul {
-        padding-bottom: 50px;
+        padding-bottom: 60px;
         @include scrollbar(
             rgb(255, 255, 255),
             rgba(255, 255, 255, 0.7),

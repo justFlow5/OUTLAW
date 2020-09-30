@@ -1,16 +1,6 @@
 <template>
     <transition name="slide">
-        <nav
-            class="navbar"
-            :class="{
-                'navbar--hidden':
-                    !showNavbar || isMenuOpen || isSearchOpen || isCartOpen,
-                'navbar--shown': !onTop,
-                'watch-spec': isWatchSpeckOpen,
-
-                onTop,
-            }"
-        >
+        <nav class="navbar" :class="navbarClassess">
             <div class="navbar-left">
                 <div class="nav-item menu" @click="toggleMenu">
                     <CustomHamburger />
@@ -18,13 +8,15 @@
                 </div>
 
                 <div class="nav-item desktop-only">
-                    <router-link to="/watches">Watches</router-link>
+                    <router-link to="/contact">Contact</router-link>
                 </div>
                 <div class="nav-item desktop-only">Story of Banitz</div>
             </div>
             <div class="logo">
-                <div class="logo-image"></div>
-                <span>Banitz</span>
+                <router-link to="/">
+                    <div class="logo-image"></div>
+                    <span>Banitz</span>
+                </router-link>
             </div>
             <div class="navbar-right">
                 <div class="nav-item search" @click="toggleSearch">
@@ -50,7 +42,6 @@ import { mapState, mapActions } from 'vuex';
 
 export default {
     name: 'Navbar',
-    // props: ['menuActivated'],
     data() {
         return {
             showNavbar: true,
@@ -66,6 +57,19 @@ export default {
             isCartOpen: (state) => state.appStore.isCartOpen,
             isWatchSpeckOpen: (state) => state.appStore.isWatchSpeckOpen,
         }),
+
+        navbarClassess() {
+            return {
+                'navbar--hidden':
+                    !this.showNavbar ||
+                    this.isMenuOpen ||
+                    this.isSearchOpen ||
+                    this.isCartOpen,
+                'navbar--shown': !this.onTop,
+                'watch-spec': this.isWatchSpeckOpen,
+                onTop: this.onTop,
+            };
+        },
     },
     methods: {
         ...mapActions({
@@ -181,6 +185,10 @@ export default {
             padding-bottom: 0px;
         }
     }
+
+    &.onTop {
+        /* background: transparent; */
+    }
     & .desktop-only {
         display: none;
         @media (min-width: $laptop) {
@@ -196,7 +204,7 @@ export default {
             align-items: flex-end;
         }
         & > .nav-item {
-            padding: 0 5px;
+            padding: 0 8px;
 
             @media (min-width: $mobileL) {
                 padding: 0 13px;
@@ -312,13 +320,14 @@ export default {
         }
     }
 
-    .logo-image {
+    & .logo-image {
         background-image: url('../../assets/icons/logo-white.png');
         width: 30px;
         height: 30px;
         background-position: center;
         background-repeat: no-repeat;
         background-size: contain;
+        margin: 0 auto;
         transition: all 0.3s;
 
         @media (min-width: $laptop) {
