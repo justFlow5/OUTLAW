@@ -9,7 +9,7 @@
             <WatchTemplate
                 :title="category"
                 :category="category"
-                thumbnailPath=""
+                thumbnailPath="sliderGallery"
                 sourceType="watchesCategories"
             />
         </li>

@@ -6,10 +6,13 @@
             </div>
             <div class="product-order">
                 <div class="product-info product-identity">
-                    <h3 class="product-name">{{ currentView.name }}</h3>
-                    <h3 class="product-collection">
+                    <DecLine />
+                    <!-- <h3 class="product-collection">
                         {{ currentView.collection }}
-                    </h3>
+                    </h3> -->
+
+                    <h3 class="product-name">{{ currentView.name }}</h3>
+                    <DecLine />
                 </div>
 
                 <div class="product-info product-option-primary">
@@ -18,7 +21,10 @@
                         :value="currentView.material"
                     />
 
-                    <SingleDetail label="Price" :value="currentView.price" />
+                    <SingleDetail
+                        label="Price"
+                        :value="formatPrice(currentView.price)"
+                    />
                 </div>
 
                 <div class="product-info product-option-secondary">
@@ -75,7 +81,7 @@ import ImageGallery from '../components/watchtemplate/ImageGallery';
 import CartButton from '../components/watchtemplate/CartButton';
 import Description from '../components/watchtemplate/Description';
 import WishList from '../components/watchtemplate/WishList';
-
+import DecLine from '../assets/icons/DecLine';
 import { mapState, mapGetters, mapActions } from 'vuex';
 export default {
     name: 'WatchDetails',
@@ -95,6 +101,7 @@ export default {
         CartButton,
         Description,
         WishList,
+        DecLine,
     },
 
     computed: {
@@ -121,6 +128,13 @@ export default {
 
         toggleAccordion() {
             this.isOpen = !this.isOpen;
+        },
+
+        formatPrice(price) {
+            return price.toLocaleString('en-US', {
+                style: 'currency',
+                currency: 'USD',
+            });
         },
     },
 
@@ -207,18 +221,35 @@ export default {
     display: flex;
     flex-direction: column;
     color: rgb(33, 33, 33);
+    font-family: 'PT Serif';
 
-    font-family: 'Quicksand', sans-serif;
+    align-items: flex-start;
+    align-items: center;
+
     text-transform: uppercase;
     letter-spacing: 1px;
     margin: 20px 0 30px;
 
     & .product-name {
-        font-size: 25px;
-        margin-bottom: 7px;
+        font-size: 36px;
+        font-weight: 500;
+        margin: 15px;
+        font-family: 'Caveat', cursive;
+        font: 400 38px 'Merienda One', Helvetica, sans-serif;
+        color: rgba(0, 0, 0, 0.7);
+        text-shadow: 3px 3px 3px #fff;
     }
     & .product-collection {
-        font-size: 19px;
+        font-size: 32px;
+        font-family: 'Caveat', cursive;
+        letter-spacing: 3px;
+        color: #232b2b;
+        margin-bottom: 15px;
+        text-transform: none;
+    }
+
+    & svg:last-child {
+        transform: rotate(180deg);
     }
 }
 

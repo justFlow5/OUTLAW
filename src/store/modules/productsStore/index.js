@@ -9,9 +9,9 @@ const state = {
     watches: [{
             name: 'Omega-Speedmaster-Moonwatch',
             collection: 'Speedmaster',
-            price: '5299.00',
+            price: 529900,
             material: 'steel',
-            category: '',
+
             warranty: true,
             description: {
                 par1: 'The OMEGA Speedmaster is one of OMEGA’s most iconic timepieces. Having been a part of all six lunar missions, the legendary Speedmaster is an impressive representation of the brand’s adventurous pioneering spirit.',
@@ -42,7 +42,7 @@ const state = {
         {
             name: 'Omega-Seamaster-Diver-300m',
             collection: 'Seamaster',
-            price: '8299.00',
+            price: 8299000,
             material: 'steel',
             warranty: true,
             description: {
@@ -82,7 +82,7 @@ const state = {
         {
             name: 'Speedmaster-Moonwatch-Space',
             collection: 'Seamaster',
-            price: '12.199',
+            price: 1219900,
             material: 'steel',
             warranty: true,
             description: {
@@ -118,7 +118,7 @@ const state = {
         {
             name: 'Omega-Seamaster-Diver-300m-SeaKing',
             collection: 'Seamaster',
-            price: '16.499',
+            price: 1649900,
             material: 'steel',
             warranty: true,
             description: {
@@ -156,7 +156,7 @@ const state = {
         {
             name: 'Constellation-Femine',
             collection: 'De Ville',
-            price: '100 100.00',
+            price: 1001000,
             material: 'steel',
             warranty: true,
             description: {
@@ -189,7 +189,7 @@ const state = {
         {
             name: 'Constellation-Axel',
             collection: 'De Ville',
-            price: '100 150.00',
+            price: 1001500,
             material: 'steel',
             warranty: true,
             description: {
@@ -222,7 +222,7 @@ const state = {
         {
             name: 'Constellation-Beauty',
             collection: 'De Ville',
-            price: '108 500.00',
+            price: 108500,
             material: 'steel',
             warranty: true,
             description: {
@@ -255,7 +255,7 @@ const state = {
         {
             name: 'Constellation-Witch',
             collection: 'De Ville',
-            price: '48 200.00',
+            price: 4820000,
             material: 'gold',
             warranty: true,
             description: {
@@ -288,7 +288,7 @@ const state = {
         {
             name: 'Constellation-Lady',
             collection: 'De Ville',
-            price: '72 900.00',
+            price: 729000,
             material: 'Steel and Gold',
             warranty: true,
             description: {
@@ -321,7 +321,7 @@ const state = {
         {
             name: 'Constellation-Snowflake',
             collection: 'De Ville',
-            price: '62 600.00',
+            price: 6260000,
             material: 'Steel and Gold',
             warranty: true,
             description: {
@@ -354,7 +354,7 @@ const state = {
         {
             name: 'Constellation-Booty',
             collection: 'De Ville',
-            price: '62 600.00',
+            price: 6260000,
             material: 'Steel and Gold',
             warranty: true,
             description: {
@@ -387,7 +387,7 @@ const state = {
         {
             name: 'Constellation-Insanity',
             collection: 'De Ville',
-            price: '62 600.00',
+            price: 6260000,
             material: 'Steel',
             warranty: true,
             description: {
@@ -420,7 +420,7 @@ const state = {
         {
             name: 'Constellation-Piss',
             collection: 'De Ville',
-            price: '62 600.00',
+            price: 6260000,
             material: 'Gold',
             warranty: true,
             description: {
@@ -453,7 +453,7 @@ const state = {
         {
             name: 'Constellation-Wenus',
             collection: 'De Ville',
-            price: '94 400.00',
+            price: 9440000,
             material: 'Gold and Steel',
             warranty: true,
             description: {
@@ -486,7 +486,7 @@ const state = {
         {
             name: 'Constellation-Asteroid',
             collection: 'De Ville',
-            price: '94 400.00',
+            price: 9440000,
             material: 'Gold and Steel',
             warranty: true,
             description: {
@@ -519,7 +519,7 @@ const state = {
         {
             name: 'Constellation-Tiktok',
             collection: 'De Ville',
-            price: '20 700.00',
+            price: 207000,
             material: 'Gold and Steel',
             warranty: true,
             description: {
@@ -552,7 +552,7 @@ const state = {
         {
             name: 'Constellation-Tiktok',
             collection: 'De Ville',
-            price: '20 700.00',
+            price: 2070000,
             material: 'Gold and Steel',
             warranty: true,
             description: {
@@ -585,7 +585,7 @@ const state = {
         {
             name: 'Constellation-Infinity',
             collection: 'De Ville',
-            price: '27 400.00',
+            price: 274000,
             material: 'Gold and Steel',
             warranty: true,
             description: {
@@ -618,7 +618,7 @@ const state = {
         {
             name: 'Lady-DateJust',
             collection: 'Speedmaster',
-            price: '220 600. 00',
+            price: 2206000,
             material: 'gem-set',
             warranty: true,
             description: {
@@ -649,7 +649,7 @@ const state = {
         {
             name: 'Pearlmaster 39',
             collection: 'Speedmaster',
-            price: '220 600. 00',
+            price: 2206000,
             material: 'gem-set',
             warranty: true,
             description: {
@@ -680,7 +680,7 @@ const state = {
         {
             name: 'DateJust 31',
             collection: 'Speedmaster',
-            price: '60 300 00',
+            price: 6030000,
             material: 'gem-set',
             warranty: true,
             description: {
@@ -710,7 +710,7 @@ const state = {
         {
             name: 'DateJust 31',
             collection: 'Speedmaster',
-            price: '60 300 00',
+            price: 6030000,
             material: 'gem-set',
             warranty: true,
             description: {
@@ -740,7 +740,7 @@ const state = {
         {
             name: 'DateJust 31',
             collection: 'Speedmaster',
-            price: '60 300 00',
+            price: 6030000,
             material: 'gem-set',
             warranty: true,
             description: {
@@ -770,7 +770,7 @@ const state = {
         {
             name: 'DayDate 40',
             collection: 'Speedmaster',
-            price: '92 100 00',
+            price: 9210000,
             material: 'gem-set',
             warranty: true,
             description: {
@@ -801,7 +801,7 @@ const state = {
         {
             name: 'Day-date 25',
             collection: 'Speedmaster',
-            price: '101 800 00',
+            price: 10180000,
             material: 'gem-set',
             warranty: true,
             description: {
@@ -834,7 +834,7 @@ const state = {
         {
             name: 'Day-Date 40',
             collection: 'Speedmaster',
-            price: '75 500 00',
+            price: 7550000,
             material: 'gem-set',
             warranty: true,
             description: {
@@ -866,7 +866,7 @@ const state = {
         {
             name: 'Air King',
             collection: 'Speedmaster',
-            price: '140 600 00',
+            price: 12103000,
             material: 'gem-set',
             warranty: true,
             description: {

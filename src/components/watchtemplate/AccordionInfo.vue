@@ -29,12 +29,29 @@
                             v-for="(value, name, index) in content"
                             :key="index"
                         >
-                            <span>{{ name }}</span
-                            ><span>{{ value }}</span>
+                            <v-popover
+                                offset="10"
+                                placement="left"
+                                trigger="hover"
+                            >
+                                <span class="feature-title">{{ name }}</span>
+                                <template slot="popover">
+                                    <h3 class="feature-category-title">
+                                        {{ name }}
+                                    </h3>
+                                    <p class="feature-category-content ">
+                                        {{ value }}
+                                    </p>
+                                </template>
+                            </v-popover>
+
+                            <span class="feature-content">{{ value }}</span>
                         </li>
                     </ul>
 
-                    <p v-else class="warranty">{{ content }}</p>
+                    <p v-else class="warranty">
+                        {{ content }}
+                    </p>
                 </div>
             </transition>
         </div>
@@ -43,6 +60,7 @@
 
 <script>
 import ArrowUp from '../../assets/icons/ArrowUp';
+
 export default {
     name: 'Accordion',
     props: ['header', 'content', 'category'],
@@ -95,7 +113,7 @@ export default {
     cursor: pointer;
 
     @media (min-width: $laptop) {
-        pointer-events: none;
+        /* pointer-events: none; */
         cursor: auto;
     }
 
@@ -121,9 +139,9 @@ export default {
         }
 
         & > p {
-            font-size: 17px;
+            font-size: 16px;
             text-align: left;
-            line-height: 1.3;
+            line-height: 1.4;
         }
     }
 }
@@ -170,7 +188,7 @@ export default {
     width: 70%;
 
     & span {
-        font-size: 18px;
+        font-size: 16px;
         padding: 10px 0;
         display: inline-block;
     }
@@ -185,14 +203,52 @@ export default {
     }
 }
 
-.features-data {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 10px;
+.tech-data {
+    line-height: 0.8;
+}
 
-    & span:first-child {
-        font-weight: 700;
-        padding-bottom: 5px;
+.features-info {
+    & .features-data {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+
+        & span:first-child {
+            font-weight: 700;
+            padding-bottom: 5px;
+        }
+
+        & .feature-title {
+            cursor: help;
+            @media (min-width: $laptop) {
+                font-size: 15px;
+                letter-spacing: 2px;
+                font-weight: 500;
+                transition: color 0.3s;
+                &:hover {
+                    color: #daa520;
+                }
+            }
+        }
+    }
+
+    & ul {
+        @media (min-width: $laptop) {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            flex-wrap: wrap;
+
+            & .feature-content {
+                display: none;
+            }
+
+            & li {
+                flex: 0 0 49%;
+                margin: unset;
+                /* width: 30% !important; */
+            }
+        }
     }
 }
 
@@ -200,5 +256,67 @@ export default {
 .expand-leave-active {
     transition: height 0.5s ease-in-out;
     overflow: hidden;
+}
+
+.tooltip {
+    display: none;
+    @media (min-width: $laptop) {
+        display: block !important;
+        z-index: 10000;
+        width: 400px;
+        border: 1px solid gray;
+        padding: 15px;
+        background: white;
+        font-family: Quicksand;
+
+        & .feature-category-title {
+            margin-bottom: 15px;
+            font-size: 16px;
+            letter-spacing: 2px;
+        }
+
+        & .feature-category-content {
+            font-size: 14px;
+            line-height: 1.2;
+        }
+        .tooltip-inner {
+            color: rgb(33, 33, 33);
+            border-radius: 16px;
+            padding: 5px 10px 4px;
+            z-index: 10000;
+        }
+        .tooltip-arrow {
+            width: 0;
+            height: 0;
+            border-style: solid;
+            position: absolute;
+            margin: 5px;
+            border-color: #666e6f;
+
+            z-index: 1;
+        }
+
+        &[x-placement^='left'] {
+            margin-right: 10px;
+            .tooltip-arrow {
+                border-width: 7px 0 7px 7px;
+                border-top-color: transparent !important;
+                border-right-color: transparent !important;
+                border-bottom-color: transparent !important;
+                right: -7px;
+                top: calc(50% - 5px);
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+.svg-wrapper {
+    display: block;
+    & > svg {
+        width: 100%;
+        fill: red;
+    }
 }
 </style>
