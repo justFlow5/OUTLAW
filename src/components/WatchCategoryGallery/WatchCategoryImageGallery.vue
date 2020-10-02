@@ -26,17 +26,11 @@ import WatchTemplate from '../WatchTemplate';
 export default {
     name: 'WatchCategoryImageGallery',
     props: ['category'],
-    data() {
-        return {
-            selectedWatches: [],
-        };
-    },
 
     components: { WatchTemplate },
 
     computed: {
         ...mapState({
-            // watches: (state) => state.productsStore.watches,
             currentView: (state) => state.appStore.currentView,
         }),
 
@@ -52,13 +46,6 @@ export default {
     methods: {
         ...mapActions({ changeCurrentView: 'appStore/changeCurrentView' }),
     },
-
-    mounted() {
-        // console.log(this.getWatchesByCategory(this.currentView));
-        // this.selectedWatches = this.getWatchesByCategory(this.currentView);
-        // if (this.category)
-        //     this.selectedWatches = this.getWatchesByCategory(this.category);
-    },
 };
 </script>
 
@@ -70,7 +57,7 @@ export default {
 
     & li {
         width: 31%;
-        /* max-height: 600px; */
+
         position: relative;
         background-color: white;
         margin: 20px 10px;

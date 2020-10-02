@@ -84,32 +84,6 @@ export default {
         return {
             isOpen: false,
             watchData: '',
-            test: {
-                test1: {
-                    a: 1,
-                    dupeczka: 'eloszkk',
-                    polka: 'duperka',
-                    kon: 'dasadsdas',
-                },
-                test2: {
-                    sadfasfasdffadsdasfsad: 'eloszkk',
-                    polasdfasdfaska: 'duperka',
-                    kosadfsaddsn: 'dsddsffdsfdsdsfdsfsd',
-                    ddddddd: 'sdaadsasd',
-                    asds: 'sdsdsa',
-                },
-                test3:
-                    'ndsnfjsdnsdkjfsjdk sadj adsjnasj sd nasdj nsadjkfnas jnfas dsasd saddsa jk',
-            },
-
-            deskTest: {
-                par1:
-                    'BANITZ first introduced the Seamaster 300 in 1957 - it was a watch designed especially for divers and professionals who worked underwater',
-                par2:
-                    'More than half a century later, the timepiece makes a comeback in a completely upgraded and enhanced form, ready for a new generation of adventurers. This Seamaster 300 has a sand-blasted black dial with rhodium-plated hands coated with  "vintage" Super-LumiNova. The polished ceramic bezel ring has a Liquidmetal™ diving scale.',
-                par3:
-                    'The 41 mm brushed and polished stainless steel case is presented on a matching bracelet. A transparent caseback makes it possible to see the anti-magnetic OMEGA Master Co-Axial calibre 8400 within.',
-            },
         };
     },
     components: {
@@ -125,8 +99,8 @@ export default {
 
     computed: {
         ...mapState({
-            watches: (state) => state.productsStore.watches,
             currentView: (state) => state.appStore.currentView,
+            isWatchSpeckOpen: (state) => state.appStore.isWatchSpeckOpen,
         }),
 
         ...mapGetters({
@@ -153,10 +127,8 @@ export default {
     mounted() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
         this.watchData = this.getWatchByName(this.currentView);
-
         const currentURL = this.$route.params.id;
-
-        if (currentURL) this.toggleNavbarTheme();
+        if (currentURL && !this.isWatchSpeckOpen) this.toggleNavbarTheme();
     },
     beforeDestroy() {
         this.toggleNavbarTheme();

@@ -1,6 +1,6 @@
 <template>
     <div class="watch-container">
-        <router-link :to="getPath" @click="changeCurrentView(selectParams)">
+        <router-link :to="getPath">
             <div class="img-container">
                 <img :src="getImgPath(title)" :alt="title" />
             </div>
@@ -86,32 +86,12 @@ export default {
             };
         },
 
-        // direct to the
         getPath() {
             if (this.sourceType === 'watchesCategories')
                 return `/${this.category}`.replace(/\s/g, '-');
             else if (this.thumbnailPath === 'sliderGallery')
                 return `/watches/${this.title}`.replace(/\s/g, '-');
             else return `/${this.category}/${this.title}`.replace(/\s/g, '-');
-        },
-
-        // selectProps() {
-        //     console.log('CATEEGOOGIRES');
-        //     if (this.sourceType === 'watchesCategories')
-        //         return this.selectWatchesOfCategory(this.category);
-        //     else return this.selectSingleWatch(this.title);
-        // },
-
-        // selectView() {
-        //     if (this.sourceType === 'watchesCategories')
-        //         return 'WatchCategoryGallery';
-        //     else return 'WatchDetails';
-        // },
-
-        selectParams() {
-            if (this.sourceType === 'watchesCategories')
-                return { payload: this.category };
-            else return { payload: this.getWatchByName(this.title) };
         },
     },
 };

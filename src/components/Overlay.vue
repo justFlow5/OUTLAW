@@ -6,8 +6,6 @@
 </template>
 
 <script>
-// import { mapState } from 'vuex';
-
 export default {
     name: 'WatchesOverlay',
     props: ['title', 'subtitle', 'isHome'],
@@ -27,10 +25,6 @@ export default {
                 return `banitz gem-set watches`;
             else return 'Banitz Watches';
         },
-
-        // ...mapState({
-        //     currentView: (state) => state.appStore.currentView,
-        // }),
     },
 };
 </script>

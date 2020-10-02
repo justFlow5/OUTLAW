@@ -85,7 +85,7 @@ label {
 }
 
 .style-chooser .vs__dropdown-menu {
-    background: #363333;
+    background: #363333 !important;
     border: none;
     cursor: pointer;
     &::-webkit-scrollbar {
@@ -101,8 +101,5 @@ label {
         background: lighten(#363333, 15%);
         color: #daa520;
     }
-}
-
-.vs__dropdown-menu {
 }
 </style>
