@@ -1,7 +1,11 @@
 <template>
     <div class="watch-collection-container">
         <WatchCollection>
-            <li v-for="(watch, index) in watchesData" :key="index">
+            <li
+                v-for="(watch, index) in watchesData"
+                :key="index"
+                @click="changeCurrentView(watch)"
+            >
                 <div class="watch-template-container">
                     <WatchTemplate
                         :title="watch.name"
@@ -19,6 +23,7 @@
 <script>
 import WatchCollection from '../../components/WatchCollection';
 import WatchTemplate from '../../components/WatchTemplate';
+import { mapActions } from 'vuex';
 
 import { watches } from '../../assets/watchesData/watchesData';
 
@@ -29,6 +34,9 @@ export default {
         watchesData: function() {
             return watches;
         },
+    },
+    methods: {
+        ...mapActions({ changeCurrentView: 'appStore/changeCurrentView' }),
     },
 
     components: { WatchCollection, WatchTemplate },

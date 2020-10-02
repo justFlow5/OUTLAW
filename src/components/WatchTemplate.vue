@@ -1,38 +1,17 @@
 <template>
     <div class="watch-container">
-        <router-link
-            :to="{
-                name: 'WatchCategoryGallery',
-                params: { category: category },
-            }"
-        >
+        <router-link :to="getPath" @click="changeCurrentView(selectParams)">
             <div class="img-container">
                 <img :src="getImgPath(title)" :alt="title" />
             </div>
             <div class="description" :class="{ darkTheme: theme }">
-                <h3
-                    :class="{
-                        'font-mod':
-                            placement !== 'menu' &&
-                            sourceType === 'watchesCategories',
-                        'font-mod-watch':
-                            placement !== 'menu' &&
-                            sourceType !== 'watchesCategories',
-                    }"
-                >
+                <h3 :class="headerClassess">
                     {{ upperCaseTitle }}
                 </h3>
                 <span class="shortDesc" :class="shortDescClass">{{
                     subtitle
                 }}</span>
-                <span
-                    class="moreInfo"
-                    :class="{
-                        menu: placement === 'menu',
-                        'font-mod':
-                            this.placement !== 'menu' &&
-                            sourceType !== 'watchesCategories',
-                    }"
+                <span class="moreInfo" :class="subtitleClassess"
                     >Learn more</span
                 >
             </div>
@@ -41,7 +20,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapGetters, mapActions } from 'vuex';
 export default {
     name: 'MenuWatchTemplate',
 
@@ -50,61 +29,31 @@ export default {
         'subtitle',
         'category',
         'theme',
-        'sourceType',
         'placement',
+        'sourceType',
+        'thumbnailPath',
     ],
 
     methods: {
         getImgPath(watch) {
-            return require(`../assets/${this.sourceType}/` + watch + '.webp');
+            if (this.sourceType === 'watchesCategories')
+                return require(`../assets/${this.sourceType}/${watch}.webp`);
+            else if (this.sourceType === 'watchesImages')
+                return require(`../assets/${this.sourceType}/${this.thumbnailPath}/${watch}.webp`);
         },
 
-        // selectWatchesOfCategory(category) {
-        //     let selectedWatches;
-
-        //     if (category === 'men watches')
-        //         selectedWatches = this.watches.filter((watch) => {
-        //             watch.sex === 'men';
-        //         });
-        //     else if (category === 'women watches')
-        //         selectedWatches = this.watches.filter((watch) => {
-        //             watch.sex === 'women';
-        //         });
-        //     else if (category === 'steel watches')
-        //         selectedWatches = this.watches.filter((watch) => {
-        //             watch.material === 'steel';
-        //         });
-        //     else if (category === 'gold watches')
-        //         selectedWatches = this.watches.filter((watch) => {
-        //             watch.material === 'gold';
-        //         });
-        //     else if (category === 'steel and gold')
-        //         selectedWatches = this.watches.filter((watch) => {
-        //             watch.material === 'steel and gold';
-        //         });
-        //     else if (category === 'gem-set watches')
-        //         selectedWatches = this.watches.filter((watch) => {
-        //             watch.material === 'gem-set';
-        //         });
-
-        //     return {
-        //         selectedWatches,
-        //         category,
-        //     };
-        // },
-
-        // selectSingleWatch(name) {
-        //     return this.watches.find((watch) => {
-        //         // console.log(watch.name, name);
-        //         return watch.name === name;
-        //     });
-        // },
+        ...mapActions({ changeCurrentView: 'appStore/changeCurrentView' }),
     },
 
     computed: {
         ...mapState({
             watches: (state) => state.productsStore.watches,
         }),
+
+        ...mapGetters({
+            getWatchByName: 'productsStore/getWatchByName',
+        }),
+
         upperCaseTitle() {
             return this.title.toUpperCase();
         },
@@ -117,21 +66,52 @@ export default {
             };
         },
 
-        getPath() {
-            if (this.sourceType === 'watchesCategories')
-                return `/watches/${this.category}`.replace(/\s/g, '-');
-            else
-                return `/watches/${this.category}/${this.title}`.replace(
-                    /\s/g,
-                    '-'
-                );
+        headerClassess() {
+            return {
+                'font-mod':
+                    this.placement !== 'menu' &&
+                    this.sourceType === 'watchesCategories',
+                'font-mod-watch':
+                    this.placement !== 'menu' &&
+                    this.sourceType !== 'watchesCategories',
+            };
         },
 
-        selectProps() {
-            console.log('CATEEGOOGIRES');
+        subtitleClassess() {
+            return {
+                menu: this.placement === 'menu',
+                'font-mod':
+                    this.placement !== 'menu' &&
+                    this.sourceType !== 'watchesCategories',
+            };
+        },
+
+        // direct to the
+        getPath() {
             if (this.sourceType === 'watchesCategories')
-                return this.selectWatchesOfCategory(this.category);
-            else return this.selectSingleWatch(this.title);
+                return `/${this.category}`.replace(/\s/g, '-');
+            else if (this.thumbnailPath === 'sliderGallery')
+                return `/watches/${this.title}`.replace(/\s/g, '-');
+            else return `/${this.category}/${this.title}`.replace(/\s/g, '-');
+        },
+
+        // selectProps() {
+        //     console.log('CATEEGOOGIRES');
+        //     if (this.sourceType === 'watchesCategories')
+        //         return this.selectWatchesOfCategory(this.category);
+        //     else return this.selectSingleWatch(this.title);
+        // },
+
+        // selectView() {
+        //     if (this.sourceType === 'watchesCategories')
+        //         return 'WatchCategoryGallery';
+        //     else return 'WatchDetails';
+        // },
+
+        selectParams() {
+            if (this.sourceType === 'watchesCategories')
+                return { payload: this.category };
+            else return { payload: this.getWatchByName(this.title) };
         },
     },
 };

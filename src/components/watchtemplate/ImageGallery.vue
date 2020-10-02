@@ -13,10 +13,10 @@
     </slide> -->
 
         <slide>
-            <img src="../../assets/watchesImages/air-king.webp" />
+            <img src="../../assets/watchesImages/sliderGallery/air-king.webp" />
         </slide>
         <slide>
-            <img src="../../assets/watchesImages/cellini.webp" />
+            <img src="../../assets/watchesImages/sliderGallery/cellini.webp" />
         </slide>
     </carousel>
 </template>

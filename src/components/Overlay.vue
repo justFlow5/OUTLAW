@@ -6,13 +6,16 @@
 </template>
 
 <script>
+// import { mapState } from 'vuex';
+
 export default {
     name: 'WatchesOverlay',
     props: ['title', 'subtitle', 'isHome'],
+
     computed: {
         modifyTitle() {
             if (this.title === 'men watches') return `banitz men's watches`;
-            else if (this.title === 'womens watches')
+            else if (this.title === 'women watches')
                 return `banitz women's watches`;
             else if (this.title === 'steel watches')
                 return `banitz steel watches`;
@@ -22,8 +25,12 @@ export default {
                 return `steel & gold watches`;
             else if (this.title === 'gem-set watches')
                 return `banitz gem-set watches`;
-            else return this.title;
+            else return 'Banitz Watches';
         },
+
+        // ...mapState({
+        //     currentView: (state) => state.appStore.currentView,
+        // }),
     },
 };
 </script>

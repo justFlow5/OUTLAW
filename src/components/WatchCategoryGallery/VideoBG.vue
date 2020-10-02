@@ -1,36 +1,33 @@
 <template>
     <video autoplay muted loop>
-        <source :src="src" type="video/mp4" />
+        <source :src="setVideoPath()" type="video/mp4" />
     </video>
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 export default {
     name: 'VideoBackground',
     props: ['category'],
 
-    data() {
-        return {
-            src: '',
-        };
+    computed: {
+        ...mapState({
+            currentView: (state) => state.appStore.currentView,
+        }),
     },
 
     methods: {
         getVideoPath(watch) {
             return require('../../assets/watchVideo/' + watch);
         },
-
         setVideoPath() {
             if (window.matchMedia('(orientation: portrait)').matches) {
-                this.src = this.getVideoPath(`${this.category}.webm`);
+                return this.getVideoPath(`${this.currentView}.webm`);
             } else if (window.matchMedia('(orientation: landscape)').matches) {
-                this.src = this.getVideoPath(`${this.category}Big.webm`);
+                return this.getVideoPath(`${this.currentView}Big.webm`);
             }
         },
-    },
-
-    mounted() {
-        this.setVideoPath();
     },
 };
 </script>

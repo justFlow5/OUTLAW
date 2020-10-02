@@ -1,13 +1,18 @@
 <template>
     <div class="watch-gallery-container">
         <WatchCollection theme="darkTheme">
-            <li v-for="(watch, index) in watchesData" :key="index">
+            <li
+                v-for="(watch, index) in watchesData"
+                :key="index"
+                @click="changeCurrentView(watch)"
+            >
                 <div class="watch-template-container">
                     <WatchTemplate
                         :title="watch.name"
                         :subtitle="watch.ad"
-                        sourceType="watchesImages"
                         placement="gallery"
+                        sourceType="watchesImages"
+                        thumbnailPath="sliderGallery"
                     />
                 </div>
             </li>
@@ -18,6 +23,7 @@
 <script>
 import WatchCollection from '../WatchCollection';
 import WatchTemplate from '../WatchTemplate';
+import { mapActions } from 'vuex';
 import { watches } from '../../assets/watchesData/watchesData';
 
 export default {
@@ -33,15 +39,16 @@ export default {
         WatchCollection,
         WatchTemplate,
     },
+
+    methods: {
+        ...mapActions({ changeCurrentView: 'appStore/changeCurrentView' }),
+    },
 };
 </script>
 <style lang="scss">
 @import '../../styles/mixins.scss';
 
 .watch-gallery-container {
-    @media (min-width: $laptop) {
-        /* margin: 0 70px; */
-    }
     & ul.darkTheme {
         @include scrollbar;
         padding-bottom: 110px;

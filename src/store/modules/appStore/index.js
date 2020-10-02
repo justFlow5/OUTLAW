@@ -6,6 +6,7 @@ const state = {
     isSearchOpen: false,
     isCartOpen: false,
     isWatchSpeckOpen: false,
+    currentView: ''
 
 };
 

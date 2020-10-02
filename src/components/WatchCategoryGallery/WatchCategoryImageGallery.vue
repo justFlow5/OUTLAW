@@ -1,12 +1,18 @@
 <template>
-    <ul class="watch-gallery-container" v-if="selectedWatches.length > 0">
-        <li v-for="(watch, index) in selectedWatches" :key="index">
+    <ul class="watch-gallery-container">
+        <li
+            v-for="(watch, index) in getSelectedWatches"
+            :key="index"
+            @click="changeCurrentView(watch)"
+        >
             <div class="watch-thumbail-container">
                 <WatchTemplate
+                    :category="currentView"
                     :title="watch.name"
                     :subtitle="watch.price"
                     sourceType="watchesImages"
                     placement="gallery"
+                    thumbnailPath="categoryGallery"
                 />
             </div>
         </li>
@@ -14,7 +20,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapGetters, mapActions } from 'vuex';
 import WatchTemplate from '../WatchTemplate';
 
 export default {
@@ -30,43 +36,28 @@ export default {
 
     computed: {
         ...mapState({
-            watches: (state) => state.productsStore.watches,
+            // watches: (state) => state.productsStore.watches,
+            currentView: (state) => state.appStore.currentView,
         }),
-    },
-    methods: {
-        selectWatchesOfCategory(category) {
-            if (category === 'men watches')
-                return this.watches.filter((watch) => watch.sex === 'male');
-            else if (category === 'women watches')
-                return this.watches.filter((watch) => watch.sex === 'female');
-            else if (category === 'steel watches')
-                return this.watches.filter(
-                    (watch) => watch.material === 'steel'
-                );
-            else if (category === 'gold watches')
-                return this.watches.filter(
-                    (watch) => watch.material === 'gold'
-                );
-            else if (category === 'steel and gold')
-                return this.watches.filter(
-                    (watch) => watch.material === 'steel and gold'
-                );
-            else if (category === 'gem-set watches')
-                return this.watches.filter(
-                    (watch) => watch.material === 'gem-set'
-                );
-        },
 
-        selectSingleWatch(name) {
-            return this.watches.find((watch) => {
-                return watch.name === name;
-            });
+        ...mapGetters({
+            getWatchesByCategory: 'productsStore/getWatchesByCategory',
+        }),
+
+        getSelectedWatches() {
+            return this.getWatchesByCategory(this.currentView);
         },
+    },
+
+    methods: {
+        ...mapActions({ changeCurrentView: 'appStore/changeCurrentView' }),
     },
 
     mounted() {
-        this.selectedWatches = this.selectWatchesOfCategory(this.category);
-        console.log('HEYYHAAA', this.selectedWatches);
+        // console.log(this.getWatchesByCategory(this.currentView));
+        // this.selectedWatches = this.getWatchesByCategory(this.currentView);
+        // if (this.category)
+        //     this.selectedWatches = this.getWatchesByCategory(this.category);
     },
 };
 </script>

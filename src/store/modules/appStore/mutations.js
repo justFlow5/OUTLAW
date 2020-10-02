@@ -14,4 +14,9 @@ export default {
     TOGGLE_NAVBAR(state) {
         state.isWatchSpeckOpen = !state.isWatchSpeckOpen;
     },
+
+    CHANGE_CURRENT_VIEW(state, payload) {
+        state.currentView = payload
+
+    }
 };

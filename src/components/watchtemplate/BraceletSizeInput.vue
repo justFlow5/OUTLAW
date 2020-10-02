@@ -2,6 +2,7 @@
     <div>
         <label for="sizes"><slot>Bracelet size:</slot></label>
         <v-select
+            class="style-chooser"
             :options="options"
             v-model="selected"
             placeholder="Select"
@@ -81,5 +82,27 @@ label {
     @media (min-width: $mobileM) {
         height: unset;
     }
+}
+
+.style-chooser .vs__dropdown-menu {
+    background: #363333;
+    border: none;
+    cursor: pointer;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.style-chooser .vs__dropdown-option {
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    transition: all 0.3s;
+    &:hover {
+        background: lighten(#363333, 15%);
+        color: #daa520;
+    }
+}
+
+.vs__dropdown-menu {
 }
 </style>

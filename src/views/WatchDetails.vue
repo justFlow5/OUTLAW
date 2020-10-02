@@ -6,14 +6,19 @@
             </div>
             <div class="product-order">
                 <div class="product-info product-identity">
-                    <h3 class="product-name">Seamaster</h3>
-                    <h3 class="product-collection">Omega Master Axe 300</h3>
+                    <h3 class="product-name">{{ currentView.name }}</h3>
+                    <h3 class="product-collection">
+                        {{ currentView.collection }}
+                    </h3>
                 </div>
 
                 <div class="product-info product-option-primary">
-                    <SingleDetail label="Material" value="Gold" />
+                    <SingleDetail
+                        label="Material"
+                        :value="currentView.material"
+                    />
 
-                    <SingleDetail label="Price" value="18.000.00" />
+                    <SingleDetail label="Price" :value="currentView.price" />
                 </div>
 
                 <div class="product-info product-option-secondary">
@@ -30,20 +35,20 @@
 
         <div class="second-details">
             <div class="watch-description">
-                <Description :description="deskTest" />
+                <Description :description="currentView.description" />
             </div>
             <div class="description-abridged">
                 <div class="warranty-info">
                     <AccordionInfo
                         header="5-year warranty"
-                        :content="test.test3"
+                        :content="getWarrantyInfo"
                         category="warranty"
                     />
                 </div>
                 <div class="features-info">
                     <AccordionInfo
                         header="Features"
-                        :content="test.test1"
+                        :content="currentView.features"
                         category="features"
                     />
                 </div>
@@ -52,7 +57,7 @@
                     <AccordionInfo
                         header="Technical Data"
                         category="tech-data"
-                        :content="test.test2"
+                        :content="currentView.techData"
                     />
                 </div>
             </div>
@@ -71,12 +76,14 @@ import CartButton from '../components/watchtemplate/CartButton';
 import Description from '../components/watchtemplate/Description';
 import WishList from '../components/watchtemplate/WishList';
 
-import { mapActions } from 'vuex';
+import { mapState, mapGetters, mapActions } from 'vuex';
 export default {
     name: 'WatchDetails',
+
     data() {
         return {
             isOpen: false,
+            watchData: '',
             test: {
                 test1: {
                     a: 1,
@@ -116,6 +123,23 @@ export default {
         WishList,
     },
 
+    computed: {
+        ...mapState({
+            watches: (state) => state.productsStore.watches,
+            currentView: (state) => state.appStore.currentView,
+        }),
+
+        ...mapGetters({
+            getWatchByName: 'productsStore/getWatchByName',
+        }),
+
+        getWarrantyInfo() {
+            if (this.currentView.warranty)
+                return 'All BANITZ watches are delivered with a 5-year warranty that covers the repair of any material or manufacturing defects. Please refer to the operating instructions for specific information about the warranty conditions and restrictions.';
+            else return 'There is no warranty';
+        },
+    },
+
     methods: {
         ...mapActions({
             toggleNavbarTheme: 'appStore/toggleNavbarTheme',
@@ -128,7 +152,10 @@ export default {
 
     mounted() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
+        this.watchData = this.getWatchByName(this.currentView);
+
         const currentURL = this.$route.params.id;
+
         if (currentURL) this.toggleNavbarTheme();
     },
     beforeDestroy() {

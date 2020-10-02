@@ -14,4 +14,8 @@ export default {
     toggleNavbarTheme(context) {
         context.commit('TOGGLE_NAVBAR');
     },
+
+    changeCurrentView(context, data) {
+        context.commit('CHANGE_CURRENT_VIEW', data);
+    },
 };

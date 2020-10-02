@@ -4,11 +4,13 @@
             v-for="(category, index) in categories"
             :key="index"
             class="category"
+            @click="changeCurrentView(category)"
         >
             <WatchTemplate
                 :title="category"
-                sourceType="watchesCategories"
                 :category="category"
+                thumbnailPath=""
+                sourceType="watchesCategories"
             />
         </li>
     </ul>
@@ -16,6 +18,8 @@
 
 <script>
 import WatchTemplate from '../WatchTemplate';
+import { mapActions } from 'vuex';
+
 export default {
     name: 'WatchCategory',
     data() {
@@ -30,7 +34,9 @@ export default {
             ],
         };
     },
-
+    methods: {
+        ...mapActions({ changeCurrentView: 'appStore/changeCurrentView' }),
+    },
     components: {
         WatchTemplate,
     },
