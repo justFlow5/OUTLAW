@@ -29,6 +29,9 @@
             />
             <WatchCategories />
         </div>
+        <div class="newCollection-container">
+            <NewCollectionPanel />
+        </div>
     </div>
 </template>
 
@@ -38,6 +41,7 @@ import Overlay from '../components/Overlay';
 import Heading from '../components/watches/Heading';
 import WatchGallery from '../components/watches/WatchGallery';
 import WatchCategories from '../components/watches/WatchCategory';
+import NewCollectionPanel from '../components/newCollection/newCollection';
 
 import { mapState } from 'vuex';
 
@@ -50,6 +54,7 @@ export default {
         Heading,
         WatchGallery,
         WatchCategories,
+        NewCollectionPanel,
     },
 
     computed: {
@@ -143,5 +148,11 @@ export default {
     & span {
         color: #daa520;
     }
+}
+
+.newCollection-container {
+    width: 100vw;
+    height: 600px;
+    position: relative;
 }
 </style>
