@@ -21,12 +21,6 @@ import { mapState, mapGetters } from 'vuex';
 
 export default {
     name: 'WatchCategoryGallery',
-    // data() {
-    //     return {
-    //         watches: [],
-    //     };
-    // },
-
     components: {
         VideoBG,
         Overlay,

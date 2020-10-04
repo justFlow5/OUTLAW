@@ -10,6 +10,11 @@ import { mapState } from 'vuex';
 export default {
     name: 'VideoBackground',
     props: ['category'],
+    // data() {
+    //     return {
+    //         src: '',
+    //     };
+    // },
 
     computed: {
         ...mapState({
@@ -23,11 +28,24 @@ export default {
         },
         setVideoPath() {
             if (window.matchMedia('(orientation: portrait)').matches) {
+                // this.src =
                 return this.getVideoPath(`${this.currentView}.webm`);
             } else if (window.matchMedia('(orientation: landscape)').matches) {
+                // this.src =
                 return this.getVideoPath(`${this.currentView}Big.webm`);
             }
         },
+    },
+
+    created() {
+        window.addEventListener('resize', this.setVideoPath);
+    },
+    destroyed() {
+        window.removeEventListener('resize', this.setVideoPath);
+    },
+
+    mounted() {
+        this.setVideoPath();
     },
 };
 </script>

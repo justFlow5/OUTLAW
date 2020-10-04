@@ -28,6 +28,13 @@ export default {
         },
     },
 
+    created() {
+        window.addEventListener('resize', this.setVideoPath);
+    },
+    destroyed() {
+        window.removeEventListener('resize', this.setVideoPath);
+    },
+
     mounted() {
         this.setVideoPath();
     },
