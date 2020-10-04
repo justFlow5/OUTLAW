@@ -11,11 +11,11 @@
 <script>
 export default {
     name: 'NewCollectionPanel',
-    data() {
-        // return {
-        //     imgPath: '',
-        // };
-    },
+    // data() {
+    // return {
+    //     imgPath: '',
+    // };
+    // },
 
     methods: {},
 
@@ -57,11 +57,6 @@ export default {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
-    & img {
-        width: 100%;
-        height: 100%;
-    }
 }
 
 .text-wrapper {

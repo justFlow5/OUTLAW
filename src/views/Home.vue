@@ -32,6 +32,10 @@
         <div class="newCollection-container">
             <NewCollectionPanel />
         </div>
+
+        <div class="timeline-container">
+            <Timeline />
+        </div>
     </div>
 </template>
 
@@ -42,6 +46,7 @@ import Heading from '../components/watches/Heading';
 import WatchGallery from '../components/watches/WatchGallery';
 import WatchCategories from '../components/watches/WatchCategory';
 import NewCollectionPanel from '../components/newCollection/newCollection';
+import Timeline from '../components/timeline/Timeline';
 
 import { mapState } from 'vuex';
 
@@ -55,6 +60,7 @@ export default {
         WatchGallery,
         WatchCategories,
         NewCollectionPanel,
+        Timeline,
     },
 
     computed: {
@@ -154,5 +160,16 @@ export default {
     width: 100vw;
     height: 600px;
     position: relative;
+}
+
+.timeline-container {
+    height: 500px;
+    width: 100vw;
+    margin: 80px auto 10px;
+
+    @media (min-width: $laptop) {
+        width: 100vw;
+        margin: 80px auto;
+    }
 }
 </style>
