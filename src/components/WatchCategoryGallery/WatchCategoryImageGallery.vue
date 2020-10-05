@@ -58,7 +58,6 @@ export default {
 
     & li {
         width: 31%;
-        /* flex: 0 0 auto; */
 
         position: relative;
         background-color: white;

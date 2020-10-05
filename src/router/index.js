@@ -6,8 +6,7 @@ import WatchCategoryGallery from '../views/WatchCategoryGallery.vue';
 
 Vue.use(VueRouter);
 
-const routes = [
-    {
+const routes = [{
         path: '/',
         name: 'Home',
         component: Home,
@@ -27,6 +26,30 @@ const routes = [
         props: true,
     },
 
+    // &&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    // {
+    //     path: '/classic-collection',
+
+    //     component: WatchCategoryGallery,
+    //     props: true,
+    // },
+
+    // {
+    //     path: '/professional-collection',
+
+    //     component: WatchCategoryGallery,
+    //     props: true,
+    // },
+
+    // {
+    //     path: '/watches/:category/:id',
+    //     // name: 'WatchDetails',
+    //     component: WatchDetails,
+    //     props: true,
+    // },
+
+    // &&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
     {
         path: '/:category/:id',
         // name: 'WatchDetails',
@@ -40,7 +63,7 @@ const routes = [
         // this generates a separate chunk (about.[hash].js) for this route
         // which is lazy-loaded when the route is visited.
         component: () =>
-            import(/* webpackChunkName: "about" */ '../views/About.vue'),
+            import( /* webpackChunkName: "about" */ '../views/About.vue'),
     },
 ];
 

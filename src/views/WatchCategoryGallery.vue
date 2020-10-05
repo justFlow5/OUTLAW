@@ -1,9 +1,18 @@
 <template>
     <div>
         <div class="image-gallery-wrapper">
-            <div class="video-container">
+            <div
+                class="video-container"
+                :class="{
+                    isTyped: currentView === 'classic' || 'professional',
+                }"
+            >
                 <VideoBG :category="currentView" />
-                <Overlay :isHome="false" :title="currentView" />
+                <Overlay
+                    :isHome="false"
+                    :title="currentView"
+                    :subtitle="getSubtitle"
+                />
             </div>
 
             <div class="gallery-container">
@@ -39,6 +48,15 @@ export default {
         ...mapGetters({
             getWatchesByCategory: 'productsStore/getWatchesByCategory',
         }),
+
+        getSubtitle() {
+            if (
+                this.currentView === 'professional' ||
+                this.currentView === 'classic'
+            )
+                return `The Collection`;
+            else return '';
+        },
     },
 };
 </script>
@@ -54,6 +72,10 @@ export default {
     width: 100vw;
     height: 55vh;
     position: relative;
+
+    &.isTyped {
+        height: 75vh;
+    }
 }
 
 .gallery-container {

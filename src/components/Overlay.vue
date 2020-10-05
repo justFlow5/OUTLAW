@@ -23,6 +23,9 @@ export default {
                 return `steel & gold watches`;
             else if (this.title === 'gem-set watches')
                 return `banitz gem-set watches`;
+            else if (this.title === 'classic') return `Classic Watches`;
+            else if (this.title === 'professional')
+                return `Professional Watches`;
             else return 'Banitz Watches';
         },
     },
@@ -57,11 +60,11 @@ export default {
                 width: 60%;
             }
             @media (min-width: $laptop) {
-                width: 70%;
+                width: 80%;
             }
 
             @media (min-width: $laptopL) {
-                width: 60%;
+                width: 80%;
             }
         }
         @media (min-width: $mobileL) {

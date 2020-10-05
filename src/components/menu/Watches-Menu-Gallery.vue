@@ -9,10 +9,11 @@
                 <div class="watch-template-container">
                     <WatchTemplate
                         :title="watch.name"
-                        :subtitle="watch.ad"
+                        :subtitle="watch.tagline"
                         theme="darkTheme"
                         sourceType="watchesImages"
                         placement="menu"
+                        thumbnailPath="sliderGallery"
                     />
                 </div>
             </li>
@@ -23,20 +24,35 @@
 <script>
 import WatchCollection from '../../components/WatchCollection';
 import WatchTemplate from '../../components/WatchTemplate';
-import { mapActions } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
-import { watches } from '../../assets/watchesData/watchesData';
+// import { watches } from '../../assets/watchesData/watchesData';
 
 export default {
     name: 'Watches-Menu-Gallery',
 
     computed: {
-        watchesData: function() {
-            return watches;
+        ...mapGetters({
+            getWatchesByCategory: 'productsStore/getWatchesByCategory',
+        }),
+
+        watchesData() {
+            // const classics = this.getWatchesByCategory('classic', 6);
+            // const professionals = this.getWatchesByCategory('professional', 6);
+            // console.log('classics: ', classics);
+            // return [...classics, ...professionals];
+            return this.getWatchesByCategory('tagline');
         },
     },
     methods: {
         ...mapActions({ changeCurrentView: 'appStore/changeCurrentView' }),
+
+        // getWatches() {
+        //     const classics= getWatchesByCategory('classic', 7)
+        //     const professionals= getWatchesByCategory('professional', 7)
+
+        //     return  [...classics, ...professionals]
+        // }
     },
 
     components: { WatchCollection, WatchTemplate },

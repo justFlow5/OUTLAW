@@ -12,16 +12,26 @@
                     subtitle="Banitz offers a wide assortment of Classic and Professional watch models to suit any wrist. Discover the broad selection of Banitz watches to find a perfect combination of style and functionality."
                 />
                 <div class="gallery-reference">
-                    <h4>Classic Watches — <span>View All</span></h4>
+                    <h4 @click="changeCurrentView('classic')">
+                        Classic Watches —
+                        <router-link to="/classic-collection"
+                            >View All</router-link
+                        >
+                    </h4>
                 </div>
-                <WatchGallery />
+                <WatchGallery category="classic" />
             </div>
 
             <div class="gallery-container">
                 <div class="gallery-reference">
-                    <h4>Professional Watches — <span>View All</span></h4>
+                    <h4 @click="changeCurrentView('professional')">
+                        Professional Watches —
+                        <router-link to="/professional-collection"
+                            >View All</router-link
+                        >
+                    </h4>
                 </div>
-                <WatchGallery />
+                <WatchGallery category="professional" />
             </div>
             <Heading
                 title="Banitz offers a wide range of models ranging from professional to classic watches to suit any wrist."
@@ -48,7 +58,7 @@ import WatchCategories from '../components/watches/WatchCategory';
 import NewCollectionPanel from '../components/newCollection/newCollection';
 import Timeline from '../components/timeline/Timeline';
 
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 
 export default {
     name: 'Home',
@@ -69,6 +79,10 @@ export default {
             isSearchOpen: (state) => state.appStore.isSearchOpen,
             isCartOpen: (state) => state.appStore.isCartOpen,
         }),
+    },
+
+    methods: {
+        ...mapActions({ changeCurrentView: 'appStore/changeCurrentView' }),
     },
 
     watch: {
@@ -139,20 +153,40 @@ export default {
 }
 
 .gallery-container {
-    margin-bottom: 100px;
+    margin-bottom: 75px;
+
+    @media (min-width: $laptop) {
+        margin-bottom: 100px;
+    }
 }
 
 .gallery-reference {
     text-align: left;
-    margin-bottom: 40px;
-    font-size: 18px;
+    /* margin-bottom: 40px; */
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 16px;
     font-family: 'Quicksand', sans-serif;
+
+    @media (min-width: $mobileL) {
+        font-size: 17px;
+    }
+
+    @media (min-width: $laptop) {
+        margin-top: unset;
+        margin-bottom: 40px;
+        font-size: 18px;
+    }
 
     & h4 {
     }
 
-    & span {
-        color: #daa520;
+    & a {
+        color: darken(#daa520, 2%);
+        transition: all 0.3s;
+        &:hover {
+            color: lighten(#daa520, 8%);
+        }
     }
 }
 

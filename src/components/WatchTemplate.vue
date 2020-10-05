@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters, mapActions } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 export default {
     name: 'MenuWatchTemplate',
 
@@ -47,10 +47,6 @@ export default {
     },
 
     computed: {
-        ...mapState({
-            watches: (state) => state.productsStore.watches,
-        }),
-
         ...mapGetters({
             getWatchByName: 'productsStore/getWatchByName',
         }),
@@ -62,7 +58,7 @@ export default {
             return {
                 'gallery-type': this.placement === 'gallery',
                 'font-mod':
-                    this.placement !== 'menu' &&
+                    // this.placement !== 'menu' &&
                     this.sourceType !== 'watchesCategories',
             };
         },
