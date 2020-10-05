@@ -32,7 +32,7 @@ export default {
     position: relative;
 
     @media (min-width: $laptop) {
-        background-attachment: fixed;
+        /* background-attachment: fixed; */
     }
 }
 

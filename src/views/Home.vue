@@ -8,7 +8,7 @@
         <div class="watches-presentation">
             <div class="gallery-container">
                 <Heading
-                    title="Explore the Banitz collection of prestigious, high-precision timepieces."
+                    title="Explore the Banitz collection of prestigious, high-precision timepieces"
                     subtitle="Banitz offers a wide assortment of Classic and Professional watch models to suit any wrist. Discover the broad selection of Banitz watches to find a perfect combination of style and functionality."
                 />
                 <div class="gallery-reference">
@@ -33,11 +33,14 @@
                 </div>
                 <WatchGallery category="professional" />
             </div>
-            <Heading
-                title="Banitz offers a wide range of models ranging from professional to classic watches to suit any wrist."
-                subtitle="Explore the Banitz collection by selecting your favourite models, materials, bezels, dials and bracelets to find the watch that was made for you."
-            />
-            <WatchCategories />
+
+            <div class="categories-container">
+                <Heading
+                    title="Banitz offers a wide range of models ranging from professional to classic watches to suit any wrist"
+                    subtitle="Explore the Banitz collection by selecting your favourite models, materials, bezels, dials and bracelets to find the watch that was made for you."
+                />
+                <WatchCategories />
+            </div>
         </div>
         <div class="newCollection-container">
             <NewCollectionPanel />
@@ -165,6 +168,7 @@ export default {
     /* margin-bottom: 40px; */
     margin-top: 30px;
     margin-bottom: 20px;
+    margin-left: 5px;
     font-size: 16px;
     font-family: 'Quicksand', sans-serif;
 
@@ -174,7 +178,7 @@ export default {
 
     @media (min-width: $laptop) {
         margin-top: unset;
-        margin-bottom: 40px;
+
         font-size: 18px;
     }
 

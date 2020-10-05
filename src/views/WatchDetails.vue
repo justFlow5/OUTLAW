@@ -171,7 +171,7 @@ export default {
 
     @media (min-width: $laptop) {
         flex-direction: row;
-        padding: 0 60px 80px;
+        padding: 0 60px 80px 15px;
     }
 }
 
@@ -205,7 +205,7 @@ export default {
     margin-top: 175px;
 
     @media (min-width: $laptop) {
-        width: 50%;
+        width: 45%;
         margin-top: unset;
     }
 }

@@ -14,8 +14,8 @@
                     :subtitle="getSubtitle"
                 />
             </div>
-
             <div class="gallery-container">
+                <Header />
                 <WatchCategoryImageGallery :category="currentView" />
             </div>
         </div>
@@ -25,6 +25,8 @@
 <script>
 import VideoBG from '../components/WatchCategoryGallery/VideoBG';
 import Overlay from '../components/Overlay';
+import Header from '../components/WatchCategoryGallery/Header';
+
 import WatchCategoryImageGallery from '../components/WatchCategoryGallery/WatchCategoryImageGallery';
 import { mapState, mapGetters } from 'vuex';
 
@@ -33,6 +35,7 @@ export default {
     components: {
         VideoBG,
         Overlay,
+        Header,
         WatchCategoryImageGallery,
     },
 
@@ -81,6 +84,10 @@ export default {
 .gallery-container {
     width: 80%;
     margin: 0 auto;
-    padding: 100px 0;
+    padding: 30px 0;
+
+    @media (min-width: $laptop) {
+        padding: 60px 0;
+    }
 }
 </style>

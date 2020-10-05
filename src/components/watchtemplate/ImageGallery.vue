@@ -53,32 +53,7 @@ import 'vueperslides/dist/vueperslides.css';
 export default {
     name: 'ImageGallery',
     props: ['images'],
-    // data() {
-    //     return {
-    //         slides: [
-    //             {
-    //                 image: require('../../assets/watchesImages/categoryGallery/Air King.webp'),
-    //             },
-    //             {
-    //                 image: require('../../assets/watchesImages/categoryGallery/Air King 2.jpg'),
-    //             },
-    //             {
-    //                 image: require('../../assets/watchesImages/categoryGallery/Air King 3.jpg'),
-    //             },
-    //         ],
-    //     };
-    // },
-
-    // computed() {
-    //     getImgPath(img) {
-    //         return  require(`../../assets/watchesImages/categoryGallery/${img}`)
-    //     }
-    // },
     methods: {
-        // getImgPath(watch) {
-        //     return require(`../../assets/watchesData/` + watch + '.webp');
-        // },
-
         getImgPath(img) {
             return require(`../../assets/watchesImages/categoryGallery/${img}`);
         },
@@ -143,5 +118,13 @@ export default {
 
 .vueperslides__arrow {
     color: #daa520 !important;
+}
+
+.vueperslides:not(.no-shadow):not(.vueperslides--3d)
+    .vueperslides__parallax-wrapper:after,
+.vueperslides:not(.no-shadow):not(.vueperslides--3d)
+    .vueperslides__parallax-wrapper:before {
+    box-shadow: none;
+    /* box-shadow: 0 0 10px; */
 }
 </style>

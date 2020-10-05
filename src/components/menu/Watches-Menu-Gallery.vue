@@ -76,7 +76,7 @@ export default {
         );
 
         @media (min-width: $tablet) {
-            padding-bottom: 75px;
+            padding-bottom: 90px;
         }
     }
 

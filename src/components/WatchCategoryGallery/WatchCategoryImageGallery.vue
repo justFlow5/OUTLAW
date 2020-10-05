@@ -10,7 +10,7 @@
                     :category="currentView"
                     :title="watch.name"
                     :url="watch.thumbnail"
-                    :subtitle="watch.price"
+                    :subtitle="formatPrice(watch.price)"
                     sourceType="watchesImages"
                     placement="gallery"
                     thumbnailPath="categoryGallery"
@@ -46,6 +46,13 @@ export default {
 
     methods: {
         ...mapActions({ changeCurrentView: 'appStore/changeCurrentView' }),
+
+        formatPrice(price) {
+            return price.toLocaleString('en-US', {
+                style: 'currency',
+                currency: 'USD',
+            });
+        },
     },
 };
 </script>
@@ -57,11 +64,19 @@ export default {
     flex-wrap: wrap;
 
     & li {
-        width: 31%;
-
+        width: 100%;
         position: relative;
         background-color: white;
-        margin: 20px 10px;
+        /* margin: 20px 10px; */
+        margin: 20px 5px;
+
+        @media (min-width: $mobileL) {
+            width: 45%;
+        }
+
+        @media (min-width: $laptop) {
+            width: 32%;
+        }
     }
 }
 </style>
