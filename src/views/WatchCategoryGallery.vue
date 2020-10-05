@@ -1,12 +1,21 @@
 <template>
     <div>
         <div class="image-gallery-wrapper">
-            <div class="video-container">
+            <div
+                class="video-container"
+                :class="{
+                    isTyped: currentView === 'classic' || 'professional',
+                }"
+            >
                 <VideoBG :category="currentView" />
-                <Overlay :isHome="false" :title="currentView" />
+                <Overlay
+                    :isHome="false"
+                    :title="currentView"
+                    :subtitle="getSubtitle"
+                />
             </div>
-
             <div class="gallery-container">
+                <Header />
                 <WatchCategoryImageGallery :category="currentView" />
             </div>
         </div>
@@ -16,20 +25,17 @@
 <script>
 import VideoBG from '../components/WatchCategoryGallery/VideoBG';
 import Overlay from '../components/Overlay';
+import Header from '../components/WatchCategoryGallery/Header';
+
 import WatchCategoryImageGallery from '../components/WatchCategoryGallery/WatchCategoryImageGallery';
 import { mapState, mapGetters } from 'vuex';
 
 export default {
     name: 'WatchCategoryGallery',
-    // data() {
-    //     return {
-    //         watches: [],
-    //     };
-    // },
-
     components: {
         VideoBG,
         Overlay,
+        Header,
         WatchCategoryImageGallery,
     },
 
@@ -45,6 +51,15 @@ export default {
         ...mapGetters({
             getWatchesByCategory: 'productsStore/getWatchesByCategory',
         }),
+
+        getSubtitle() {
+            if (
+                this.currentView === 'professional' ||
+                this.currentView === 'classic'
+            )
+                return `The Collection`;
+            else return '';
+        },
     },
 };
 </script>
@@ -60,11 +75,19 @@ export default {
     width: 100vw;
     height: 55vh;
     position: relative;
+
+    &.isTyped {
+        height: 75vh;
+    }
 }
 
 .gallery-container {
     width: 80%;
     margin: 0 auto;
-    padding: 100px 0;
+    padding: 30px 0;
+
+    @media (min-width: $laptop) {
+        padding: 60px 0;
+    }
 }
 </style>

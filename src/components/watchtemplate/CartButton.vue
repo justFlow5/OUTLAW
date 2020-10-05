@@ -90,7 +90,7 @@ $hover-color: rgba(255, 255, 255, 1);
             background-position: 100% 0;
             -webkit-background-clip: text;
             background-clip: text;
-            transition: all 400ms;
+            transition: all 700ms;
         }
     }
 
@@ -104,7 +104,7 @@ $hover-color: rgba(255, 255, 255, 1);
         background: $base-color;
         transform-origin: 100% 0;
         transform: scale3d(0, 1, 1);
-        transition: transform 400ms;
+        transition: transform 400ms ease-in-out;
     }
 
     &:hover {

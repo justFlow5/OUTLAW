@@ -11,13 +11,47 @@
 import Navbar from './components/navbar/NavbarDeep';
 import Footer from './components/footer/Footer';
 import SubscribePanel from './components//subscribePanel/SubscribePanel';
-
+import { mapState } from 'vuex';
 export default {
     name: 'App',
     components: {
         Navbar,
         SubscribePanel,
         Footer,
+    },
+
+    computed: {
+        ...mapState({
+            isMenuOpen: (state) => state.appStore.isMenuOpen,
+            isSearchOpen: (state) => state.appStore.isSearchOpen,
+            isCartOpen: (state) => state.appStore.isCartOpen,
+        }),
+    },
+
+    watch: {
+        isMenuOpen: function() {
+            if (this.isMenuOpen) {
+                document.documentElement.style.overflow = 'hidden';
+                return;
+            }
+            document.documentElement.style.overflow = 'auto';
+        },
+
+        isSearchOpen: function() {
+            if (this.isSearchOpen) {
+                document.documentElement.style.overflow = 'hidden';
+                return;
+            }
+            document.documentElement.style.overflow = 'auto';
+        },
+
+        isCartOpen: function() {
+            if (this.isCartOpen) {
+                document.documentElement.style.overflow = 'hidden';
+                return;
+            }
+            document.documentElement.style.overflow = 'auto';
+        },
     },
 };
 </script>

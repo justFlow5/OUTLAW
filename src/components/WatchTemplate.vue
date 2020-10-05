@@ -4,7 +4,14 @@
             <div class="img-container">
                 <img :src="getImgPath(title)" :alt="title" />
             </div>
-            <div class="description" :class="{ darkTheme: theme }">
+            <div
+                class="description"
+                :class="{
+                    darkTheme: theme,
+                    'category-watches':
+                        this.thumbnailPath === 'categoryGallery',
+                }"
+            >
                 <h3 :class="headerClassess">
                     {{ upperCaseTitle }}
                 </h3>
@@ -20,7 +27,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters, mapActions } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 export default {
     name: 'MenuWatchTemplate',
 
@@ -32,6 +39,7 @@ export default {
         'placement',
         'sourceType',
         'thumbnailPath',
+        'url',
     ],
 
     methods: {
@@ -46,10 +54,6 @@ export default {
     },
 
     computed: {
-        ...mapState({
-            watches: (state) => state.productsStore.watches,
-        }),
-
         ...mapGetters({
             getWatchByName: 'productsStore/getWatchByName',
         }),
@@ -61,8 +65,9 @@ export default {
             return {
                 'gallery-type': this.placement === 'gallery',
                 'font-mod':
-                    this.placement !== 'menu' &&
+                    // this.placement !== 'menu' &&
                     this.sourceType !== 'watchesCategories',
+                'category-watches': this.thumbnailPath === 'categoryGallery',
             };
         },
 
@@ -150,6 +155,10 @@ export default {
             background-color: rgb(33, 33, 33);
             color: rgb(255, 255, 255);
         }
+
+        &.category-watches {
+            align-items: center;
+        }
     }
 
     & img {
@@ -214,6 +223,10 @@ export default {
 
         &.gallery-type {
             display: inline-block;
+        }
+
+        &.category-watches {
+            font-size: 18px;
         }
     }
 

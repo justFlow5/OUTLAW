@@ -42,7 +42,7 @@ export default {
     font-size: 17px;
     line-height: 1.7;
     margin-bottom: 16px;
-    color: #555;
+    color: rgb(0, 0, 0);
 
     @media (min-width: $laptop) {
         text-align: left;

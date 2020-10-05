@@ -5,12 +5,14 @@
             spellcheck="false"
             autocorrect="off"
             type="text"
-            v-model="text"
+            :value="text"
+            @input="$emit('input', $event.target.value)"
+            ref="search-input"
         />
         <div
             class="deleteInput-button"
             :class="{ show: isInputFilled }"
-            @click="deleteText"
+            @click="$emit('delete-input')"
         >
             <DeleteIcon />
         </div>
@@ -21,24 +23,22 @@
 import DeleteIcon from '../../assets/icons/Delete';
 export default {
     name: 'SearchInput',
-    data() {
-        return {
-            text: '',
-        };
-    },
+    props: ['text'],
 
     computed: {
         isInputFilled() {
             return this.text.length > 0;
         },
     },
-
     methods: {
-        deleteText() {
-            this.text = '';
+        focusInput: function(inputRef) {
+            this.$refs[inputRef].focus();
         },
     },
 
+    mounted: function() {
+        this.focusInput('search-input');
+    },
     components: {
         DeleteIcon,
     },

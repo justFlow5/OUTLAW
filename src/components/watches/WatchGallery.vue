@@ -2,14 +2,14 @@
     <div class="watch-gallery-container">
         <WatchCollection theme="darkTheme">
             <li
-                v-for="(watch, index) in watchesData"
+                v-for="(watch, index) in getWatchesData"
                 :key="index"
                 @click="changeCurrentView(watch)"
             >
                 <div class="watch-template-container">
                     <WatchTemplate
                         :title="watch.name"
-                        :subtitle="watch.ad"
+                        :subtitle="watch.tagline"
                         placement="gallery"
                         sourceType="watchesImages"
                         thumbnailPath="sliderGallery"
@@ -23,15 +23,21 @@
 <script>
 import WatchCollection from '../WatchCollection';
 import WatchTemplate from '../WatchTemplate';
-import { mapActions } from 'vuex';
-import { watches } from '../../assets/watchesData/watchesData';
+import { mapState, mapActions } from 'vuex';
+// import { watches } from '../../assets/watchesData/watchesData';
 
 export default {
     name: 'Watch-Collection',
+    props: ['category'],
 
     computed: {
-        watchesData: function() {
-            return watches;
+        ...mapState({
+            watches: (state) => state.productsStore.watches,
+        }),
+        getWatchesData() {
+            return this.watches.filter(
+                (watch) => watch.tagline && watch.type === this.category
+            );
         },
     },
 
