@@ -9,6 +9,7 @@
                 <WatchTemplate
                     :category="currentView"
                     :title="watch.name"
+                    :url="watch.thumbnail"
                     :subtitle="watch.price"
                     sourceType="watchesImages"
                     placement="gallery"
@@ -57,6 +58,7 @@ export default {
 
     & li {
         width: 31%;
+        /* flex: 0 0 auto; */
 
         position: relative;
         background-color: white;

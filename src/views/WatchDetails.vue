@@ -2,7 +2,7 @@
     <div class="watch-wrapper">
         <div class="main-details">
             <div class="watch-presentation">
-                <ImageGallery />
+                <ImageGallery :images="currentView.images" />
             </div>
             <div class="product-order">
                 <div class="product-info product-identity">

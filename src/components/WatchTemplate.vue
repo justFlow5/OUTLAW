@@ -32,6 +32,7 @@ export default {
         'placement',
         'sourceType',
         'thumbnailPath',
+        'url',
     ],
 
     methods: {
