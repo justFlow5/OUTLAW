@@ -1,10 +1,11 @@
 import actions from './actions';
 import mutations from './mutations';
-import { getters } from './getters';
+import {
+    getters
+} from './getters';
 
 const state = {
-    watches: [
-        {
+    watches: [{
             name: 'Air King',
             collection: 'Speedmaster',
             price: 12103000,
@@ -12,19 +13,14 @@ const state = {
             warranty: true,
             description: {
                 par1: `The Air-King dial features a distinctive black dial with a combination of large 3, 6 and 9 numerals marking the hours and a prominent minute scale for navigational time readings. It bears the name Air-King in the same lettering that was designed specifically for the model in the 1950s.`,
-                par2:
-                    'The Air-King epitomizes Rolex’s privileged ties with the world of aviation during its golden age in the 1930s. It was a period when spectacular progress in aircraft performance constantly expanded humanity’s capacity to conquer the skies, and led to the introduction of long-distance flights.',
+                par2: 'The Air-King epitomizes Rolex’s privileged ties with the world of aviation during its golden age in the 1930s. It was a period when spectacular progress in aircraft performance constantly expanded humanity’s capacity to conquer the skies, and led to the introduction of long-distance flights.',
                 par3: `The Air-King pays homage to the golden age of aviation during the 1930s. One of the pioneers of this era, English aviator Charles Douglas Barnard, set a number of flight records. Of the Oyster, he said: “The peculiar qualities of this Rolex watch render it eminently suitable for flying purposes and I propose to use it on all my long-distance flights in the future”.`,
             },
             features: {
-                CHRONOGRAPH:
-                    'Complicated watch with a function for measuring short time periods in addition to its function for permanently displaying hours, minutes and seconds.',
-                TACHYMETER:
-                    'A tachymeter is an instrument for measuring speed. It is a chronograph with a graduated dial on which speed can be read off in kilometres per hour based on 1000 metres distance.',
-                'SMALL SECONDS':
-                    'A hand on a sub-dial which tracks seconds typically it completes a full rotation in one minute.',
-                'TRANSPARENT CASE BACK':
-                    'A transparent case back - frequently made of sapphire - makes it possible to see the movement inside the watch.',
+                CHRONOGRAPH: 'Complicated watch with a function for measuring short time periods in addition to its function for permanently displaying hours, minutes and seconds.',
+                TACHYMETER: 'A tachymeter is an instrument for measuring speed. It is a chronograph with a graduated dial on which speed can be read off in kilometres per hour based on 1000 metres distance.',
+                'SMALL SECONDS': 'A hand on a sub-dial which tracks seconds typically it completes a full rotation in one minute.',
+                'TRANSPARENT CASE BACK': 'A transparent case back - frequently made of sapphire - makes it possible to see the movement inside the watch.',
                 'UNIDIRECTIONAL ROTATING BEZEL': `A bezel which turns in only one direction. Particularly useful for divers who cannot accidentally rotate it in the wrong direction, which could cause them to miscalculate their dive times. A rotating bezel makes it easy to measure elapsed time.`,
             },
 
@@ -34,8 +30,7 @@ const state = {
                 Case: 'gem-set',
                 'Case diameter': '40 mm',
                 'Dial colour': 'black',
-                Crystal:
-                    'Scratch-resistant sapphire, Cyclops lens over the date',
+                Crystal: 'Scratch-resistant sapphire, Cyclops lens over the date',
                 'Water resistance': '10 bar (100 metres / 130 feet)',
             },
 
@@ -60,20 +55,15 @@ const state = {
             warranty: true,
             description: {
                 par1: `The Oyster Perpetual Milgauss is a pioneering anti-magnetic watch designed to meet the demands of engineers and scientists.`,
-                par2:
-                    'Created in 1956, it can withstand magnetic fields of up to 1,000 gauss. Hence its name, “mille”, which is French for one thousand. The first watch of its kind, the Milgauss combines unique aesthetics and scientific heritage.',
+                par2: 'Created in 1956, it can withstand magnetic fields of up to 1,000 gauss. Hence its name, “mille”, which is French for one thousand. The first watch of its kind, the Milgauss combines unique aesthetics and scientific heritage.',
                 par3: `The green crystal marked a first in watchmaking when it was introduced by Rolex on the revamped version of the Milgauss in 2007. It is made of virtually scratchproof synthetic sapphire and ensures optimal legibility.`,
                 par4: `Over time, the Milgauss has remained faithful to its scientific heritage and distinctive aesthetics. With its evocative orange seconds hand shaped like a lightning bolt – inspired by the original model – combined with its clean lines, this watch is recognisable at a glance.`,
             },
             features: {
-                CHRONOGRAPH:
-                    'Complicated watch with a function for measuring short time periods in addition to its function for permanently displaying hours, minutes and seconds.',
-                TACHYMETER:
-                    'A tachymeter is an instrument for measuring speed. It is a chronograph with a graduated dial on which speed can be read off in kilometres per hour based on 1000 metres distance.',
-                'SMALL SECONDS':
-                    'A hand on a sub-dial which tracks seconds typically it completes a full rotation in one minute.',
-                'TRANSPARENT CASE BACK':
-                    'A transparent case back - frequently made of sapphire - makes it possible to see the movement inside the watch.',
+                CHRONOGRAPH: 'Complicated watch with a function for measuring short time periods in addition to its function for permanently displaying hours, minutes and seconds.',
+                TACHYMETER: 'A tachymeter is an instrument for measuring speed. It is a chronograph with a graduated dial on which speed can be read off in kilometres per hour based on 1000 metres distance.',
+                'SMALL SECONDS': 'A hand on a sub-dial which tracks seconds typically it completes a full rotation in one minute.',
+                'TRANSPARENT CASE BACK': 'A transparent case back - frequently made of sapphire - makes it possible to see the movement inside the watch.',
                 'UNIDIRECTIONAL ROTATING BEZEL': `A bezel which turns in only one direction. Particularly useful for divers who cannot accidentally rotate it in the wrong direction, which could cause them to miscalculate their dive times. A rotating bezel makes it easy to measure elapsed time.`,
             },
 
@@ -83,8 +73,7 @@ const state = {
                 Case: 'steel',
                 'Case diameter': '40 mm',
                 'Dial colour': 'blue',
-                Crystal:
-                    'Scratch-resistant sapphire, Cyclops lens over the date',
+                Crystal: 'Scratch-resistant sapphire, Cyclops lens over the date',
                 'Water resistance': '10 bar (100 metres / 130 feet)',
             },
 
@@ -108,19 +97,14 @@ const state = {
             warranty: true,
             description: {
                 par1: `The Cellini Moonphase in 18 ct Everose gold with a Leather strap.`,
-                par2:
-                    'This model features an exclusive display of the phases of the moon. Its White dial with a blue enamel disc at 6 o’clock displays the lunar cycle where the full moon is depicted by a meteorite applique.',
+                par2: 'This model features an exclusive display of the phases of the moon. Its White dial with a blue enamel disc at 6 o’clock displays the lunar cycle where the full moon is depicted by a meteorite applique.',
                 par3: `The Cellini Moonphase has a white lacquer dial with a blue enamelled disc at 6 o’clock showing the full moon and the new moon, the former depicted by a meteorite applique and the latter by a silver ring. The moonphase is read via the indicator set at 12 o’clock on the subdial, as the full moon and new moon rotate through the lunar cycle. The Cellini Moonphase also displays the date around the circumference of the dial, via a centre hand with a crescent moon at its tip.`,
             },
             features: {
-                CHRONOGRAPH:
-                    'Complicated watch with a function for measuring short time periods in addition to its function for permanently displaying hours, minutes and seconds.',
-                TACHYMETER:
-                    'A tachymeter is an instrument for measuring speed. It is a chronograph with a graduated dial on which speed can be read off in kilometres per hour based on 1000 metres distance.',
-                'SMALL SECONDS':
-                    'A hand on a sub-dial which tracks seconds typically it completes a full rotation in one minute.',
-                'TRANSPARENT CASE BACK':
-                    'A transparent case back - frequently made of sapphire - makes it possible to see the movement inside the watch.',
+                CHRONOGRAPH: 'Complicated watch with a function for measuring short time periods in addition to its function for permanently displaying hours, minutes and seconds.',
+                TACHYMETER: 'A tachymeter is an instrument for measuring speed. It is a chronograph with a graduated dial on which speed can be read off in kilometres per hour based on 1000 metres distance.',
+                'SMALL SECONDS': 'A hand on a sub-dial which tracks seconds typically it completes a full rotation in one minute.',
+                'TRANSPARENT CASE BACK': 'A transparent case back - frequently made of sapphire - makes it possible to see the movement inside the watch.',
                 'UNIDIRECTIONAL ROTATING BEZEL': `A bezel which turns in only one direction. Particularly useful for divers who cannot accidentally rotate it in the wrong direction, which could cause them to miscalculate their dive times. A rotating bezel makes it easy to measure elapsed time.`,
             },
 
@@ -130,8 +114,7 @@ const state = {
                 Case: 'gold',
                 'Case diameter': '39 mm',
                 'Dial colour': 'white',
-                Crystal:
-                    'Scratch-resistant sapphire, Cyclops lens over the date',
+                Crystal: 'Scratch-resistant sapphire, Cyclops lens over the date',
                 'Water resistance': '10 bar (100 metres / 130 feet)',
             },
 
@@ -156,19 +139,14 @@ const state = {
             warranty: true,
             description: {
                 par1: `The Oyster Perpetual Yacht-Master II in Oystersteel with an Oyster bracelet and a bidirectional rotatable bezel with a blue Cerachrom insert.`,
-                par2:
-                    'The only chronograph in the world with a mechanical memory, the Yacht-Master II with its bezel acting as a programmable countdown, is an essential tool for skippers to gauge their best course of action.',
+                par2: 'The only chronograph in the world with a mechanical memory, the Yacht-Master II with its bezel acting as a programmable countdown, is an essential tool for skippers to gauge their best course of action.',
                 par3: `Rolex achieved perfection when it turned its attention to redefining the purpose and functionality of the bezel. Typically, a bezel operates independently from the internal mechanism; however, the Ring Command bezel in the Yacht-Master II regatta chronograph operates in conjunction with it. As a mechanical component linked to the movement, the bezel literally acts as the key to the programmable countdown, allowing it to be set and synchronised to the sequence of race start times. Complex in design, but simple in use, it is functionally beautiful.`,
             },
             features: {
-                CHRONOGRAPH:
-                    'Complicated watch with a function for measuring short time periods in addition to its function for permanently displaying hours, minutes and seconds.',
-                TACHYMETER:
-                    'A tachymeter is an instrument for measuring speed. It is a chronograph with a graduated dial on which speed can be read off in kilometres per hour based on 1000 metres distance.',
-                'SMALL SECONDS':
-                    'A hand on a sub-dial which tracks seconds typically it completes a full rotation in one minute.',
-                'TRANSPARENT CASE BACK':
-                    'A transparent case back - frequently made of sapphire - makes it possible to see the movement inside the watch.',
+                CHRONOGRAPH: 'Complicated watch with a function for measuring short time periods in addition to its function for permanently displaying hours, minutes and seconds.',
+                TACHYMETER: 'A tachymeter is an instrument for measuring speed. It is a chronograph with a graduated dial on which speed can be read off in kilometres per hour based on 1000 metres distance.',
+                'SMALL SECONDS': 'A hand on a sub-dial which tracks seconds typically it completes a full rotation in one minute.',
+                'TRANSPARENT CASE BACK': 'A transparent case back - frequently made of sapphire - makes it possible to see the movement inside the watch.',
                 'UNIDIRECTIONAL ROTATING BEZEL': `A bezel which turns in only one direction. Particularly useful for divers who cannot accidentally rotate it in the wrong direction, which could cause them to miscalculate their dive times. A rotating bezel makes it easy to measure elapsed time.`,
                 'HELIUM ESCAPE VALVE': `Decompression system which allows helium to escape from inside the watch when the watch is worn for professional use in pressure chambers. (Long-term underwater work, crude oil exploration, etc.)`,
             },
@@ -179,8 +157,7 @@ const state = {
                 Case: 'steel',
                 'Case diameter': '44 mm',
                 'Dial colour': 'white',
-                Crystal:
-                    'Scratch-resistant sapphire, Cyclops lens over the date',
+                Crystal: 'Scratch-resistant sapphire, Cyclops lens over the date',
                 'Water resistance': '10 bar (100 metres / 130 feet)',
             },
 
@@ -205,19 +182,14 @@ const state = {
             warranty: true,
             description: {
                 par1: `This Oyster Perpetual Cosmograph Daytona in 18 ct Everose gold with a pink and black dial and an Oysterflex bracelet, features a Black Cerachrom bezel and engraved tachymetric scale.`,
-                par2:
-                    'This chronograph was designed to be the ultimate timing tool for endurance racing drivers. More than 50 years after its creation, the Cosmograph Daytona remains in a class of its own among sport chronographs and continues to transcend time.',
+                par2: 'This chronograph was designed to be the ultimate timing tool for endurance racing drivers. More than 50 years after its creation, the Cosmograph Daytona remains in a class of its own among sport chronographs and continues to transcend time.',
                 par3: `A key part of the model’s identity is the bezel engraved with a tachymetric scale for measuring average speeds of up to 400 miles or kilometres per hour. Blending of high technology with sleek aesthetics, the black bezel is reminiscent of the 1965 model that was fitted with a black Plexiglas bezel insert.`,
             },
             features: {
-                CHRONOGRAPH:
-                    'Complicated watch with a function for measuring short time periods in addition to its function for permanently displaying hours, minutes and seconds.',
-                TACHYMETER:
-                    'A tachymeter is an instrument for measuring speed. It is a chronograph with a graduated dial on which speed can be read off in kilometres per hour based on 1000 metres distance.',
-                'SMALL SECONDS':
-                    'A hand on a sub-dial which tracks seconds typically it completes a full rotation in one minute.',
-                'TRANSPARENT CASE BACK':
-                    'A transparent case back - frequently made of sapphire - makes it possible to see the movement inside the watch.',
+                CHRONOGRAPH: 'Complicated watch with a function for measuring short time periods in addition to its function for permanently displaying hours, minutes and seconds.',
+                TACHYMETER: 'A tachymeter is an instrument for measuring speed. It is a chronograph with a graduated dial on which speed can be read off in kilometres per hour based on 1000 metres distance.',
+                'SMALL SECONDS': 'A hand on a sub-dial which tracks seconds typically it completes a full rotation in one minute.',
+                'TRANSPARENT CASE BACK': 'A transparent case back - frequently made of sapphire - makes it possible to see the movement inside the watch.',
                 'UNIDIRECTIONAL ROTATING BEZEL': `A bezel which turns in only one direction. Particularly useful for divers who cannot accidentally rotate it in the wrong direction, which could cause them to miscalculate their dive times. A rotating bezel makes it easy to measure elapsed time.`,
                 'HELIUM ESCAPE VALVE': `Decompression system which allows helium to escape from inside the watch when the watch is worn for professional use in pressure chambers. (Long-term underwater work, crude oil exploration, etc.)`,
             },
@@ -228,8 +200,7 @@ const state = {
                 Case: 'steel',
                 'Case diameter': '44 mm',
                 'Dial colour': 'brown',
-                Crystal:
-                    'Scratch-resistant sapphire, Cyclops lens over the date',
+                Crystal: 'Scratch-resistant sapphire, Cyclops lens over the date',
                 'Water resistance': '10 bar (100 metres / 130 feet)',
             },
 
@@ -252,19 +223,14 @@ const state = {
             warranty: true,
             description: {
                 par1: `The Oyster Perpetual Sky-Dweller in 18 ct yellow gold with a bright black dial and an Oysterflex bracelet.`,
-                par2:
-                    'This distinctive watch is characterized by its second time zone display on an off-centre disc on the dial. Furthermore, its innovative system for setting the functions, using the rotatable Ring Command bezel, is unique to Rolex. ',
+                par2: 'This distinctive watch is characterized by its second time zone display on an off-centre disc on the dial. Furthermore, its innovative system for setting the functions, using the rotatable Ring Command bezel, is unique to Rolex. ',
                 par3: `A fixed inverted red triangle on the dial points to the chosen reference time – the time at home or at the traveller’s usual workplace – on the off-centre 24-hour disc. At a glance, this 24-hour display clearly distinguishes daytime hours from night-time hours in the other time zone. The dials now feature rectangular index hour markers and longer hands, as well as a Chromalight display with long-lasting luminescence, which enhances legibility.`,
             },
             features: {
-                CHRONOGRAPH:
-                    'Complicated watch with a function for measuring short time periods in addition to its function for permanently displaying hours, minutes and seconds.',
-                TACHYMETER:
-                    'A tachymeter is an instrument for measuring speed. It is a chronograph with a graduated dial on which speed can be read off in kilometres per hour based on 1000 metres distance.',
-                'SMALL SECONDS':
-                    'A hand on a sub-dial which tracks seconds typically it completes a full rotation in one minute.',
-                'TRANSPARENT CASE BACK':
-                    'A transparent case back - frequently made of sapphire - makes it possible to see the movement inside the watch.',
+                CHRONOGRAPH: 'Complicated watch with a function for measuring short time periods in addition to its function for permanently displaying hours, minutes and seconds.',
+                TACHYMETER: 'A tachymeter is an instrument for measuring speed. It is a chronograph with a graduated dial on which speed can be read off in kilometres per hour based on 1000 metres distance.',
+                'SMALL SECONDS': 'A hand on a sub-dial which tracks seconds typically it completes a full rotation in one minute.',
+                'TRANSPARENT CASE BACK': 'A transparent case back - frequently made of sapphire - makes it possible to see the movement inside the watch.',
                 'UNIDIRECTIONAL ROTATING BEZEL': `A bezel which turns in only one direction. Particularly useful for divers who cannot accidentally rotate it in the wrong direction, which could cause them to miscalculate their dive times. A rotating bezel makes it easy to measure elapsed time.`,
             },
 
@@ -274,8 +240,7 @@ const state = {
                 Case: 'gold',
                 'Case diameter': '42 mm',
                 'Dial colour': 'black',
-                Crystal:
-                    'Scratch-resistant sapphire, Cyclops lens over the date',
+                Crystal: 'Scratch-resistant sapphire, Cyclops lens over the date',
                 'Water resistance': '10 bar (100 metres / 130 feet)',
             },
 
@@ -300,19 +265,14 @@ const state = {
             warranty: true,
             description: {
                 par1: `The Oyster Perpetual Sea-Dweller in Yellow Rolesor with a black ceramic bezel and an Oyster bracelet.`,
-                par2:
-                    'It features a distinctive black dial and large luminescent hour markers. Waterproof to a depth of 4,000 feet (1,220 metres) with a unidirectional 60-minute rotatable bezel, the Rolex Sea-Dweller is amongst the ultra-resistant divers’ watches engineered by Rolex for deep-sea exploration. ',
+                par2: 'It features a distinctive black dial and large luminescent hour markers. Waterproof to a depth of 4,000 feet (1,220 metres) with a unidirectional 60-minute rotatable bezel, the Rolex Sea-Dweller is amongst the ultra-resistant divers’ watches engineered by Rolex for deep-sea exploration. ',
                 par3: `The 60-minute graduated, unidirectional rotatable bezel of the Sea-Dweller enables divers to precisely and safely monitor their dive and decompression times. It is equipped with a patented black Cerachrom bezel insert manufactured by Rolex in a virtually scratchproof ceramic whose colour is unaffected by ultraviolet rays. The graduation is coated via PVD (Physical Vapour Deposition) with a thin layer of gold. The sleek black dial features large Chromalight hour markers and hands, filled with luminescent material that emits a long-lasting blue glow for excellent legibility in dark conditions.`,
             },
             features: {
-                CHRONOGRAPH:
-                    'Complicated watch with a function for measuring short time periods in addition to its function for permanently displaying hours, minutes and seconds.',
-                TACHYMETER:
-                    'A tachymeter is an instrument for measuring speed. It is a chronograph with a graduated dial on which speed can be read off in kilometres per hour based on 1000 metres distance.',
-                'SMALL SECONDS':
-                    'A hand on a sub-dial which tracks seconds typically it completes a full rotation in one minute.',
-                'TRANSPARENT CASE BACK':
-                    'A transparent case back - frequently made of sapphire - makes it possible to see the movement inside the watch.',
+                CHRONOGRAPH: 'Complicated watch with a function for measuring short time periods in addition to its function for permanently displaying hours, minutes and seconds.',
+                TACHYMETER: 'A tachymeter is an instrument for measuring speed. It is a chronograph with a graduated dial on which speed can be read off in kilometres per hour based on 1000 metres distance.',
+                'SMALL SECONDS': 'A hand on a sub-dial which tracks seconds typically it completes a full rotation in one minute.',
+                'TRANSPARENT CASE BACK': 'A transparent case back - frequently made of sapphire - makes it possible to see the movement inside the watch.',
                 'UNIDIRECTIONAL ROTATING BEZEL': `A bezel which turns in only one direction. Particularly useful for divers who cannot accidentally rotate it in the wrong direction, which could cause them to miscalculate their dive times. A rotating bezel makes it easy to measure elapsed time.`,
             },
 
@@ -322,8 +282,7 @@ const state = {
                 Case: 'gold',
                 'Case diameter': '43 mm',
                 'Dial colour': 'black',
-                Crystal:
-                    'Scratch-resistant sapphire, Cyclops lens over the date',
+                Crystal: 'Scratch-resistant sapphire, Cyclops lens over the date',
                 'Water resistance': '10 bar (100 metres / 130 feet)',
             },
 
@@ -348,19 +307,14 @@ const state = {
             warranty: true,
             description: {
                 par1: `The Oyster Perpetual Explorer in Oystersteel features a distinctive black dial with characteristic 3, 6, and 9 numerals in Chromalight.`,
-                par2:
-                    'Its highly legible hour markers, extremely resistant Oystersteel and waterproofness have made it a tool watch for exploration.',
+                par2: 'Its highly legible hour markers, extremely resistant Oystersteel and waterproofness have made it a tool watch for exploration.',
                 par3: `The dial is the distinctive face of a Rolex watch, the feature most responsible for its identity and readability. The latest Explorer model’s characteristic 3, 6 and 9 numerals are now filled with a luminescent material emitting a long-lasting blue glow, like the hour markers and hands. Like all Rolex timepieces, the Explorer's dial is designed and manufactured in-house, largely by hand to ensure perfection.`,
             },
             features: {
-                CHRONOGRAPH:
-                    'Complicated watch with a function for measuring short time periods in addition to its function for permanently displaying hours, minutes and seconds.',
-                TACHYMETER:
-                    'A tachymeter is an instrument for measuring speed. It is a chronograph with a graduated dial on which speed can be read off in kilometres per hour based on 1000 metres distance.',
-                'SMALL SECONDS':
-                    'A hand on a sub-dial which tracks seconds typically it completes a full rotation in one minute.',
-                'TRANSPARENT CASE BACK':
-                    'A transparent case back - frequently made of sapphire - makes it possible to see the movement inside the watch.',
+                CHRONOGRAPH: 'Complicated watch with a function for measuring short time periods in addition to its function for permanently displaying hours, minutes and seconds.',
+                TACHYMETER: 'A tachymeter is an instrument for measuring speed. It is a chronograph with a graduated dial on which speed can be read off in kilometres per hour based on 1000 metres distance.',
+                'SMALL SECONDS': 'A hand on a sub-dial which tracks seconds typically it completes a full rotation in one minute.',
+                'TRANSPARENT CASE BACK': 'A transparent case back - frequently made of sapphire - makes it possible to see the movement inside the watch.',
                 'UNIDIRECTIONAL ROTATING BEZEL': `A bezel which turns in only one direction. Particularly useful for divers who cannot accidentally rotate it in the wrong direction, which could cause them to miscalculate their dive times. A rotating bezel makes it easy to measure elapsed time.`,
             },
 
@@ -370,8 +324,7 @@ const state = {
                 Case: 'steel',
                 'Case diameter': '43 mm',
                 'Dial colour': 'black',
-                Crystal:
-                    'Scratch-resistant sapphire, Cyclops lens over the date',
+                Crystal: 'Scratch-resistant sapphire, Cyclops lens over the date',
                 'Water resistance': '10 bar (100 metres / 130 feet)',
             },
 
@@ -395,19 +348,14 @@ const state = {
             warranty: true,
             description: {
                 par1: `The Oyster Perpetual 41 with a silver dial and an Oyster bracelet.`,
-                par2:
-                    'The aesthetics of the Oyster Perpetual models set them apart as symbols of universal and classic style. They embody timeless form and function, firmly rooted in the pioneering origins of Rolex.',
+                par2: 'The aesthetics of the Oyster Perpetual models set them apart as symbols of universal and classic style. They embody timeless form and function, firmly rooted in the pioneering origins of Rolex.',
                 par3: `The sunray finish on Rolex dials is a predominant method in watchmaking of achieving pure metallic colour dials such as shades of silver grey, rhodium or ruthenium. Silver-plating is mostly used as a base layer for the sunray finish, where further colour is added to the prepared dial. Sometimes colours such as champagne are achieved through electroplating with more than half a dozen different metals.`,
             },
             features: {
-                CHRONOGRAPH:
-                    'Complicated watch with a function for measuring short time periods in addition to its function for permanently displaying hours, minutes and seconds.',
-                TACHYMETER:
-                    'A tachymeter is an instrument for measuring speed. It is a chronograph with a graduated dial on which speed can be read off in kilometres per hour based on 1000 metres distance.',
-                'SMALL SECONDS':
-                    'A hand on a sub-dial which tracks seconds typically it completes a full rotation in one minute.',
-                'TRANSPARENT CASE BACK':
-                    'A transparent case back - frequently made of sapphire - makes it possible to see the movement inside the watch.',
+                CHRONOGRAPH: 'Complicated watch with a function for measuring short time periods in addition to its function for permanently displaying hours, minutes and seconds.',
+                TACHYMETER: 'A tachymeter is an instrument for measuring speed. It is a chronograph with a graduated dial on which speed can be read off in kilometres per hour based on 1000 metres distance.',
+                'SMALL SECONDS': 'A hand on a sub-dial which tracks seconds typically it completes a full rotation in one minute.',
+                'TRANSPARENT CASE BACK': 'A transparent case back - frequently made of sapphire - makes it possible to see the movement inside the watch.',
                 'UNIDIRECTIONAL ROTATING BEZEL': `A bezel which turns in only one direction. Particularly useful for divers who cannot accidentally rotate it in the wrong direction, which could cause them to miscalculate their dive times. A rotating bezel makes it easy to measure elapsed time.`,
             },
 
@@ -417,8 +365,7 @@ const state = {
                 Case: 'steel',
                 'Case diameter': '41 mm',
                 'Dial colour': 'silver',
-                Crystal:
-                    'Scratch-resistant sapphire, Cyclops lens over the date',
+                Crystal: 'Scratch-resistant sapphire, Cyclops lens over the date',
                 'Water resistance': '10 bar (100 metres / 130 feet)',
             },
 
@@ -442,19 +389,14 @@ const state = {
             warranty: true,
             description: {
                 par1: `The Oyster Perpetual Submariner in Oystersteel with a Black Cerachrom bezel and a black dial with large luminescent hour markers.`,
-                par2:
-                    'It features a unidirectional rotatable bezel with Cerachrom insert and solid-link Oyster bracelet. The latest generation Submariner and Submariner Date remain faithful to the original model launched in 1953. In watchmaking, the Submariner represented a historic turning point; it set the standard for divers’ watches.',
+                par2: 'It features a unidirectional rotatable bezel with Cerachrom insert and solid-link Oyster bracelet. The latest generation Submariner and Submariner Date remain faithful to the original model launched in 1953. In watchmaking, the Submariner represented a historic turning point; it set the standard for divers’ watches.',
                 par3: `The Submariner's rotatable bezel is a key functionality of the watch. Its engraved 60-minute graduations allow a diver to accurately and safely monitor diving time and decompression stops. Manufactured by Rolex from a hard, corrosion-resistant ceramic, the Cerachrom bezel insert is virtually scratchproof. A luminescent capsule on the zero marker ensures legibility, no matter how dark the environment. The bezel’s knurled edge is carefully designed to offer excellent grip under water, even with gloves.`,
             },
             features: {
-                CHRONOGRAPH:
-                    'Complicated watch with a function for measuring short time periods in addition to its function for permanently displaying hours, minutes and seconds.',
-                TACHYMETER:
-                    'A tachymeter is an instrument for measuring speed. It is a chronograph with a graduated dial on which speed can be read off in kilometres per hour based on 1000 metres distance.',
-                'SMALL SECONDS':
-                    'A hand on a sub-dial which tracks seconds typically it completes a full rotation in one minute.',
-                'TRANSPARENT CASE BACK':
-                    'A transparent case back - frequently made of sapphire - makes it possible to see the movement inside the watch.',
+                CHRONOGRAPH: 'Complicated watch with a function for measuring short time periods in addition to its function for permanently displaying hours, minutes and seconds.',
+                TACHYMETER: 'A tachymeter is an instrument for measuring speed. It is a chronograph with a graduated dial on which speed can be read off in kilometres per hour based on 1000 metres distance.',
+                'SMALL SECONDS': 'A hand on a sub-dial which tracks seconds typically it completes a full rotation in one minute.',
+                'TRANSPARENT CASE BACK': 'A transparent case back - frequently made of sapphire - makes it possible to see the movement inside the watch.',
                 'UNIDIRECTIONAL ROTATING BEZEL': `A bezel which turns in only one direction. Particularly useful for divers who cannot accidentally rotate it in the wrong direction, which could cause them to miscalculate their dive times. A rotating bezel makes it easy to measure elapsed time.`,
             },
 
@@ -464,8 +406,7 @@ const state = {
                 Case: 'steel',
                 'Case diameter': '41 mm',
                 'Dial colour': 'black',
-                Crystal:
-                    'Scratch-resistant sapphire, Cyclops lens over the date',
+                Crystal: 'Scratch-resistant sapphire, Cyclops lens over the date',
                 'Water resistance': '10 bar (100 metres / 130 feet)',
             },
 
@@ -490,19 +431,14 @@ const state = {
             warranty: true,
             description: {
                 par1: `The Oyster Perpetual Day-Date 40 in 18 ct white gold with an olive-green dial, Fluted bezel and a President bracelet.`,
-                par2:
-                    'The Day-Date was the first watch to indicate the day of the week spelt out in full when it was first presented in 1956.',
+                par2: 'The Day-Date was the first watch to indicate the day of the week spelt out in full when it was first presented in 1956.',
                 par3: `The Rolex fluted bezel is a mark of distinction. Originally, the fluting of the Oyster bezel had a functional purpose: it served to screw the bezel onto the case helping to ensure the waterproofness of the watch. It was therefore identical to the fluting on the case back, which was also screwed onto the case for waterproofness, using specific Rolex tools. Over time, the fluting became an aesthetic element, a genuine Rolex signature feature. Today the fluted bezel is a mark of distinction, always in gold.`,
             },
             features: {
-                CHRONOGRAPH:
-                    'Complicated watch with a function for measuring short time periods in addition to its function for permanently displaying hours, minutes and seconds.',
-                TACHYMETER:
-                    'A tachymeter is an instrument for measuring speed. It is a chronograph with a graduated dial on which speed can be read off in kilometres per hour based on 1000 metres distance.',
-                'SMALL SECONDS':
-                    'A hand on a sub-dial which tracks seconds typically it completes a full rotation in one minute.',
-                'TRANSPARENT CASE BACK':
-                    'A transparent case back - frequently made of sapphire - makes it possible to see the movement inside the watch.',
+                CHRONOGRAPH: 'Complicated watch with a function for measuring short time periods in addition to its function for permanently displaying hours, minutes and seconds.',
+                TACHYMETER: 'A tachymeter is an instrument for measuring speed. It is a chronograph with a graduated dial on which speed can be read off in kilometres per hour based on 1000 metres distance.',
+                'SMALL SECONDS': 'A hand on a sub-dial which tracks seconds typically it completes a full rotation in one minute.',
+                'TRANSPARENT CASE BACK': 'A transparent case back - frequently made of sapphire - makes it possible to see the movement inside the watch.',
                 'UNIDIRECTIONAL ROTATING BEZEL': `A bezel which turns in only one direction. Particularly useful for divers who cannot accidentally rotate it in the wrong direction, which could cause them to miscalculate their dive times. A rotating bezel makes it easy to measure elapsed time.`,
             },
 
@@ -512,8 +448,7 @@ const state = {
                 Case: 'white gold',
                 'Case diameter': '40 mm',
                 'Dial colour': 'green',
-                Crystal:
-                    'Scratch-resistant sapphire, Cyclops lens over the date',
+                Crystal: 'Scratch-resistant sapphire, Cyclops lens over the date',
                 'Water resistance': '10 bar (100 metres / 130 feet)',
             },
 
@@ -537,19 +472,14 @@ const state = {
             warranty: true,
             description: {
                 par1: `The Oyster Perpetual GMT-Master II in Everose Rolesor with an Oyster bracelet.`,
-                par2:
-                    'This model features a black dial and a brown and black Cerachrom bezel. Designed to show the time in two different time zones simultaneously during intercontinental flights, the GMT-Master has come to be recognized for its robustness and versatile appearance.',
+                par2: 'This model features a black dial and a brown and black Cerachrom bezel. Designed to show the time in two different time zones simultaneously during intercontinental flights, the GMT-Master has come to be recognized for its robustness and versatile appearance.',
                 par3: `In addition to conventional hour, minute and seconds hands, the GMT-Master II features an arrow-tipped hand, which circles the dial once every 24 hours, as well as a bidirectional rotatable 24-hour graduated bezel. The distinctively coloured 24-hour hand displays the “home” reference time in a first time zone which can be read on the graduations on the bezel.`,
             },
             features: {
-                CHRONOGRAPH:
-                    'Complicated watch with a function for measuring short time periods in addition to its function for permanently displaying hours, minutes and seconds.',
-                TACHYMETER:
-                    'A tachymeter is an instrument for measuring speed. It is a chronograph with a graduated dial on which speed can be read off in kilometres per hour based on 1000 metres distance.',
-                'SMALL SECONDS':
-                    'A hand on a sub-dial which tracks seconds typically it completes a full rotation in one minute.',
-                'TRANSPARENT CASE BACK':
-                    'A transparent case back - frequently made of sapphire - makes it possible to see the movement inside the watch.',
+                CHRONOGRAPH: 'Complicated watch with a function for measuring short time periods in addition to its function for permanently displaying hours, minutes and seconds.',
+                TACHYMETER: 'A tachymeter is an instrument for measuring speed. It is a chronograph with a graduated dial on which speed can be read off in kilometres per hour based on 1000 metres distance.',
+                'SMALL SECONDS': 'A hand on a sub-dial which tracks seconds typically it completes a full rotation in one minute.',
+                'TRANSPARENT CASE BACK': 'A transparent case back - frequently made of sapphire - makes it possible to see the movement inside the watch.',
                 'UNIDIRECTIONAL ROTATING BEZEL': `A bezel which turns in only one direction. Particularly useful for divers who cannot accidentally rotate it in the wrong direction, which could cause them to miscalculate their dive times. A rotating bezel makes it easy to measure elapsed time.`,
             },
 
@@ -559,8 +489,7 @@ const state = {
                 Case: 'Oystersteel and Everose gold',
                 'Case diameter': '40 mm',
                 'Dial colour': 'black',
-                Crystal:
-                    'Scratch-resistant sapphire, Cyclops lens over the date',
+                Crystal: 'Scratch-resistant sapphire, Cyclops lens over the date',
                 'Water resistance': '10 bar (100 metres / 130 feet)',
             },
 
@@ -584,19 +513,14 @@ const state = {
             warranty: true,
             description: {
                 par1: `This Oyster Perpetual Datejust 41 in Yellow Rolesor features a champagne-colour dial and a Jubilee bracelet.`,
-                par2:
-                    'The light reflections on the case sides and lugs highlight the elegant profile of the 41 mm Oyster case, which is fitted with a Fluted bezel. Aesthetically, the Datejust has spanned eras, while retaining the enduring codes that make it, notably in its traditional versions, one of the most recognized and recognizable of watches.',
+                par2: 'The light reflections on the case sides and lugs highlight the elegant profile of the 41 mm Oyster case, which is fitted with a Fluted bezel. Aesthetically, the Datejust has spanned eras, while retaining the enduring codes that make it, notably in its traditional versions, one of the most recognized and recognizable of watches.',
                 par3: `The Rolex fluted bezel is a mark of distinction. Originally, the fluting of the Oyster bezel had a functional purpose: it served to screw the bezel onto the case helping to ensure the waterproofness of the watch. It was therefore identical to the fluting on the case back, which was also screwed onto the case for waterproofness, using specific Rolex tools.`,
             },
             features: {
-                CHRONOGRAPH:
-                    'Complicated watch with a function for measuring short time periods in addition to its function for permanently displaying hours, minutes and seconds.',
-                TACHYMETER:
-                    'A tachymeter is an instrument for measuring speed. It is a chronograph with a graduated dial on which speed can be read off in kilometres per hour based on 1000 metres distance.',
-                'SMALL SECONDS':
-                    'A hand on a sub-dial which tracks seconds typically it completes a full rotation in one minute.',
-                'TRANSPARENT CASE BACK':
-                    'A transparent case back - frequently made of sapphire - makes it possible to see the movement inside the watch.',
+                CHRONOGRAPH: 'Complicated watch with a function for measuring short time periods in addition to its function for permanently displaying hours, minutes and seconds.',
+                TACHYMETER: 'A tachymeter is an instrument for measuring speed. It is a chronograph with a graduated dial on which speed can be read off in kilometres per hour based on 1000 metres distance.',
+                'SMALL SECONDS': 'A hand on a sub-dial which tracks seconds typically it completes a full rotation in one minute.',
+                'TRANSPARENT CASE BACK': 'A transparent case back - frequently made of sapphire - makes it possible to see the movement inside the watch.',
                 'UNIDIRECTIONAL ROTATING BEZEL': `A bezel which turns in only one direction. Particularly useful for divers who cannot accidentally rotate it in the wrong direction, which could cause them to miscalculate their dive times. A rotating bezel makes it easy to measure elapsed time.`,
             },
 
@@ -606,8 +530,7 @@ const state = {
                 Case: 'Oystersteel and Everose gold',
                 'Case diameter': '40 mm',
                 'Dial colour': 'black',
-                Crystal:
-                    'Scratch-resistant sapphire, Cyclops lens over the date',
+                Crystal: 'Scratch-resistant sapphire, Cyclops lens over the date',
                 'Water resistance': '10 bar (100 metres / 130 feet)',
             },
 
@@ -624,52 +547,7 @@ const state = {
             type: 'classic',
         },
 
-        {
-            name: 'DateJust 41',
-            collection: 'Speedmaster',
-            price: 1020000,
-            material: 'steel and gold',
-            warranty: true,
-            description: {
-                par1: `This Oyster Perpetual Datejust 41 in Yellow Rolesor features a champagne-colour dial and a Jubilee bracelet.`,
-                par2:
-                    'The light reflections on the case sides and lugs highlight the elegant profile of the 41 mm Oyster case, which is fitted with a Fluted bezel. Aesthetically, the Datejust has spanned eras, while retaining the enduring codes that make it, notably in its traditional versions, one of the most recognized and recognizable of watches.',
-                par3: `The Rolex fluted bezel is a mark of distinction. Originally, the fluting of the Oyster bezel had a functional purpose: it served to screw the bezel onto the case helping to ensure the waterproofness of the watch. It was therefore identical to the fluting on the case back, which was also screwed onto the case for waterproofness, using specific Rolex tools.`,
-            },
-            features: {
-                CHRONOGRAPH:
-                    'Complicated watch with a function for measuring short time periods in addition to its function for permanently displaying hours, minutes and seconds.',
-                TACHYMETER:
-                    'A tachymeter is an instrument for measuring speed. It is a chronograph with a graduated dial on which speed can be read off in kilometres per hour based on 1000 metres distance.',
-                'SMALL SECONDS':
-                    'A hand on a sub-dial which tracks seconds typically it completes a full rotation in one minute.',
-                'TRANSPARENT CASE BACK':
-                    'A transparent case back - frequently made of sapphire - makes it possible to see the movement inside the watch.',
-                'UNIDIRECTIONAL ROTATING BEZEL': `A bezel which turns in only one direction. Particularly useful for divers who cannot accidentally rotate it in the wrong direction, which could cause them to miscalculate their dive times. A rotating bezel makes it easy to measure elapsed time.`,
-            },
 
-            techData: {
-                'Between lugs': '41 mm',
-                Bracelet: 'Everose Rolesor',
-                Case: 'Oystersteel and Everose gold',
-                'Case diameter': '40 mm',
-                'Dial colour': 'black',
-                Crystal:
-                    'Scratch-resistant sapphire, Cyclops lens over the date',
-                'Water resistance': '10 bar (100 metres / 130 feet)',
-            },
-
-            images: [
-                'DateJust 41.webp',
-                'DateJust 41 2.webp',
-                'DateJust 41 3.jpg',
-                'DateJust 41 4.webp',
-                'DateJust 41 5.webp',
-            ],
-            url: 'Date-Just 41',
-            sex: 'male',
-            type: 'professional',
-        },
 
         {
             name: 'Lady-DateJust',
@@ -683,14 +561,10 @@ const state = {
                 par3: `Mother-of-pearl is by its nature full of mystery and surprises. Depending on its origin, it can be pink, white, black or yellow. It differs in colour, intensity and structure according to the part of the shell from which it is extracted. At Rolex, mother-of-pearl is never artificially coloured. Instead, particular know-how and skill are devoted to simply highlighting its natural beauty and preserving the original hues. As all mother-of-pearl dials are unique pieces, an identical dial will never be found on another wrist.`,
             },
             features: {
-                CHRONOGRAPH:
-                    'Complicated watch with a function for measuring short time periods in addition to its function for permanently displaying hours, minutes and seconds.',
-                TACHYMETER:
-                    'A tachymeter is an instrument for measuring speed. It is a chronograph with a graduated dial on which speed can be read off in kilometres per hour based on 1000 metres distance.',
-                'SMALL SECONDS':
-                    'A hand on a sub-dial which tracks seconds typically it completes a full rotation in one minute.',
-                'TRANSPARENT CASE BACK':
-                    'A transparent case back - frequently made of sapphire - makes it possible to see the movement inside the watch.',
+                CHRONOGRAPH: 'Complicated watch with a function for measuring short time periods in addition to its function for permanently displaying hours, minutes and seconds.',
+                TACHYMETER: 'A tachymeter is an instrument for measuring speed. It is a chronograph with a graduated dial on which speed can be read off in kilometres per hour based on 1000 metres distance.',
+                'SMALL SECONDS': 'A hand on a sub-dial which tracks seconds typically it completes a full rotation in one minute.',
+                'TRANSPARENT CASE BACK': 'A transparent case back - frequently made of sapphire - makes it possible to see the movement inside the watch.',
                 'UNIDIRECTIONAL ROTATING BEZEL': `A bezel which turns in only one direction. Particularly useful for divers who cannot accidentally rotate it in the wrong direction, which could cause them to miscalculate their dive times. A rotating bezel makes it easy to measure elapsed time.`,
                 'HELIUM ESCAPE VALVE': `Decompression system which allows helium to escape from inside the watch when the watch is worn for professional use in pressure chambers. (Long-term underwater work, crude oil exploration, etc.)`,
             },
@@ -701,8 +575,7 @@ const state = {
                 Case: 'yellow gold and diamonds',
                 'Case diameter': '28 mm',
                 'Dial colour': 'white',
-                Crystal:
-                    'Scratch-resistant sapphire, Cyclops lens over the date',
+                Crystal: 'Scratch-resistant sapphire, Cyclops lens over the date',
                 'Water resistance': '10 bar (100 metres / 130 feet)',
             },
 
@@ -731,14 +604,10 @@ const state = {
                 par3: `The diamond-paved dials are a sparkling symphony to enhance the watch and enchant the wearer. Gem-setters finely carve the precious metal to hand-shape the seat in which each gemstone will be perfectly lodged. Besides the intrinsic quality of the stones, several other criteria contribute to the beauty of Rolex gem-setting: the precise alignment of the height of the gems, their orientation and position, the regularity, strength and proportions of the setting as well as the intricate finishing of the metalwork.`,
             },
             features: {
-                CHRONOGRAPH:
-                    'Complicated watch with a function for measuring short time periods in addition to its function for permanently displaying hours, minutes and seconds.',
-                TACHYMETER:
-                    'A tachymeter is an instrument for measuring speed. It is a chronograph with a graduated dial on which speed can be read off in kilometres per hour based on 1000 metres distance.',
-                'SMALL SECONDS':
-                    'A hand on a sub-dial which tracks seconds typically it completes a full rotation in one minute.',
-                'TRANSPARENT CASE BACK':
-                    'A transparent case back - frequently made of sapphire - makes it possible to see the movement inside the watch.',
+                CHRONOGRAPH: 'Complicated watch with a function for measuring short time periods in addition to its function for permanently displaying hours, minutes and seconds.',
+                TACHYMETER: 'A tachymeter is an instrument for measuring speed. It is a chronograph with a graduated dial on which speed can be read off in kilometres per hour based on 1000 metres distance.',
+                'SMALL SECONDS': 'A hand on a sub-dial which tracks seconds typically it completes a full rotation in one minute.',
+                'TRANSPARENT CASE BACK': 'A transparent case back - frequently made of sapphire - makes it possible to see the movement inside the watch.',
                 'UNIDIRECTIONAL ROTATING BEZEL': `A bezel which turns in only one direction. Particularly useful for divers who cannot accidentally rotate it in the wrong direction, which could cause them to miscalculate their dive times. A rotating bezel makes it easy to measure elapsed time.`,
             },
 
@@ -748,8 +617,7 @@ const state = {
                 Case: 'white gold and diamonds',
                 'Case diameter': '39 mm',
                 'Dial colour': 'white',
-                Crystal:
-                    'Scratch-resistant sapphire, Cyclops lens over the date',
+                Crystal: 'Scratch-resistant sapphire, Cyclops lens over the date',
                 'Water resistance': '10 bar (100 metres / 130 feet)',
             },
 
@@ -777,14 +645,10 @@ const state = {
                 par3: `The sunray finish on Rolex dials is a predominant method in watchmaking of achieving pure metallic colour dials such as shades of silver grey, rhodium or ruthenium. Silver-plating is mostly used as a base layer for the sunray finish, where further colour is added to the prepared dial. Sometimes colours such as champagne are achieved through electroplating with more than half a dozen different metals.`,
             },
             features: {
-                CHRONOGRAPH:
-                    'Complicated watch with a function for measuring short time periods in addition to its function for permanently displaying hours, minutes and seconds.',
-                TACHYMETER:
-                    'A tachymeter is an instrument for measuring speed. It is a chronograph with a graduated dial on which speed can be read off in kilometres per hour based on 1000 metres distance.',
-                'SMALL SECONDS':
-                    'A hand on a sub-dial which tracks seconds typically it completes a full rotation in one minute.',
-                'TRANSPARENT CASE BACK':
-                    'A transparent case back - frequently made of sapphire - makes it possible to see the movement inside the watch.',
+                CHRONOGRAPH: 'Complicated watch with a function for measuring short time periods in addition to its function for permanently displaying hours, minutes and seconds.',
+                TACHYMETER: 'A tachymeter is an instrument for measuring speed. It is a chronograph with a graduated dial on which speed can be read off in kilometres per hour based on 1000 metres distance.',
+                'SMALL SECONDS': 'A hand on a sub-dial which tracks seconds typically it completes a full rotation in one minute.',
+                'TRANSPARENT CASE BACK': 'A transparent case back - frequently made of sapphire - makes it possible to see the movement inside the watch.',
                 'UNIDIRECTIONAL ROTATING BEZEL': `A bezel which turns in only one direction. Particularly useful for divers who cannot accidentally rotate it in the wrong direction, which could cause them to miscalculate their dive times. A rotating bezel makes it easy to measure elapsed time.`,
             },
 
@@ -794,8 +658,7 @@ const state = {
                 Case: 'white gold and diamonds',
                 'Case diameter': '39 mm',
                 'Dial colour': 'purple',
-                Crystal:
-                    'Scratch-resistant sapphire, Cyclops lens over the date',
+                Crystal: 'Scratch-resistant sapphire, Cyclops lens over the date',
                 'Water resistance': '10 bar (100 metres / 130 feet)',
             },
 
@@ -823,14 +686,10 @@ const state = {
                 par3: `The dial is the distinctive face of a Rolex watch, the feature most responsible for its identity and readability. Characterised by hour markers fashioned from 18 ct gold to prevent tarnishing, every Rolex dial is designed and manufactured in-house, largely by hand to ensure perfection.`,
             },
             features: {
-                CHRONOGRAPH:
-                    'Complicated watch with a function for measuring short time periods in addition to its function for permanently displaying hours, minutes and seconds.',
-                TACHYMETER:
-                    'A tachymeter is an instrument for measuring speed. It is a chronograph with a graduated dial on which speed can be read off in kilometres per hour based on 1000 metres distance.',
-                'SMALL SECONDS':
-                    'A hand on a sub-dial which tracks seconds typically it completes a full rotation in one minute.',
-                'TRANSPARENT CASE BACK':
-                    'A transparent case back - frequently made of sapphire - makes it possible to see the movement inside the watch.',
+                CHRONOGRAPH: 'Complicated watch with a function for measuring short time periods in addition to its function for permanently displaying hours, minutes and seconds.',
+                TACHYMETER: 'A tachymeter is an instrument for measuring speed. It is a chronograph with a graduated dial on which speed can be read off in kilometres per hour based on 1000 metres distance.',
+                'SMALL SECONDS': 'A hand on a sub-dial which tracks seconds typically it completes a full rotation in one minute.',
+                'TRANSPARENT CASE BACK': 'A transparent case back - frequently made of sapphire - makes it possible to see the movement inside the watch.',
                 'UNIDIRECTIONAL ROTATING BEZEL': `A bezel which turns in only one direction. Particularly useful for divers who cannot accidentally rotate it in the wrong direction, which could cause them to miscalculate their dive times. A rotating bezel makes it easy to measure elapsed time.`,
                 'HELIUM ESCAPE VALVE': `Decompression system which allows helium to escape from inside the watch when the watch is worn for professional use in pressure chambers. (Long-term underwater work, crude oil exploration, etc.)`,
             },
@@ -841,8 +700,7 @@ const state = {
                 Case: 'white gold and diamonds',
                 'Case diameter': '31 mm',
                 'Dial colour': 'coral red',
-                Crystal:
-                    'Scratch-resistant sapphire, Cyclops lens over the date',
+                Crystal: 'Scratch-resistant sapphire, Cyclops lens over the date',
                 'Water resistance': '10 bar (100 metres / 130 feet)',
             },
 
@@ -869,14 +727,10 @@ const state = {
                 par3: `The Rolex fluted bezel is a mark of distinction. Originally, the fluting of the Oyster bezel had a functional purpose: it served to screw the bezel onto the case helping to ensure the waterproofness of the watch.`,
             },
             features: {
-                CHRONOGRAPH:
-                    'Complicated watch with a function for measuring short time periods in addition to its function for permanently displaying hours, minutes and seconds.',
-                TACHYMETER:
-                    'A tachymeter is an instrument for measuring speed. It is a chronograph with a graduated dial on which speed can be read off in kilometres per hour based on 1000 metres distance.',
-                'SMALL SECONDS':
-                    'A hand on a sub-dial which tracks seconds typically it completes a full rotation in one minute.',
-                'TRANSPARENT CASE BACK':
-                    'A transparent case back - frequently made of sapphire - makes it possible to see the movement inside the watch.',
+                CHRONOGRAPH: 'Complicated watch with a function for measuring short time periods in addition to its function for permanently displaying hours, minutes and seconds.',
+                TACHYMETER: 'A tachymeter is an instrument for measuring speed. It is a chronograph with a graduated dial on which speed can be read off in kilometres per hour based on 1000 metres distance.',
+                'SMALL SECONDS': 'A hand on a sub-dial which tracks seconds typically it completes a full rotation in one minute.',
+                'TRANSPARENT CASE BACK': 'A transparent case back - frequently made of sapphire - makes it possible to see the movement inside the watch.',
                 'UNIDIRECTIONAL ROTATING BEZEL': `A bezel which turns in only one direction. Particularly useful for divers who cannot accidentally rotate it in the wrong direction, which could cause them to miscalculate their dive times. A rotating bezel makes it easy to measure elapsed time.`,
                 'HELIUM ESCAPE VALVE': `Decompression system which allows helium to escape from inside the watch when the watch is worn for professional use in pressure chambers. (Long-term underwater work, crude oil exploration, etc.)`,
             },
@@ -887,8 +741,7 @@ const state = {
                 Case: 'oystersteel and white gold',
                 'Case diameter': '36 mm',
                 'Dial colour': 'black',
-                Crystal:
-                    'Scratch-resistant sapphire, Cyclops lens over the date',
+                Crystal: 'Scratch-resistant sapphire, Cyclops lens over the date',
                 'Water resistance': '10 bar (100 metres / 130 feet)',
             },
 
@@ -916,14 +769,10 @@ const state = {
                 par3: `The sunray finish on Rolex dials is a predominant method in watchmaking of achieving pure metallic colour dials such as shades of silver grey, rhodium or ruthenium. Silver-plating is mostly used as a base layer for the sunray finish, where further colour is added to the prepared dial. Sometimes colours such as champagne are achieved through electroplating with more than half a dozen different metals.`,
             },
             features: {
-                CHRONOGRAPH:
-                    'Complicated watch with a function for measuring short time periods in addition to its function for permanently displaying hours, minutes and seconds.',
-                TACHYMETER:
-                    'A tachymeter is an instrument for measuring speed. It is a chronograph with a graduated dial on which speed can be read off in kilometres per hour based on 1000 metres distance.',
-                'SMALL SECONDS':
-                    'A hand on a sub-dial which tracks seconds typically it completes a full rotation in one minute.',
-                'TRANSPARENT CASE BACK':
-                    'A transparent case back - frequently made of sapphire - makes it possible to see the movement inside the watch.',
+                CHRONOGRAPH: 'Complicated watch with a function for measuring short time periods in addition to its function for permanently displaying hours, minutes and seconds.',
+                TACHYMETER: 'A tachymeter is an instrument for measuring speed. It is a chronograph with a graduated dial on which speed can be read off in kilometres per hour based on 1000 metres distance.',
+                'SMALL SECONDS': 'A hand on a sub-dial which tracks seconds typically it completes a full rotation in one minute.',
+                'TRANSPARENT CASE BACK': 'A transparent case back - frequently made of sapphire - makes it possible to see the movement inside the watch.',
                 'UNIDIRECTIONAL ROTATING BEZEL': `A bezel which turns in only one direction. Particularly useful for divers who cannot accidentally rotate it in the wrong direction, which could cause them to miscalculate their dive times. A rotating bezel makes it easy to measure elapsed time.`,
                 'HELIUM ESCAPE VALVE': `Decompression system which allows helium to escape from inside the watch when the watch is worn for professional use in pressure chambers. (Long-term underwater work, crude oil exploration, etc.)`,
             },
@@ -934,8 +783,7 @@ const state = {
                 Case: 'oystersteel and white gold',
                 'Case diameter': '36 mm',
                 'Dial colour': 'pink',
-                Crystal:
-                    'Scratch-resistant sapphire, Cyclops lens over the date',
+                Crystal: 'Scratch-resistant sapphire, Cyclops lens over the date',
                 'Water resistance': '10 bar (100 metres / 130 feet)',
             },
 
@@ -963,14 +811,10 @@ const state = {
                 par3: `Malachite is a natural ornamental stone that Rolex has already used for certain dials in the past, for example on a Cellini model in 1976 and on Oyster watches in the early 1980s. Rolex chose malachite for its intense green colour, the beauty of its structure and the fact that it is an exceptional stone that marries perfectly with yellow gold in particular; the perfect combination of Rolex’s two emblematic colours.`,
             },
             features: {
-                CHRONOGRAPH:
-                    'Complicated watch with a function for measuring short time periods in addition to its function for permanently displaying hours, minutes and seconds.',
-                TACHYMETER:
-                    'A tachymeter is an instrument for measuring speed. It is a chronograph with a graduated dial on which speed can be read off in kilometres per hour based on 1000 metres distance.',
-                'SMALL SECONDS':
-                    'A hand on a sub-dial which tracks seconds typically it completes a full rotation in one minute.',
-                'TRANSPARENT CASE BACK':
-                    'A transparent case back - frequently made of sapphire - makes it possible to see the movement inside the watch.',
+                CHRONOGRAPH: 'Complicated watch with a function for measuring short time periods in addition to its function for permanently displaying hours, minutes and seconds.',
+                TACHYMETER: 'A tachymeter is an instrument for measuring speed. It is a chronograph with a graduated dial on which speed can be read off in kilometres per hour based on 1000 metres distance.',
+                'SMALL SECONDS': 'A hand on a sub-dial which tracks seconds typically it completes a full rotation in one minute.',
+                'TRANSPARENT CASE BACK': 'A transparent case back - frequently made of sapphire - makes it possible to see the movement inside the watch.',
                 'UNIDIRECTIONAL ROTATING BEZEL': `A bezel which turns in only one direction. Particularly useful for divers who cannot accidentally rotate it in the wrong direction, which could cause them to miscalculate their dive times. A rotating bezel makes it easy to measure elapsed time.`,
                 'HELIUM ESCAPE VALVE': `Decompression system which allows helium to escape from inside the watch when the watch is worn for professional use in pressure chambers. (Long-term underwater work, crude oil exploration, etc.)`,
             },
@@ -981,8 +825,7 @@ const state = {
                 Case: 'yellow gold',
                 'Case diameter': '31 mm',
                 'Dial colour': 'green',
-                Crystal:
-                    'Scratch-resistant sapphire, Cyclops lens over the date',
+                Crystal: 'Scratch-resistant sapphire, Cyclops lens over the date',
                 'Water resistance': '10 bar (100 metres / 130 feet)',
             },
 
@@ -1008,14 +851,10 @@ const state = {
                 par3: `The sunray finish on Rolex dials is a predominant method in watchmaking of achieving pure metallic colour dials such as shades of silver grey, rhodium or ruthenium. Silver-plating is mostly used as a base layer for the sunray finish, where further colour is added to the prepared dial. Sometimes colours such as champagne are achieved through electroplating with more than half a dozen different metals.`,
             },
             features: {
-                CHRONOGRAPH:
-                    'Complicated watch with a function for measuring short time periods in addition to its function for permanently displaying hours, minutes and seconds.',
-                TACHYMETER:
-                    'A tachymeter is an instrument for measuring speed. It is a chronograph with a graduated dial on which speed can be read off in kilometres per hour based on 1000 metres distance.',
-                'SMALL SECONDS':
-                    'A hand on a sub-dial which tracks seconds typically it completes a full rotation in one minute.',
-                'TRANSPARENT CASE BACK':
-                    'A transparent case back - frequently made of sapphire - makes it possible to see the movement inside the watch.',
+                CHRONOGRAPH: 'Complicated watch with a function for measuring short time periods in addition to its function for permanently displaying hours, minutes and seconds.',
+                TACHYMETER: 'A tachymeter is an instrument for measuring speed. It is a chronograph with a graduated dial on which speed can be read off in kilometres per hour based on 1000 metres distance.',
+                'SMALL SECONDS': 'A hand on a sub-dial which tracks seconds typically it completes a full rotation in one minute.',
+                'TRANSPARENT CASE BACK': 'A transparent case back - frequently made of sapphire - makes it possible to see the movement inside the watch.',
                 'UNIDIRECTIONAL ROTATING BEZEL': `A bezel which turns in only one direction. Particularly useful for divers who cannot accidentally rotate it in the wrong direction, which could cause them to miscalculate their dive times. A rotating bezel makes it easy to measure elapsed time.`,
                 'HELIUM ESCAPE VALVE': `Decompression system which allows helium to escape from inside the watch when the watch is worn for professional use in pressure chambers. (Long-term underwater work, crude oil exploration, etc.)`,
             },
@@ -1026,8 +865,7 @@ const state = {
                 Case: 'Oystersteel and yellow gold',
                 'Case diameter': '31 mm',
                 'Dial colour': 'green',
-                Crystal:
-                    'Scratch-resistant sapphire, Cyclops lens over the date',
+                Crystal: 'Scratch-resistant sapphire, Cyclops lens over the date',
                 'Water resistance': '10 bar (100 metres / 130 feet)',
             },
 

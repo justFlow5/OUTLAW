@@ -17,11 +17,29 @@
 
                 <div class="searching-section">
                     <SearchHeading>Search the Banitz website</SearchHeading>
+                    <SearchResults />
                     <div class="input-container">
-                        <SearchInput />
+                        <SearchInput
+                            v-model="text"
+                            :text="text"
+                            @delete-input="deleteText"
+                            :autofocus="'autofocus'"
+                        />
+
                         <ConfirmSearchButton />
                     </div>
                 </div>
+                <ul class="results-container">
+                    <li
+                        v-for="(watch, index) in filteredList"
+                        :key="index"
+                        @click="handleViewChange(watch)"
+                    >
+                        <router-link :to="`/watches/${watch.name}`">
+                            <SimplifiedWatch :watch="watch" />
+                        </router-link>
+                    </li>
+                </ul>
             </div>
         </transition>
     </div>
@@ -33,22 +51,53 @@ import SearchHeading from './SearchHeading';
 import ConfirmSearchButton from './ConfirmSearchButton';
 import ExitButton from '../ExitButton';
 import Logo from '../Logo-v2';
+import SimplifiedWatch from '../SimplifiedWatch';
 
 import { mapState, mapActions } from 'vuex';
 
 export default {
     name: 'Search',
+    data() {
+        return {
+            text: '',
+        };
+    },
 
     computed: {
         ...mapState({
             isSearchOpen: (state) => state.appStore.isSearchOpen,
+            watches: (state) => state.productsStore.watches,
+
+            filteredList() {
+                if (this.text.length >= 2)
+                    return this.watches.filter((watch) => {
+                        const word_keys = [
+                            watch.name,
+                            watch.material,
+                            watch.type,
+                        ];
+                        return word_keys.some((key) =>
+                            key.toLowerCase().includes(this.text.toLowerCase())
+                        );
+                    });
+            },
         }),
     },
 
     methods: {
         ...mapActions({
             toggleSearch: 'appStore/toggleSearch',
+            changeCurrentView: 'appStore/changeCurrentView',
         }),
+        deleteText() {
+            this.text = '';
+        },
+
+        handleViewChange(watch) {
+            this.toggleSearch();
+            this.changeCurrentView(watch);
+            this.deleteText();
+        },
     },
 
     components: {
@@ -57,6 +106,7 @@ export default {
         ConfirmSearchButton,
         ExitButton,
         Logo,
+        SimplifiedWatch,
     },
 };
 </script>
@@ -75,6 +125,7 @@ export default {
     position: fixed;
     padding: 20px 15px;
     top: 0;
+    max-height: 100vh;
 
     @media (min-width: $laptop) {
         padding: 20px 40px;
@@ -96,9 +147,9 @@ export default {
 
 .searching-section {
     position: relative;
-
-    padding: 60px 0vw;
+    padding: 60px 0vw 0;
     width: 100%;
+    margin-bottom: 30px;
 
     @media (min-width: $mobileL) {
         padding: 60px 5vw;
@@ -111,7 +162,7 @@ export default {
     }
 
     @media (min-width: $laptop) {
-        padding: 60px 10vw;
+        padding: 80px 7vw 0;
         width: 70%;
     }
 }
@@ -126,5 +177,36 @@ export default {
 .input-wrapper {
     position: relative;
     width: 100%;
+}
+
+.results-container {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    padding-bottom: 40px;
+    margin-bottom: 20px;
+    & li {
+        padding: 10px 0;
+        background-color: transparent;
+        cursor: pointer;
+        width: 100%;
+        position: relative;
+        transition: all 0.3s;
+
+        &:hover {
+            background-color: #e0e0e0;
+        }
+
+        & > a {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+    }
 }
 </style>

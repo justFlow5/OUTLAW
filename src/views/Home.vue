@@ -61,7 +61,7 @@ import WatchCategories from '../components/watches/WatchCategory';
 import NewCollectionPanel from '../components/newCollection/newCollection';
 import Timeline from '../components/timeline/Timeline';
 
-import { mapState, mapActions } from 'vuex';
+import { mapActions } from 'vuex';
 
 export default {
     name: 'Home',
@@ -76,42 +76,8 @@ export default {
         Timeline,
     },
 
-    computed: {
-        ...mapState({
-            isMenuOpen: (state) => state.appStore.isMenuOpen,
-            isSearchOpen: (state) => state.appStore.isSearchOpen,
-            isCartOpen: (state) => state.appStore.isCartOpen,
-        }),
-    },
-
     methods: {
         ...mapActions({ changeCurrentView: 'appStore/changeCurrentView' }),
-    },
-
-    watch: {
-        isMenuOpen: function() {
-            if (this.isMenuOpen) {
-                document.documentElement.style.overflow = 'hidden';
-                return;
-            }
-            document.documentElement.style.overflow = 'auto';
-        },
-
-        isSearchOpen: function() {
-            if (this.isSearchOpen) {
-                document.documentElement.style.overflow = 'hidden';
-                return;
-            }
-            document.documentElement.style.overflow = 'auto';
-        },
-
-        isCartOpen: function() {
-            if (this.isCartOpen) {
-                document.documentElement.style.overflow = 'hidden';
-                return;
-            }
-            document.documentElement.style.overflow = 'auto';
-        },
     },
 
     mounted() {
