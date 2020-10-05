@@ -3,7 +3,7 @@ import Vuex from 'vuex';
 import appStore from './modules/appStore';
 import userStore from './modules/userStore';
 import productsStore from './modules/productsStore';
-// import createPersistedState from "vuex-persistedstate";
+import createPersistedState from 'vuex-persistedstate';
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -11,7 +11,7 @@ export default new Vuex.Store({
     modules: {
         appStore,
         userStore,
-        productsStore
+        productsStore,
     },
-    // plugins: [createPersistedState()]
+    plugins: [createPersistedState()],
 });
