@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="wrapper">
         <div class="image-gallery-wrapper">
             <div
                 class="video-container"
@@ -65,16 +65,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.wrapper {
+    overflow-x: hidden;
+}
 .image-gallery-wrapper {
     background-color: rgb(247, 247, 247);
     min-height: 100%;
     width: 100vw;
+    overflow-x: hidden !important;
 }
 
 .video-container {
     width: 100vw;
     height: 55vh;
     position: relative;
+    overflow-x: hidden;
 
     &.isTyped {
         height: 75vh;
@@ -85,6 +90,7 @@ export default {
     width: 80%;
     margin: 0 auto;
     padding: 30px 0;
+    overflow-x: hidden;
 
     @media (min-width: $laptop) {
         padding: 60px 0;

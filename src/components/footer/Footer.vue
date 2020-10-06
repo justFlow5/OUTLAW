@@ -349,7 +349,7 @@ li {
 }
 
 .caption {
-    font-size: 14px;
+    font-size: 9px;
     position: absolute;
     bottom: 10px;
     right: 10px;

@@ -154,6 +154,7 @@ export default {
 .watch-wrapper {
     background: #f9f9f9;
     position: relative;
+    overflow-x: hidden;
 
     @media (min-width: $laptop) {
         flex-direction: row;
@@ -200,9 +201,18 @@ export default {
 
 .watch-presentation {
     margin: 0 auto;
-    width: 80%;
+    width: 100%;
+
     position: relative;
     margin-top: 175px;
+
+    @media (min-width: $mobileL) {
+        width: 80%;
+    }
+
+    @media (min-width: $tablet) {
+        width: 70%;
+    }
 
     @media (min-width: $laptop) {
         width: 45%;

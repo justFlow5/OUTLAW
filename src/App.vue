@@ -3,6 +3,7 @@
         <Navbar />
         <router-view />
         <SubscribePanel />
+        <SharePanel />
         <Footer />
     </div>
 </template>
@@ -11,11 +12,14 @@
 import Navbar from './components/navbar/NavbarDeep';
 import Footer from './components/footer/Footer';
 import SubscribePanel from './components//subscribePanel/SubscribePanel';
+import SharePanel from './components//sharePanel/SharePanel';
+
 import { mapState } from 'vuex';
 export default {
     name: 'App',
     components: {
         Navbar,
+        SharePanel,
         SubscribePanel,
         Footer,
     },
@@ -68,6 +72,7 @@ html {
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: rgb(33, 33, 33);
+    /* overflow-x: hidden; */
 }
 
 ul {

@@ -45,16 +45,16 @@ export default {
     margin: 10px 0;
 
     &:hover img {
-        transform: scale(1.8);
+        transform: scale(1.7);
     }
 
     & img {
         width: 60px;
         height: 60px;
-        transform: scale(1.4);
+        transform: scale(1.5);
         transition: all 0.4s;
 
-        @media (min-width: $mobileL) {
+        @media (min-width: $tablet) {
             margin-right: 20px;
         }
     }
@@ -88,7 +88,9 @@ export default {
         flex: 0 0 40%;
 
         @media (min-width: $mobileL) {
-            flex: 0 0 30%;
+            /* flex: 0 0 30%; */
+            flex: 0 0 25%;
+
             margin: 0 10px;
         }
 

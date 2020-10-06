@@ -149,6 +149,7 @@ export default {
         color: rgb(33, 33, 33);
         transform: translateY(0px);
         text-align: left;
+
         transition: transform 0.2s ease 0s;
 
         &.darkTheme {
@@ -158,6 +159,21 @@ export default {
 
         &.category-watches {
             align-items: center;
+            /* padding-bottom: 15px; */
+            @media (max-width: $laptop) {
+                padding-bottom: 15px;
+
+                & h3 {
+                    font-size: 17px;
+                    margin-bottom: 5px;
+                    text-align: center;
+                }
+
+                & .moreInfo {
+                    margin-top: 10px;
+                    font-size: 16px;
+                }
+            }
         }
     }
 

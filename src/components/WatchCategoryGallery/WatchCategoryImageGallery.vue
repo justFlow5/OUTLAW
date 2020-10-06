@@ -62,6 +62,7 @@ export default {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    overflow-x: hidden;
 
     & li {
         width: 100%;

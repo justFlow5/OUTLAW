@@ -17,7 +17,6 @@
 
                 <div class="searching-section">
                     <SearchHeading>Search the Banitz website</SearchHeading>
-                    <SearchResults />
                     <div class="input-container">
                         <SearchInput
                             v-model="text"
@@ -147,17 +146,16 @@ export default {
 
 .searching-section {
     position: relative;
-    padding: 60px 0vw 0;
+    padding: 60px 7vw 0;
     width: 100%;
     margin-bottom: 30px;
 
     @media (min-width: $mobileL) {
-        padding: 60px 5vw;
         width: 90%;
     }
 
     @media (min-width: $tablet) {
-        padding: 60px 5vw;
+        padding: 60px 5vw 0;
         width: 80%;
     }
 
@@ -190,6 +188,21 @@ export default {
     }
     padding-bottom: 40px;
     margin-bottom: 20px;
+    width: 100%;
+    padding: 0 0vw;
+    @media (min-width: $mobileL) {
+        width: 95%;
+        padding: 0px 3vw;
+
+        @media (min-width: $tablet) {
+            width: 80%;
+            padding: 0 5vw;
+        }
+
+        @media (min-width: $laptop) {
+            width: 70%;
+        }
+    }
     & li {
         padding: 10px 0;
         background-color: transparent;

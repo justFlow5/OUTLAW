@@ -139,10 +139,11 @@ export default {
     &.watch-spec,
     &.navbar--shown {
         background: rgba(255, 255, 255, 1);
-        /* box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08); */
+        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);
         /* transition: all 0.3s ease-in 0.3s; */
         & .logo-image {
             background-image: url('../../assets/icons/logo-gold.png');
+            transition: all 0.3s;
         }
 
         & .logo span {
@@ -150,6 +151,7 @@ export default {
             text-shadow: 1px 1px 1px rgba(218, 165, 32, 0.8);
         }
         & .nav-item {
+            font-size: 17px;
             color: black;
             &.menu .menu-button span {
                 background-color: rgb(0, 0, 0);
@@ -187,7 +189,45 @@ export default {
     }
 
     &.onTop {
-        /* background: transparent; */
+        & .logo span {
+            font-size: 18px;
+            @media (min-width: $mobileL) {
+                font-size: 19px;
+            }
+
+            @media (min-width: $laptop) {
+                font-size: 27px;
+            }
+        }
+
+        & .logo-image {
+            width: 37px;
+            height: 37px;
+
+            @media (min-width: $laptop) {
+                width: 55px;
+                height: 55px;
+            }
+        }
+
+        & .nav-item {
+            font-size: 19px;
+
+            & svg {
+                height: 22px;
+                width: 22px;
+
+                @media (min-width: $mobileL) {
+                    width: 25px;
+                    height: 25px;
+                }
+
+                @media (min-width: $laptop) {
+                    width: 27px;
+                    height: 27px;
+                }
+            }
+        }
     }
     & .desktop-only {
         display: none;
@@ -257,18 +297,19 @@ export default {
 
         & svg {
             fill: white;
-            width: 20px;
-            height: 20px;
             transition: all 0.3s;
+            height: 20px;
+            width: 20px;
 
             @media (min-width: $mobileL) {
-                width: 25px;
-                height: 25px;
+                width: 22px;
+                height: 22px;
             }
 
             @media (min-width: $laptop) {
-                width: 30px;
-                height: 30px;
+                width: 25px;
+                height: 25px;
+                /* margin-right: 4px; */
             }
         }
     }
@@ -331,8 +372,8 @@ export default {
         transition: all 0.3s;
 
         @media (min-width: $laptop) {
-            width: 55px;
-            height: 55px;
+            width: 50px;
+            height: 50px;
         }
     }
 }
