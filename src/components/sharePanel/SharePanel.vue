@@ -33,7 +33,7 @@ export default {
 
 <style lang="scss" scoped>
 .wrapper {
-    width: 100vw;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -47,7 +47,7 @@ export default {
         letter-spacing: 2px;
         font-size: 25px;
         font-weight: 700;
-        margin-bottom: 25px;
+        margin-bottom: 20px;
     }
 
     & .media-container {

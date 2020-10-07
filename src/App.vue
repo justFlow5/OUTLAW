@@ -14,7 +14,7 @@ import Footer from './components/footer/Footer';
 import SubscribePanel from './components//subscribePanel/SubscribePanel';
 import SharePanel from './components//sharePanel/SharePanel';
 
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 export default {
     name: 'App',
     components: {
@@ -29,6 +29,13 @@ export default {
             isMenuOpen: (state) => state.appStore.isMenuOpen,
             isSearchOpen: (state) => state.appStore.isSearchOpen,
             isCartOpen: (state) => state.appStore.isCartOpen,
+        }),
+    },
+
+    methods: {
+        ...mapActions({
+            addProductToCart: 'userStore/addProductToCart',
+            addProductToWishlist: 'userStore/addProductToWishlist',
         }),
     },
 
@@ -57,6 +64,16 @@ export default {
             document.documentElement.style.overflow = 'auto';
         },
     },
+
+    mounted() {
+        const data = JSON.parse(localStorage.getItem('cartContent'));
+        let cart = [];
+        let wishlist = [];
+        if (data && data.cart) cart = data.cart;
+        if (data && data.wishlist) wishlist = data.wishlist;
+        cart.length > 0 && this.addProductToCart(cart);
+        wishlist.length > 0 && this.addProductToWishlist(wishlist);
+    },
 };
 </script>
 
@@ -73,6 +90,10 @@ html {
     text-align: center;
     color: rgb(33, 33, 33);
     /* overflow-x: hidden; */
+}
+
+button {
+    outline: none;
 }
 
 ul {

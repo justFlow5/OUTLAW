@@ -16,7 +16,12 @@ export default {
     },
 
     CHANGE_CURRENT_VIEW(state, payload) {
-        state.currentView = payload
+        state.currentView = payload;
+    },
 
-    }
+    ADD_PRODUCT_TO_CART(state, data) {
+
+        state.cart = [...state.cart, data];
+
+    },
 };

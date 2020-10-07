@@ -22,7 +22,6 @@
                             v-model="text"
                             :text="text"
                             @delete-input="deleteText"
-                            :autofocus="'autofocus'"
                         />
 
                         <ConfirmSearchButton />

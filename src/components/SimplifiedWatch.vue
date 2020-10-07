@@ -1,13 +1,13 @@
 <template>
-    <div class="data-container">
+    <div class="data-container" :class="{ inCart }">
         <img
             :src="
                 require(`../assets/watchesImages/categoryGallery/${watch.name}.webp`)
             "
         />
         <div class="data-wrapper">
-            <div class="data ">
-                <span>name:</span>
+            <div class="data">
+                <span>watch:</span>
                 <span>{{ watch.name }}</span>
             </div>
 
@@ -23,14 +23,32 @@
                 <span>for:</span>
                 <span> {{ watch.sex }}</span>
             </div>
+            <div class="data quantity">
+                <span>quantity:</span>
+                <span> {{ watch.quantity }}</span>
+            </div>
+
+            <div class="data price">
+                <span>price:</span>
+                <span> {{ formatedPrice }}</span>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
+import { formatPrice } from '../mixins/helpers';
 export default {
     name: 'SimplifiedWatchData',
-    props: ['watch'],
+    props: ['watch', 'inCart'],
+    methods: {
+        formatPrice,
+    },
+    computed: {
+        formatedPrice() {
+            return formatPrice(this.watch.price * this.watch.quantity);
+        },
+    },
 };
 </script>
 
@@ -71,6 +89,26 @@ export default {
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
+        }
+    }
+
+    &.inCart {
+        & img {
+        }
+
+        & .data.type {
+            display: none;
+        }
+
+        & .data {
+            flex: 0 0 15%;
+            margin: 10px;
+            /* align-items: center; */
+
+            &.quantity span:last-child {
+                /* justify-content: center; */
+                align-self: center;
+            }
         }
     }
 }

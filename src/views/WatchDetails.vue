@@ -29,13 +29,21 @@
 
                 <div class="product-info product-option-secondary">
                     <div class="product-quantity">
-                        <QuantityCounter />
+                        <QuantityCounter
+                            :quantity="this.quantity"
+                            @new-quantity="updateQuantity"
+                        />
                     </div>
                     <div class="bracelet-size">
                         <BraceletSizeInput />
                     </div>
                 </div>
-                <CartButton />
+                <div
+                    class="cart-button-container"
+                    @click="addToCart(currentView)"
+                >
+                    <CartButton />
+                </div>
             </div>
         </div>
 
@@ -83,6 +91,7 @@ import Description from '../components/watchtemplate/Description';
 import WishList from '../components/watchtemplate/WishList';
 import DecLine from '../assets/icons/DecLine';
 import { mapState, mapGetters, mapActions } from 'vuex';
+import { formatPrice } from '../mixins/helpers';
 export default {
     name: 'WatchDetails',
 
@@ -90,6 +99,7 @@ export default {
         return {
             isOpen: false,
             watchData: '',
+            quantity: 1,
         };
     },
     components: {
@@ -122,19 +132,35 @@ export default {
     },
 
     methods: {
+        formatPrice,
         ...mapActions({
             toggleNavbarTheme: 'appStore/toggleNavbarTheme',
+            addProductToCart: 'userStore/addProductToCart',
+            addProductToWishlist: 'userStore/addProductToWishlist',
         }),
 
         toggleAccordion() {
             this.isOpen = !this.isOpen;
         },
 
-        formatPrice(price) {
-            return price.toLocaleString('en-US', {
-                style: 'currency',
-                currency: 'USD',
-            });
+        updateQuantity(payload) {
+            const estimated = this.quantity + payload;
+            if (estimated > 0 && estimated < 10) this.quantity = estimated;
+        },
+
+        addToCart(watch) {
+            // this.addProductToCart(watch);
+            const selectedWatch = { ...watch, quantity: this.quantity };
+            this.addProductToCart(selectedWatch);
+
+            const data = JSON.parse(localStorage.getItem('cartContent'));
+
+            let oldCart = data ? data : {};
+            const cartContent = data && data.cart ? data.cart : [];
+            oldCart.cart = [...cartContent, selectedWatch];
+            console.log('oldcart: ', oldCart);
+
+            localStorage.setItem('cartContent', JSON.stringify(oldCart));
         },
     },
 

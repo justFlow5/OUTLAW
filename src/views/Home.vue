@@ -77,7 +77,11 @@ export default {
     },
 
     methods: {
-        ...mapActions({ changeCurrentView: 'appStore/changeCurrentView' }),
+        ...mapActions({
+            changeCurrentView: 'appStore/changeCurrentView',
+            // addProductToCart: 'userStore/addProductToCart',
+            // addProductToWishlist: 'userStore/addProductToWishlist',
+        }),
     },
 
     mounted() {

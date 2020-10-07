@@ -18,4 +18,8 @@ export default {
     changeCurrentView(context, data) {
         context.commit('CHANGE_CURRENT_VIEW', data);
     },
+
+    addProductToCart(context, data) {
+        context.commit('ADD_PRODUCT_TO_CART', data);
+    },
 };

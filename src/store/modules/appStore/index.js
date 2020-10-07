@@ -6,8 +6,9 @@ const state = {
     isSearchOpen: false,
     isCartOpen: false,
     isWatchSpeckOpen: false,
-    currentView: ''
-
+    currentView: '',
+    cart: [],
+    wishlist: [],
 };
 
 export default {
