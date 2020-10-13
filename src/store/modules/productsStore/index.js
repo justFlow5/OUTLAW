@@ -4,6 +4,10 @@ import {
     getters
 } from './getters';
 
+import {
+    uuid
+} from 'vue-uuid';
+
 const state = {
     watches: [{
             name: 'Air King',
@@ -11,6 +15,7 @@ const state = {
             price: 12103000,
             material: 'gem-set',
             warranty: true,
+            id: uuid.v4(),
             description: {
                 par1: `The Air-King dial features a distinctive black dial with a combination of large 3, 6 and 9 numerals marking the hours and a prominent minute scale for navigational time readings. It bears the name Air-King in the same lettering that was designed specifically for the model in the 1950s.`,
                 par2: 'The Air-King epitomizes Rolex’s privileged ties with the world of aviation during its golden age in the 1930s. It was a period when spectacular progress in aircraft performance constantly expanded humanity’s capacity to conquer the skies, and led to the introduction of long-distance flights.',
@@ -53,6 +58,7 @@ const state = {
             price: 55131,
             material: 'steel',
             warranty: true,
+            id: uuid.v4(),
             description: {
                 par1: `The Oyster Perpetual Milgauss is a pioneering anti-magnetic watch designed to meet the demands of engineers and scientists.`,
                 par2: 'Created in 1956, it can withstand magnetic fields of up to 1,000 gauss. Hence its name, “mille”, which is French for one thousand. The first watch of its kind, the Milgauss combines unique aesthetics and scientific heritage.',
@@ -95,6 +101,7 @@ const state = {
             price: 885400,
             material: 'gold',
             warranty: true,
+            id: uuid.v4(),
             description: {
                 par1: `The Cellini Moonphase in 18 ct Everose gold with a Leather strap.`,
                 par2: 'This model features an exclusive display of the phases of the moon. Its White dial with a blue enamel disc at 6 o’clock displays the lunar cycle where the full moon is depicted by a meteorite applique.',
@@ -137,6 +144,7 @@ const state = {
             price: 458540,
             material: 'steel',
             warranty: true,
+            id: uuid.v4(),
             description: {
                 par1: `The Oyster Perpetual Yacht-Master II in Oystersteel with an Oyster bracelet and a bidirectional rotatable bezel with a blue Cerachrom insert.`,
                 par2: 'The only chronograph in the world with a mechanical memory, the Yacht-Master II with its bezel acting as a programmable countdown, is an essential tool for skippers to gauge their best course of action.',
@@ -180,6 +188,7 @@ const state = {
             price: 458540,
             material: 'gold',
             warranty: true,
+            id: uuid.v4(),
             description: {
                 par1: `This Oyster Perpetual Cosmograph Daytona in 18 ct Everose gold with a pink and black dial and an Oysterflex bracelet, features a Black Cerachrom bezel and engraved tachymetric scale.`,
                 par2: 'This chronograph was designed to be the ultimate timing tool for endurance racing drivers. More than 50 years after its creation, the Cosmograph Daytona remains in a class of its own among sport chronographs and continues to transcend time.',
@@ -221,6 +230,7 @@ const state = {
             price: 60050,
             material: 'gold',
             warranty: true,
+            id: uuid.v4(),
             description: {
                 par1: `The Oyster Perpetual Sky-Dweller in 18 ct yellow gold with a bright black dial and an Oysterflex bracelet.`,
                 par2: 'This distinctive watch is characterized by its second time zone display on an off-centre disc on the dial. Furthermore, its innovative system for setting the functions, using the rotatable Ring Command bezel, is unique to Rolex. ',
@@ -263,6 +273,7 @@ const state = {
             price: 84050,
             material: 'steel and gold',
             warranty: true,
+            id: uuid.v4(),
             description: {
                 par1: `The Oyster Perpetual Sea-Dweller in Yellow Rolesor with a black ceramic bezel and an Oyster bracelet.`,
                 par2: 'It features a distinctive black dial and large luminescent hour markers. Waterproof to a depth of 4,000 feet (1,220 metres) with a unidirectional 60-minute rotatable bezel, the Rolex Sea-Dweller is amongst the ultra-resistant divers’ watches engineered by Rolex for deep-sea exploration. ',
@@ -305,6 +316,7 @@ const state = {
             price: 84050,
             material: 'steel',
             warranty: true,
+            id: uuid.v4(),
             description: {
                 par1: `The Oyster Perpetual Explorer in Oystersteel features a distinctive black dial with characteristic 3, 6, and 9 numerals in Chromalight.`,
                 par2: 'Its highly legible hour markers, extremely resistant Oystersteel and waterproofness have made it a tool watch for exploration.',
@@ -346,6 +358,7 @@ const state = {
             price: 1004050,
             material: 'steel',
             warranty: true,
+            id: uuid.v4(),
             description: {
                 par1: `The Oyster Perpetual 41 with a silver dial and an Oyster bracelet.`,
                 par2: 'The aesthetics of the Oyster Perpetual models set them apart as symbols of universal and classic style. They embody timeless form and function, firmly rooted in the pioneering origins of Rolex.',
@@ -387,6 +400,7 @@ const state = {
             price: 1004050,
             material: 'steel',
             warranty: true,
+            id: uuid.v4(),
             description: {
                 par1: `The Oyster Perpetual Submariner in Oystersteel with a Black Cerachrom bezel and a black dial with large luminescent hour markers.`,
                 par2: 'It features a unidirectional rotatable bezel with Cerachrom insert and solid-link Oyster bracelet. The latest generation Submariner and Submariner Date remain faithful to the original model launched in 1953. In watchmaking, the Submariner represented a historic turning point; it set the standard for divers’ watches.',
@@ -429,6 +443,7 @@ const state = {
             price: 650050,
             material: 'gold',
             warranty: true,
+            id: uuid.v4(),
             description: {
                 par1: `The Oyster Perpetual Day-Date 40 in 18 ct white gold with an olive-green dial, Fluted bezel and a President bracelet.`,
                 par2: 'The Day-Date was the first watch to indicate the day of the week spelt out in full when it was first presented in 1956.',
@@ -470,6 +485,7 @@ const state = {
             price: 650050,
             material: 'steel and gold',
             warranty: true,
+            id: uuid.v4(),
             description: {
                 par1: `The Oyster Perpetual GMT-Master II in Everose Rolesor with an Oyster bracelet.`,
                 par2: 'This model features a black dial and a brown and black Cerachrom bezel. Designed to show the time in two different time zones simultaneously during intercontinental flights, the GMT-Master has come to be recognized for its robustness and versatile appearance.',
@@ -511,6 +527,7 @@ const state = {
             price: 1020000,
             material: 'steel and gold',
             warranty: true,
+            id: uuid.v4(),
             description: {
                 par1: `This Oyster Perpetual Datejust 41 in Yellow Rolesor features a champagne-colour dial and a Jubilee bracelet.`,
                 par2: 'The light reflections on the case sides and lugs highlight the elegant profile of the 41 mm Oyster case, which is fitted with a Fluted bezel. Aesthetically, the Datejust has spanned eras, while retaining the enduring codes that make it, notably in its traditional versions, one of the most recognized and recognizable of watches.',
@@ -555,6 +572,7 @@ const state = {
             price: 6700000,
             material: 'gem-set',
             warranty: true,
+            id: uuid.v4(),
             description: {
                 par1: `This Oyster Perpetual Lady-Datejust in 18 ct yellow gold features a white mother-of-pearl, diamond-set dial and a President bracelet.`,
                 par2: `The light reflections on the case sides and lugs highlight the elegant profile of the 28 mm Oyster case, which is fitted with a diamond-set bezel. Rolex's classic feminine watch, the Lady-Datejust is in the lineage of the Datejust, the emblematic model that has been a byword for style and accurate timekeeping.`,
@@ -598,6 +616,7 @@ const state = {
             price: 10800000,
             material: 'gem-set',
             warranty: true,
+            id: uuid.v4(),
             description: {
                 par1: `The Oyster Perpetual Pearlmaster 39 in 18 ct white gold with a diamond-paved dial, featuring a diamond-set bezel, case and signature Pearlmaster bracelet.`,
                 par2: `The Pearlmaster holds a special place in the Oyster collection, it represents the height of exquisiteness with precious metals and gemstones.`,
@@ -639,6 +658,7 @@ const state = {
             price: 680000,
             material: 'gem-set',
             warranty: true,
+            id: uuid.v4(),
             description: {
                 par1: `This Oyster Perpetual Datejust 31 in White Rolesor features an aubergine, diamond-set dial and an Oyster bracelet.`,
                 par2: `Its dial features Large VI set with diamonds. The light reflections on the case sides and lugs highlight the elegant profile of the 31 mm Oyster case, which is fitted with a diamond-set bezel. Aesthetically, the Datejust has spanned eras, while retaining the enduring codes that make it, notably in its traditional versions, one of the most recognized and recognizable of watches.`,
@@ -680,6 +700,7 @@ const state = {
             price: 420000,
             material: 'gem-set',
             warranty: true,
+            id: uuid.v4(),
             description: {
                 par1: `The Oyster Perpetual 31 with a coral red dial and an Oyster bracelet.`,
                 par2: `The aesthetics of the Oyster Perpetual models set them apart as symbols of universal and classic style. They embody timeless form and function, firmly rooted in the pioneering origins of Rolex.`,
@@ -721,6 +742,7 @@ const state = {
             price: 100000,
             material: 'steel and gold',
             warranty: true,
+            id: uuid.v4(),
             description: {
                 par1: `This Oyster Perpetual Datejust 36 in White Rolesor features a black dial and a Jubilee bracelet.`,
                 par2: `The light reflections on the case sides and lugs highlight the elegant profile of the 36 mm Oyster case, which is fitted with a Fluted bezel. Aesthetically, the Datejust has spanned eras, while retaining the enduring codes that make it, notably in its traditional versions, one of the most recognized and recognizable of watches.`,
@@ -763,6 +785,7 @@ const state = {
             price: 860000,
             material: 'steel',
             warranty: true,
+            id: uuid.v4(),
             description: {
                 par1: `This Oyster Perpetual Lady-Datejust in Oystersteel features a pink dial and an Oyster bracelet.`,
                 par2: `The light reflections on the case sides and lugs highlight the elegant profile of the 28 mm Oyster case, which is fitted with a Domed bezel. Rolex's classic feminine watch, the Lady-Datejust is in the lineage of the Datejust, the emblematic model that has been a byword for style and accurate timekeeping.`,
@@ -805,6 +828,7 @@ const state = {
             price: 930300,
             material: 'gem-set',
             warranty: true,
+            id: uuid.v4(),
             description: {
                 par1: `This Oyster Perpetual Datejust 31 in 18 ct yellow gold features a malachite, diamond-set dial and a President bracelet.`,
                 par2: `Its dial features Roman VI and IX in 18 ct gold, set with 24 diamonds. The light reflections on the case sides and lugs highlight the elegant profile of the 31 mm Oyster case, which is fitted with a diamond-set bezel. Aesthetically, the Datejust has spanned eras, while retaining the enduring codes that make it, notably in its traditional versions, one of the most recognized and recognizable of watches.`,
@@ -845,6 +869,7 @@ const state = {
             price: 70200,
             material: 'steel and gold',
             warranty: true,
+            id: uuid.v4(),
             description: {
                 par1: `This Oyster Perpetual Datejust 31 in Yellow Rolesor features an olive green, diamond-set dial and a Jubilee bracelet.`,
                 par2: `Its dial features Large VI set with diamonds. The light reflections on the case sides and lugs highlight the elegant profile of the 31 mm Oyster case, which is fitted with a Fluted bezel. Aesthetically, the Datejust has spanned eras, while retaining the enduring codes that make it, notably in its traditional versions, one of the most recognized and recognizable of watches.`,

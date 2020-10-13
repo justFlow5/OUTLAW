@@ -35,7 +35,10 @@
                         />
                     </div>
                     <div class="bracelet-size">
-                        <BraceletSizeInput />
+                        <BraceletSizeInput
+                            :braceletSize="braceletSize"
+                            @select-change="updateBracelet"
+                        />
                     </div>
                 </div>
                 <div
@@ -100,6 +103,7 @@ export default {
             isOpen: false,
             watchData: '',
             quantity: 1,
+            braceletSize: '',
         };
     },
     components: {
@@ -143,6 +147,10 @@ export default {
             this.isOpen = !this.isOpen;
         },
 
+        updateBracelet(size) {
+            this.braceletSize = size;
+        },
+
         updateQuantity(payload) {
             const estimated = this.quantity + payload;
             if (estimated > 0 && estimated < 10) this.quantity = estimated;
@@ -150,17 +158,21 @@ export default {
 
         addToCart(watch) {
             // this.addProductToCart(watch);
-            const selectedWatch = { ...watch, quantity: this.quantity };
+            const selectedWatch = {
+                ...watch,
+                quantity: this.quantity,
+                bSize: this.braceletSize,
+            };
             this.addProductToCart(selectedWatch);
 
-            const data = JSON.parse(localStorage.getItem('cartContent'));
+            //   const data = JSON.parse(localStorage.getItem("cartContent"));
 
-            let oldCart = data ? data : {};
-            const cartContent = data && data.cart ? data.cart : [];
-            oldCart.cart = [...cartContent, selectedWatch];
-            console.log('oldcart: ', oldCart);
+            //   let oldCart = data ? data : {};
+            //   const cartContent = data && data.cart ? data.cart : [];
+            //   oldCart.cart = [...cartContent, selectedWatch];
+            //   console.log("oldcart: ", oldCart);
 
-            localStorage.setItem('cartContent', JSON.stringify(oldCart));
+            //   localStorage.setItem("cartContent", JSON.stringify(oldCart));
         },
     },
 

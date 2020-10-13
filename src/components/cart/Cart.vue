@@ -44,9 +44,7 @@
                                         :inCart="true"
                                     />
                                     <span
-                                        @click="
-                                            removeProductFromCart(watch.name)
-                                        "
+                                        @click="removeProductFromCart(watch.id)"
                                         ><TrashCan
                                     /></span>
                                 </li>
@@ -157,11 +155,13 @@ export default {
     position: fixed;
     top: 20px;
     right: 20px;
+    width: 30px;
+    height: 20px;
 
     @media (min-width: $laptop) {
-        position: absolute;
-        top: -100%;
-        right: 20px;
+        position: fixed;
+        top: 25px;
+        right: 40px;
     }
 }
 
@@ -204,7 +204,6 @@ export default {
 
 .cart-container {
     & li {
-        /* margin: 10px 0; */
         background-color: transparent;
         padding: 10px;
         position: relative;
@@ -213,10 +212,6 @@ export default {
         &:hover {
             background-color: #f1efef;
             cursor: pointer;
-
-            & svg {
-                /* fill: white; */
-            }
         }
 
         & svg {
@@ -249,7 +244,7 @@ export default {
 }
 
 .slide2-leave-active {
-    position: absolute;
+    position: relative;
     width: 100%;
     animation: slide-out 0.5s ease-out forwards;
     transition: opacity 0.5s;

@@ -12,8 +12,8 @@ export default {
 <style lang="scss" scoped>
 .leave-menu-button {
     position: relative;
-    width: 20px;
-    height: 20px;
+    width: 100%;
+    height: 100%;
     outline: none;
     cursor: pointer;
     border: none;
