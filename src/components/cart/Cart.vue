@@ -36,17 +36,21 @@
                         <ul v-if="selectedData" class="cart-container">
                             <transition-group name="slide2" tag="div">
                                 <li
-                                    v-for="(watch, index) in selectedData"
-                                    :key="index"
+                                    v-for="watch in selectedData"
+                                    :key="`${watch.bSize}${watch.id}`"
                                 >
-                                    <SimplifiedWatch
-                                        :watch="watch"
-                                        :inCart="true"
-                                    />
-                                    <span
-                                        @click="removeProductFromCart(watch.id)"
-                                        ><TrashCan
-                                    /></span>
+                                    <router-link :to="formatPath(watch.name)">
+                                        <SimplifiedWatch
+                                            :watch="watch"
+                                            :inCart="true"
+                                            :isWishlist="
+                                                activeSelection === 'wishlist'
+                                            "
+                                        />
+                                        <span @click="onRemove(watch.id)"
+                                            ><TrashCan
+                                        /></span>
+                                    </router-link>
                                 </li>
                             </transition-group>
                         </ul>
@@ -72,7 +76,6 @@ export default {
     data() {
         return {
             activeSelection: 'cart',
-            // cartContent: {},
         };
     },
 
@@ -94,10 +97,21 @@ export default {
         ...mapActions({
             toggleCart: 'appStore/toggleCart',
             removeProductFromCart: 'userStore/removeProductFromCart',
+            removeProductFromWishlist: 'userStore/removeProductFromWishlist',
         }),
 
         toggleActiveSelection(selection) {
             this.activeSelection = selection;
+        },
+        formatPath(watch) {
+            return `/watches/${watch}`.replace(/\s/g, '-');
+        },
+
+        onRemove(watchId) {
+            if (this.activeSelection === 'cart')
+                this.removeProductFromCart(watchId);
+            else if (this.activeSelection === 'wishlist')
+                this.removeProductFromWishlist(watchId);
         },
     },
 
@@ -131,7 +145,7 @@ export default {
     }
 
     @media (min-width: $tablet) {
-        width: 70vw;
+        width: 75vw;
     }
     @media (min-width: $laptop) {
         width: 50vw;
@@ -140,14 +154,14 @@ export default {
 
 .cart-content-section {
     position: relative;
-    margin: 85px 10% 40px 15px;
+    margin: 85px 15px 40px 15px;
 
     @media (min-width: $mobileL) {
-        margin: 95px 10% 40px 40px;
+        margin: 95px 20px 40px 20px;
     }
 
     @media (min-width: $laptop) {
-        margin: 105px 40px 40px 70px;
+        margin: 105px 20px 40px 20px;
     }
 }
 
@@ -157,6 +171,7 @@ export default {
     right: 20px;
     width: 30px;
     height: 20px;
+    z-index: 1000;
 
     @media (min-width: $laptop) {
         position: fixed;
@@ -207,6 +222,8 @@ export default {
         background-color: transparent;
         padding: 10px;
         position: relative;
+        display: inline-block;
+        width: 100%;
         transition: all 0.3s;
 
         &:hover {
@@ -239,12 +256,12 @@ export default {
 }
 
 .slide2-enter-active {
-    animation: slide-in 0.5s ease-out forwards;
+    animation: slide-in 0.5s ease-out forwards 0.35s;
     transition: opacity 0.5s;
 }
 
 .slide2-leave-active {
-    position: relative;
+    position: absolute;
     width: 100%;
     animation: slide-out 0.5s ease-out forwards;
     transition: opacity 0.5s;
@@ -253,7 +270,7 @@ export default {
 
 @keyframes slide-in {
     from {
-        transform: translateY(-20px);
+        transform: translateY(-30px);
     }
     to {
         transform: translateY(0px);

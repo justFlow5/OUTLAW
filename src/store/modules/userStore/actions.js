@@ -1,62 +1,55 @@
-import { uuid } from 'vue-uuid';
+// import { uuid } from 'vue-uuid';
 
 export default {
     addProductToCart({ state, commit }, data) {
         const newWatch = {
             ...data,
         };
-        let productModified = false;
-        if (state.cart.length > 0) {
-            const updatedCart = state.cart.map((watch) => {
-                if (watch.id === newWatch.id) {
-                    // check if it's the same bracelet size
-                    productModified = true;
-                    if (watch.bSize && watch.bSize === newWatch.bSize) {
-                        const quantity = watch.quantity + newWatch.quantity;
-                        return {
-                            ...watch,
-                            quantity,
-                        };
-                    } else {
-                        const newId = uuid.v4();
-                        const bwatch = {
-                            ...watch,
-                            id: newId,
-                        };
-                        console.log('HEY NEW ID WHAS UP: ');
-                        console.log('watch id: ', watch.id);
-                        console.log('new id: ', newId);
-                        console.log('new watch id: ', bwatch.id);
+        const cartCopy = [...state.cart];
 
-                        console.log();
-                        return {
-                            ...watch,
-                            id: newId,
-                        };
-                    }
-                } else {
-                    return watch;
-                }
-            });
-            if (productModified) {
-                commit('ADD_PRODUCT_TO_CART', updatedCart);
-            } else {
-                commit('ADD_PRODUCT_TO_CART', [...state.cart, newWatch]);
-            }
-        } else {
-            commit('ADD_PRODUCT_TO_CART', [newWatch]);
+        const foundIndex = cartCopy.findIndex(
+            (watch) => watch.id === newWatch.id
+        );
+        if (foundIndex === -1) {
+            commit('ADD_PRODUCT_TO_CART', [...state.cart, newWatch]);
+            return;
         }
+
+        let flag = false;
+
+        cartCopy.forEach((watch, index) => {
+            if (watch.id === newWatch.id) {
+                if (watch.bSize === newWatch.bSize) {
+                    cartCopy[index].quantity += newWatch.quantity;
+
+                    flag = true;
+                }
+            }
+        });
+        if (!flag) {
+            commit('ADD_PRODUCT_TO_CART', [...state.cart, newWatch]);
+            return;
+        }
+
+        commit('ADD_PRODUCT_TO_CART', cartCopy);
     },
 
-    addProductToWishlist({ commit }, watch) {
-        commit('ADD_PRODUCT_TO_WISHLIST', watch);
-    },
-
-    removeProductFromCart({ commit, state }, watchId) {
-        const updatedCart = state.cart.filter((watch) => watch.id !== watchId);
-
-        // localStorage.setItem('cart', JSON.stringify(updatedCart))
-
+    removeProductFromCart({ commit, state }, id) {
+        const updatedCart = state.cart.filter((watch) => watch.id !== id);
         commit('ADD_PRODUCT_TO_CART', updatedCart);
+    },
+
+    addProductToWishlist({ commit, getters, dispatch }, watch) {
+        const newWatch = { ...watch };
+        if (!getters.isInWishlist(newWatch.id)) {
+            commit('ADD_PRODUCT_TO_WISHLIST', newWatch);
+        } else dispatch('removeProductFromWishlist', newWatch.id);
+    },
+
+    removeProductFromWishlist({ commit, state }, watchId) {
+        const updatedWishlist = state.wishlist.filter((watch) => {
+            return watch.id !== watchId;
+        });
+        commit('REMOVE_PRODUCT_FROM_WISHLIST', updatedWishlist);
     },
 };

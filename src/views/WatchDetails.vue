@@ -7,10 +7,6 @@
             <div class="product-order">
                 <div class="product-info product-identity">
                     <DecLine />
-                    <!-- <h3 class="product-collection">
-                        {{ currentView.collection }}
-                    </h3> -->
-
                     <h3 class="product-name">{{ currentView.name }}</h3>
                     <DecLine />
                 </div>
@@ -43,7 +39,7 @@
                 </div>
                 <div
                     class="cart-button-container"
-                    @click="addToCart(currentView)"
+                    @click="addToSelection(currentView, 'cart')"
                 >
                     <CartButton />
                 </div>
@@ -79,7 +75,12 @@
                 </div>
             </div>
         </div>
-        <div class="wishlist-container"><WishList :inWishlist="true" /></div>
+        <div
+            class="wishlist-container"
+            @click="addToSelection(currentView, 'wishlist')"
+        >
+            <WishList :inWishlist="inWishlist" />
+        </div>
     </div>
 </template>
 
@@ -126,12 +127,17 @@ export default {
 
         ...mapGetters({
             getWatchByName: 'productsStore/getWatchByName',
+            isInWishlist: 'userStore/isInWishlist',
         }),
 
         getWarrantyInfo() {
             if (this.currentView.warranty)
                 return 'All BANITZ watches are delivered with a 5-year warranty that covers the repair of any material or manufacturing defects. Please refer to the operating instructions for specific information about the warranty conditions and restrictions.';
             else return 'There is no warranty';
+        },
+
+        inWishlist() {
+            return this.isInWishlist(this.currentView.id);
         },
     },
 
@@ -156,23 +162,18 @@ export default {
             if (estimated > 0 && estimated < 10) this.quantity = estimated;
         },
 
-        addToCart(watch) {
-            // this.addProductToCart(watch);
+        addToSelection(watch, type) {
             const selectedWatch = {
                 ...watch,
                 quantity: this.quantity,
                 bSize: this.braceletSize,
+                id: `${this.braceletSize}${watch.id}`,
             };
-            this.addProductToCart(selectedWatch);
 
-            //   const data = JSON.parse(localStorage.getItem("cartContent"));
-
-            //   let oldCart = data ? data : {};
-            //   const cartContent = data && data.cart ? data.cart : [];
-            //   oldCart.cart = [...cartContent, selectedWatch];
-            //   console.log("oldcart: ", oldCart);
-
-            //   localStorage.setItem("cartContent", JSON.stringify(oldCart));
+            if (type === 'cart') this.addProductToCart(selectedWatch);
+            else if (type === 'wishlist') {
+                this.addProductToWishlist(watch);
+            }
         },
     },
 
@@ -182,6 +183,7 @@ export default {
         const currentURL = this.$route.params.id;
         if (currentURL && !this.isWatchSpeckOpen) this.toggleNavbarTheme();
     },
+
     beforeDestroy() {
         this.toggleNavbarTheme();
     },
