@@ -261,10 +261,6 @@ export default {
     justify-content: space-between;
     align-items: center;
 }
-.product-option-primary {
-    /* padding: 10px 0 0;
-    border-top: solid 1px #e2e2e2; */
-}
 
 .watch-presentation {
     margin: 0 auto;
