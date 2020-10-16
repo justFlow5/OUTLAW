@@ -191,6 +191,7 @@ export default {
         font-size: 16px;
         padding: 10px 0;
         display: inline-block;
+        line-height: 1.3;
     }
 
     & span:first-child {

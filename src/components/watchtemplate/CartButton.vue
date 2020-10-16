@@ -55,7 +55,7 @@ $hover-color: rgba(255, 255, 255, 1);
     position: relative;
     width: 100%;
     height: 50px;
-    margin: 20px;
+    /* margin: 20px; */
     border: 3px solid $base-color;
     margin-bottom: 10px;
     cursor: pointer;

@@ -159,7 +159,7 @@ export default {
             justify-content: center;
         }
         & .data {
-            flex: 0 0 40%;
+            flex: 0 0 45%;
             align-items: center;
             margin: 10px;
 
@@ -170,6 +170,7 @@ export default {
             & span:last-child {
                 margin-top: 8px;
                 font-size: 16px;
+                text-align: center;
             }
 
             &.quantity span:last-child {

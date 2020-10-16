@@ -248,7 +248,7 @@ export default {
     height: 80%;
 
     & .product-info:not(:first-child) {
-        padding: 20px 0;
+        padding: 20px 0 50px;
         border-top: solid 1px #e2e2e2;
         font-size: 20px;
     }
@@ -353,11 +353,11 @@ export default {
 .second-details {
     display: flex;
     flex-direction: column;
-
-    padding: 70px 25px 20px;
-
+    padding: 70px 25px;
     background-color: rgb(255, 255, 255);
-
+    @media (min-width: $tablet) {
+        padding: 70px 15%;
+    }
     @media (min-width: $laptop) {
         padding: 100px 60px 20px;
         flex-direction: row;

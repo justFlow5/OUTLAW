@@ -14,11 +14,14 @@ export default {
 <style lang="scss" scoped>
 .error-text {
     position: absolute;
-    bottom: -50%;
     left: 0;
     color: red;
-    font-size: 18px;
+    font-size: 16px;
     text-align: left;
-    margin: 10px 0;
+    bottom: -55%;
+
+    @media (min-width: $mobileL) {
+        font-size: 18px;
+    }
 }
 </style>
