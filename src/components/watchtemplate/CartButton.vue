@@ -1,6 +1,11 @@
 <template>
     <div class="box-to-cart">
-        <button class="vertical">
+        <button
+            class="vertical"
+            @mousedown="onMousedown"
+            @mouseUp="onMouseup"
+            :class="buttonDown"
+        >
             <CartIcon /><span class="text">Add to cart</span>
         </button>
         <span class="text">Free shipping</span>
@@ -11,8 +16,22 @@
 import CartIcon from '../../assets/icons/Cart';
 export default {
     name: 'CartButton',
+    data() {
+        return {
+            buttonDown: false,
+        };
+    },
     components: {
         CartIcon,
+    },
+
+    methods: {
+        onMousedown() {
+            this.buttonDown = true;
+        },
+        onMouseup() {
+            this.buttonDown = false;
+        },
     },
 };
 </script>
@@ -38,11 +57,13 @@ $hover-color: rgba(255, 255, 255, 1);
     height: 50px;
     margin: 20px;
     border: 3px solid $base-color;
-
     margin-bottom: 10px;
     cursor: pointer;
 
     background-color: $base-color;
+    &.buttonDown {
+        background-color: #c4941d;
+    }
 
     @media (min-width: $laptop) {
         background-color: rgba(255, 255, 255, 1);

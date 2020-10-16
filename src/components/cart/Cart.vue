@@ -256,7 +256,7 @@ export default {
 }
 
 .slide2-enter-active {
-    animation: slide-in 0.5s ease-out forwards 0.35s;
+    animation: slide-in 0.5s ease-out forwards;
     transition: opacity 0.5s;
 }
 

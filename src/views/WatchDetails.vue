@@ -35,12 +35,10 @@
                             :braceletSize="braceletSize"
                             @select-change="updateBracelet"
                         />
+                        <Error v-show="isError" />
                     </div>
                 </div>
-                <div
-                    class="cart-button-container"
-                    @click="addToSelection(currentView, 'cart')"
-                >
+                <div class="cart-button-container" @click="handleButtonClick">
                     <CartButton />
                 </div>
             </div>
@@ -81,19 +79,28 @@
         >
             <WishList :inWishlist="inWishlist" />
         </div>
+        <transition name="fade">
+            <ConfirmationModal
+                v-if="isConfirmed"
+                @toggle-confirmation="updateIsConfirmed"
+            />
+        </transition>
     </div>
 </template>
 
 <script>
-import SingleDetail from '../components/watchtemplate/SingleDetail';
-import QuantityCounter from '../components/watchtemplate/QuantityCounter';
 import BraceletSizeInput from '../components/watchtemplate/BraceletSizeInput';
+import ConfirmationModal from '../components/watchtemplate/ConfirmationModal';
+import QuantityCounter from '../components/watchtemplate/QuantityCounter';
 import AccordionInfo from '../components/watchtemplate/AccordionInfo';
+import SingleDetail from '../components/watchtemplate/SingleDetail';
 import ImageGallery from '../components/watchtemplate/ImageGallery';
-import CartButton from '../components/watchtemplate/CartButton';
 import Description from '../components/watchtemplate/Description';
+import CartButton from '../components/watchtemplate/CartButton';
 import WishList from '../components/watchtemplate/WishList';
+import Error from '../components/watchtemplate/Error';
 import DecLine from '../assets/icons/DecLine';
+
 import { mapState, mapGetters, mapActions } from 'vuex';
 import { formatPrice } from '../mixins/helpers';
 export default {
@@ -105,18 +112,22 @@ export default {
             watchData: '',
             quantity: 1,
             braceletSize: '',
+            isError: false,
+            isConfirmed: false,
         };
     },
     components: {
-        SingleDetail,
-        QuantityCounter,
         BraceletSizeInput,
+        ConfirmationModal,
+        QuantityCounter,
         AccordionInfo,
+        SingleDetail,
         ImageGallery,
-        CartButton,
         Description,
+        CartButton,
         WishList,
         DecLine,
+        Error,
     },
 
     computed: {
@@ -155,11 +166,23 @@ export default {
 
         updateBracelet(size) {
             this.braceletSize = size;
+            if (this.isError) this.isError = false;
         },
 
         updateQuantity(payload) {
             const estimated = this.quantity + payload;
             if (estimated > 0 && estimated < 10) this.quantity = estimated;
+        },
+
+        handleButtonClick() {
+            if (this.braceletSize) {
+                this.isError = false;
+                this.addToSelection(this.currentView, 'cart');
+            } else this.isError = true;
+
+            this.braceletSize = '';
+            this.quantity = 1;
+            !this.isError && this.updateIsConfirmed(true);
         },
 
         addToSelection(watch, type) {
@@ -174,6 +197,10 @@ export default {
             else if (type === 'wishlist') {
                 this.addProductToWishlist(watch);
             }
+        },
+
+        updateIsConfirmed() {
+            this.isConfirmed = !this.isConfirmed;
         },
     },
 
@@ -265,6 +292,7 @@ export default {
     flex-direction: column;
     flex: 2;
     margin-left: 40px;
+    position: relative;
 }
 
 .product-identity {
@@ -355,5 +383,15 @@ export default {
     position: absolute;
     top: 120px;
     right: 50px;
+}
+
+.fade-enter {
+    opacity: 0;
+}
+.fade-enter-active {
+    transition: opacity 2s;
+}
+.fade-enter-to {
+    opacity: 1;
 }
 </style>
