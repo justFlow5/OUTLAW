@@ -4,8 +4,9 @@
             v-if="inputType === 'input'"
             type="input"
             class="form__field"
-            placeholder="Name"
-            name="name"
+            :placeholder="label"
+            :name="label"
+            autocorrect="off"
             :id="label"
             required
             autocomplete="off"
@@ -16,8 +17,9 @@
             v-else
             type="input"
             class="form__field"
-            placeholder="Name"
-            name="name"
+            :placeholder="label"
+            :name="label"
+            autocorrect="off"
             :id="label"
             rows="4"
             required
@@ -36,9 +38,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$primary: #000000;
-$secondary: #696969;
-$white: #fff;
+$primary: #d19e1f;
+$secondary: #202020;
 $gray: #9b9b9b;
 .form__group {
     position: relative;
@@ -58,7 +59,8 @@ $gray: #9b9b9b;
     border-bottom: 2px solid $gray;
     outline: 0;
     font-size: 18px;
-    color: black;
+    font-weight: 600;
+    color: $secondary;
     padding: 7px 0;
     background: transparent;
     transition: border-color 0.3s;
@@ -96,7 +98,7 @@ $gray: #9b9b9b;
     padding-bottom: 7px;
     font-weight: 700;
     border-width: 3px;
-    border-image: linear-gradient(to right, $primary, $secondary);
+    border-image: linear-gradient(to right, $primary, $primary);
     border-image-slice: 1;
 }
 /* reset input */

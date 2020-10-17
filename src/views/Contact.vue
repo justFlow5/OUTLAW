@@ -1,16 +1,25 @@
 <template>
-    <div class="form-container">
-        <div class="direction">
-            <InputField v-model="name" label="Name" inputType="input" />
-            <InputField v-model="email" label="Email" inputType="input" />
+    <div class="contactPage-container">
+        <Header></Header>
+        <div class="form-container">
+            <div class="direction">
+                <InputField v-model="name" label="Name" inputType="input" />
+                <InputField v-model="email" label="Email" inputType="input" />
+            </div>
+            <InputField v-model="title" label="Title" inputType="input" />
+            <InputField
+                v-model="content"
+                label="Message"
+                inputType="textarea"
+            />
         </div>
-        <InputField v-model="title" label="Title" inputType="input" />
-        <InputField v-model="content" label="Message" inputType="textarea" />
     </div>
 </template>
 
 <script>
 import InputField from '../components/contactPage/InputField';
+import Header from '../components/contactPage/Header';
+
 import { mapActions } from 'vuex';
 
 export default {
@@ -42,18 +51,26 @@ export default {
 
     components: {
         InputField,
+        Header,
     },
 };
 </script>
 
 <style lang="scss" scoped>
-.form-container {
-    width: 35%;
-    margin: 15% auto;
+.contactPage-container {
+    width: 45%;
+    margin: 0 auto 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    height: 100vh;
+}
+.form-container {
+    margin-top: 50px;
+    display: flex;
     align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
     position: relative;
 
     & > div {
