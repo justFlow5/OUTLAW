@@ -55,7 +55,8 @@ export default {
             isMenuOpen: (state) => state.appStore.isMenuOpen,
             isSearchOpen: (state) => state.appStore.isSearchOpen,
             isCartOpen: (state) => state.appStore.isCartOpen,
-            isWatchSpeckOpen: (state) => state.appStore.isWatchSpeckOpen,
+            isNavbarVisibleAtTop: (state) =>
+                state.appStore.isNavbarVisibleAtTop,
         }),
 
         navbarClassess() {
@@ -66,7 +67,7 @@ export default {
                     this.isSearchOpen ||
                     this.isCartOpen,
                 'navbar--shown': !this.onTop,
-                'watch-spec': this.isWatchSpeckOpen,
+                'watch-spec': this.isNavbarVisibleAtTop,
                 onTop: this.onTop,
             };
         },

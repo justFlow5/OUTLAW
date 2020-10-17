@@ -32,13 +32,12 @@ export default {
 
     mounted() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
-        console.log('this.$route: ', this.$route.name);
         const currentURL = this.$route.name;
-        if (currentURL) this.toggleNavbarTheme();
+        if (currentURL) this.toggleNavbarTheme(true);
     },
 
     beforeDestroy() {
-        this.toggleNavbarTheme();
+        this.toggleNavbarTheme(false);
     },
 
     components: {

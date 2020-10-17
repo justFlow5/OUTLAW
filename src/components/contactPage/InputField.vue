@@ -89,11 +89,11 @@ $gray: #9b9b9b;
         top: 0;
         display: block;
         transition: 0.2s;
-        font-size: 1rem;
+        font-size: 14px;
         color: $primary;
         font-weight: 700;
     }
-    padding-bottom: 6px;
+    padding-bottom: 7px;
     font-weight: 700;
     border-width: 3px;
     border-image: linear-gradient(to right, $primary, $secondary);

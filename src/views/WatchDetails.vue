@@ -208,11 +208,11 @@ export default {
         window.scrollTo({ top: 0, behavior: 'smooth' });
         this.watchData = this.getWatchByName(this.currentView);
         const currentURL = this.$route.params.id;
-        if (currentURL && !this.isWatchSpeckOpen) this.toggleNavbarTheme();
+        if (currentURL && !this.isWatchSpeckOpen) this.toggleNavbarTheme(true);
     },
 
     beforeDestroy() {
-        this.toggleNavbarTheme();
+        this.toggleNavbarTheme(false);
     },
 };
 </script>
