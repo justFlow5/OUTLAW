@@ -11,6 +11,8 @@
 
 <script>
 import InputField from '../components/contactPage/InputField';
+import { mapActions } from 'vuex';
+
 export default {
     name: 'ContactPage',
     data() {
@@ -22,9 +24,23 @@ export default {
         };
     },
 
-    // methods: {
-    //     update
-    // },
+    methods: {
+        ...mapActions({
+            toggleNavbarTheme: 'appStore/toggleNavbarTheme',
+        }),
+    },
+
+    mounted() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        console.log('this.$route: ', this.$route.name);
+        const currentURL = this.$route.name;
+        if (currentURL) this.toggleNavbarTheme();
+    },
+
+    beforeDestroy() {
+        this.toggleNavbarTheme();
+    },
+
     components: {
         InputField,
     },
@@ -34,7 +50,7 @@ export default {
 <style lang="scss" scoped>
 .form-container {
     width: 35%;
-    margin: 10% auto;
+    margin: 15% auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
