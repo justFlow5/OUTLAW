@@ -1,15 +1,30 @@
 <template>
     <div class="form__group field">
         <input
+            v-if="inputType === 'input'"
             type="input"
             class="form__field"
             placeholder="Name"
             name="name"
-            id="name"
+            :id="label"
             required
-            autocomplete="false"
+            autocomplete="off"
+            v-on:input="$emit('input', $event.target.value)"
         />
-        <label for="name" class="form__label">Name</label>
+
+        <textarea
+            v-else
+            type="input"
+            class="form__field"
+            placeholder="Name"
+            name="name"
+            :id="label"
+            rows="4"
+            required
+            autocomplete="off"
+            v-on:input="$emit('input', $event.target.value)"
+        />
+        <label :for="label" class="form__label">{{ label }}</label>
     </div>
 </template>
 
@@ -29,7 +44,11 @@ $gray: #9b9b9b;
     position: relative;
     padding: 15px 0 0;
     margin-top: 10px;
-    width: 50%;
+    width: 100%;
+
+    & textarea {
+        resize: none;
+    }
 }
 
 .form__field {
