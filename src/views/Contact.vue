@@ -12,6 +12,7 @@
                 label="Message"
                 inputType="textarea"
             />
+            <SendButton />
         </div>
     </div>
 </template>
@@ -19,6 +20,7 @@
 <script>
 import InputField from '../components/contactPage/InputField';
 import Header from '../components/contactPage/Header';
+import SendButton from '../components/contactPage/SendButton';
 
 import { mapActions } from 'vuex';
 
@@ -52,6 +54,7 @@ export default {
     components: {
         InputField,
         Header,
+        SendButton,
     },
 };
 </script>
@@ -64,6 +67,7 @@ export default {
     flex-direction: column;
     justify-content: center;
     height: 100vh;
+    margin-top: 50px;
 }
 .form-container {
     margin-top: 50px;

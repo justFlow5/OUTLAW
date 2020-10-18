@@ -10,6 +10,7 @@
             :id="label"
             required
             autocomplete="off"
+            spellcheck="false"
             v-on:input="$emit('input', $event.target.value)"
         />
 
@@ -24,6 +25,7 @@
             rows="4"
             required
             autocomplete="off"
+            spellcheck="false"
             v-on:input="$emit('input', $event.target.value)"
         />
         <label :for="label" class="form__label">{{ label }}</label>
