@@ -18,11 +18,22 @@ a {
     text-transform: uppercase;
     position: relative;
     padding: 5px 8px;
-    font-size: 24px;
+    font-size: 15px;
     cursor: pointer;
     align-self: flex-end;
-    margin: 20px 0;
+    margin: 15px 0;
+    border: 1px solid black;
     transition: all 0.4s;
+    @media (min-width: $mobileL) {
+        font-size: 18px;
+        /* font-size: 22px; */
+        margin: 25px 0;
+    }
+
+    @media (min-width: $laptop) {
+        font-size: 23px;
+        border: none;
+    }
 }
 
 a::after,

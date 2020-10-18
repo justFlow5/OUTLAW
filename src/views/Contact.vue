@@ -61,21 +61,43 @@ export default {
 
 <style lang="scss" scoped>
 .contactPage-container {
-    width: 45%;
+    width: 80%;
     margin: 0 auto 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 100vh;
-    margin-top: 50px;
+    margin-top: 60px;
+
+    @media (min-width: $mobileL) {
+        width: 60%;
+        margin-top: 90px;
+    }
+
+    @media (min-width: $tablet) {
+        width: 50%;
+    }
+
+    @media (min-width: $laptop) {
+        width: 45%;
+        margin-top: 50px;
+    }
 }
 .form-container {
-    margin-top: 50px;
+    margin-top: 10px;
     display: flex;
     align-items: flex-start;
     flex-direction: column;
     justify-content: center;
     position: relative;
+
+    @media (min-width: $mobileL) {
+        margin-top: 20px;
+    }
+
+    @media (min-width: $laptop) {
+        margin-top: 50px;
+    }
 
     & > div {
         flex: 1;

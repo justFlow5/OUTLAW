@@ -60,21 +60,29 @@ $gray: #9b9b9b;
     border: 0;
     border-bottom: 2px solid $gray;
     outline: 0;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
     color: $secondary;
     padding: 7px 0;
     background: transparent;
     transition: border-color 0.3s;
 
+    @media (min-width: $mobileL) {
+        font-size: 18px;
+    }
+
     &::placeholder {
         color: transparent;
     }
 
     &:placeholder-shown ~ .form__label {
-        font-size: 18px;
+        font-size: 16px;
         cursor: text;
         top: 20px;
+
+        @media (min-width: $mobileL) {
+            font-size: 18px;
+        }
     }
 }
 
