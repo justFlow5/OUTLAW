@@ -7,10 +7,13 @@
                     <span class="desktop-only">Menu</span>
                 </div>
 
-                <div class="nav-item desktop-only">
-                    <router-link to="/contact">Contact</router-link>
-                </div>
-                <div class="nav-item desktop-only">Story of Banitz</div>
+                <router-link to="/contact">
+                    <div class="nav-item contact">
+                        <ContactIcon />
+                        <span class="desktop-only">Contact</span>
+                    </div>
+                </router-link>
+                <!-- <div class="nav-item desktop-only">Story of Banitz</div> -->
             </div>
             <div class="logo">
                 <router-link to="/">
@@ -37,6 +40,7 @@
 import CustomHamburger from './CustomHamburger';
 import CartIcon from '../../assets/icons/Cart';
 import SearchIcon from '../../assets/icons/Search';
+import ContactIcon from '../../assets/icons/Contact';
 
 import { mapState, mapActions } from 'vuex';
 
@@ -112,6 +116,7 @@ export default {
         CustomHamburger,
         CartIcon,
         SearchIcon,
+        ContactIcon,
     },
 };
 </script>
@@ -158,6 +163,12 @@ export default {
                 background-color: rgb(0, 0, 0);
             }
 
+            &.contact .desktop-only {
+                @media (min-width: 550px) {
+                    display: inline-block;
+                }
+            }
+
             & svg {
                 fill: rgb(0, 0, 0);
             }
@@ -197,7 +208,7 @@ export default {
             }
 
             @media (min-width: $laptop) {
-                font-size: 27px;
+                font-size: 23px;
             }
         }
 
@@ -232,7 +243,7 @@ export default {
     }
     & .desktop-only {
         display: none;
-        @media (min-width: $laptop) {
+        @media (min-width: 700px) {
             display: inline-block;
         }
     }
@@ -244,8 +255,14 @@ export default {
             padding-bottom: 20px;
             align-items: flex-end;
         }
-        & > .nav-item {
+
+        & a {
+            display: flex;
+            align-items: center;
+        }
+        & .nav-item {
             padding: 0 8px;
+            /* height: 100%; */
 
             @media (min-width: $mobileL) {
                 padding: 0 13px;
@@ -315,7 +332,7 @@ export default {
         }
     }
 }
-
+.contact,
 .menu,
 .search,
 .cart {
@@ -354,11 +371,11 @@ export default {
         transition: all 0.3s;
 
         @media (min-width: $mobileL) {
-            font-size: 21px;
+            font-size: 19px;
         }
 
         @media (min-width: $laptop) {
-            font-size: 26px;
+            font-size: 21px;
         }
     }
 

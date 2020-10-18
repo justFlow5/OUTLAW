@@ -1,6 +1,6 @@
 <template>
     <div class="header-container">
-        <h3>Hey there</h3>
+        <h3>Hey there!</h3>
         <div class="subtitle-container">
             <hr />
             <h4>
@@ -20,21 +20,20 @@ export default {
 .header-container {
     width: 100%;
     position: relative;
-    font-size: 25px;
     text-align: left;
-
-    @media (min-width: $mobileL) {
-        font-size: 35px;
-    }
-    @media (min-width: $laptop) {
-        font-size: 47px;
-    }
 
     & h3 {
         font-size: inherit;
         text-align: left;
         font-family: 'PT Serif', serif;
         color: #484848;
+        font-size: 25px;
+        @media (min-width: $mobileL) {
+            font-size: 35px;
+        }
+        @media (min-width: $laptop) {
+            font-size: 42px;
+        }
     }
     & hr {
         border-top: 2px solid #d19e1f;
@@ -65,10 +64,7 @@ export default {
         }
 
         @media (min-width: $laptop) {
-            font-size: inherit;
-        }
-
-        @media (min-width: $laptop) {
+            font-size: 38px;
             white-space: nowrap;
         }
     }
