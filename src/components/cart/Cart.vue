@@ -32,7 +32,10 @@
                             >
                                 Wishlist
                             </button>
-                            <div class="payment-button">
+                            <div
+                                class="payment-button"
+                                :class="{ shown: cart.length > 0 }"
+                            >
                                 <PaymentButton
                                     :isCart="activeSelection === 'cart'"
                                 />
@@ -60,10 +63,14 @@
                             </li>
                         </ul>
                         <p v-else class="no-result">No results found</p>
-                        <PaymentButton
-                            :isCart="activeSelection === 'cart'"
+                        <div
                             class="payment-button forMobile"
-                        />
+                            :class="{ shown: cart.length > 0 }"
+                        >
+                            <PaymentButton
+                                :isCart="activeSelection === 'cart'"
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -260,15 +267,19 @@ export default {
 }
 .payment-button {
     display: none;
-    margin-left: auto;
-    @media (min-width: $mobileL) {
-        display: inline-block;
-    }
-    &.forMobile {
+    &.shown {
         display: none;
-        @media (max-width: $mobileL) {
+
+        @media (min-width: $mobileL) {
+            margin-left: auto;
             display: inline-block;
-            margin-bottom: 20px;
+        }
+        &.forMobile {
+            display: none;
+            @media (max-width: $mobileL) {
+                display: inline-block;
+                margin: 0 auto 10px;
+            }
         }
     }
 }

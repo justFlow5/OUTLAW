@@ -19,34 +19,32 @@ export default {
 button {
     border-radius: 10px;
     position: relative;
-    padding: 4px 7px;
+    padding: 6px 8px;
     cursor: pointer;
-    width: 120px;
-    height: 30px;
-    color: #303030;
+    width: 150px;
+    height: 35px;
+    color: #181818;
     text-transform: uppercase;
     display: flex;
     align-items: center;
+    justify-content: center;
     background: transparent;
-    top: 40px;
-    right: 30px;
-    font-size: 14px;
-    border: 1px solid #303030;
+    font-size: 16px;
+    border: 1px solid #181818;
     transition: all 0.3s;
 
     @media (min-width: $mobileL) {
         width: 130px;
-        font-size: 19px;
+        font-size: 18px;
         border: none;
-        top: unset;
-        right: unset;
+        padding: 4px 7px;
     }
 
     & svg {
         width: 15px;
         height: 15px;
         margin-left: 5px;
-        fill: #303030;
+        fill: #181818;
 
         @media (min-width: $laptop) {
             width: 20px;
