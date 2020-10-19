@@ -11,8 +11,8 @@ export default {
         context.commit('TOGGLE_CART');
     },
 
-    toggleNavbarTheme(context) {
-        context.commit('TOGGLE_NAVBAR');
+    toggleNavbarTheme(context, data) {
+        context.commit('TOGGLE_NAVBAR', data);
     },
 
     changeCurrentView(context, data) {

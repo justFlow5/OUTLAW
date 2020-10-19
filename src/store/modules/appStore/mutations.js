@@ -11,8 +11,8 @@ export default {
         state.isCartOpen = !state.isCartOpen;
     },
 
-    TOGGLE_NAVBAR(state) {
-        state.isWatchSpeckOpen = !state.isWatchSpeckOpen;
+    TOGGLE_NAVBAR(state, data) {
+        state.isNavbarVisibleAtTop = data;
     },
 
     CHANGE_CURRENT_VIEW(state, payload) {
@@ -20,8 +20,6 @@ export default {
     },
 
     ADD_PRODUCT_TO_CART(state, data) {
-
         state.cart = [...state.cart, data];
-
     },
 };

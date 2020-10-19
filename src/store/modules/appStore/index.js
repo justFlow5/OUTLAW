@@ -5,7 +5,7 @@ const state = {
     isMenuOpen: false,
     isSearchOpen: false,
     isCartOpen: false,
-    isWatchSpeckOpen: false,
+    isNavbarVisibleAtTop: false,
     currentView: '',
     cart: [],
     wishlist: [],
