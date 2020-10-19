@@ -122,7 +122,7 @@ $gray: #9b9b9b;
     border-image: linear-gradient(to right, $primary, $primary);
     border-image-slice: 1;
 }
-/* reset input */
+
 .form__field {
     &:required,
     &:invalid {

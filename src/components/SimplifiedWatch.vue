@@ -112,9 +112,7 @@ export default {
             flex: 0 0 40%;
 
             @media (min-width: $mobileL) {
-                /* flex: 0 0 30%; */
                 flex: 0 0 25%;
-
                 margin: 0 10px;
             }
 
@@ -193,12 +191,44 @@ export default {
         }
 
         &.isWishlist {
+            flex-direction: row;
+            max-height: unset;
+
+            & img {
+                width: 50px;
+                height: 50px;
+            }
+
+            & .data-wrapper {
+                margin-top: unset;
+                flex-wrap: nowrap;
+                flex-direction: row;
+            }
+
+            & .data {
+                flex: 0 0 30%;
+                align-items: center;
+
+                margin: 10px;
+
+                & span:last-child.type {
+                    word-break: break-all;
+                }
+            }
+
             & .data.type {
                 display: inherit;
             }
             & .data.quantity,
-            & .data.size {
+            & .data.size,
+            & .data.price,
+            & .data.type {
                 display: none;
+            }
+            @media (min-width: $mobileL) {
+                & .data.type {
+                    display: inherit;
+                }
             }
         }
     }

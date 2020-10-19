@@ -153,11 +153,11 @@ export default {
     flex-direction: column;
     justify-content: center;
     height: 100vh;
-    margin-top: 60px;
+    margin-top: 20px;
 
     @media (min-width: $mobileL) {
         width: 60%;
-        margin-top: 90px;
+        margin-top: 40px;
     }
 
     @media (min-width: $tablet) {

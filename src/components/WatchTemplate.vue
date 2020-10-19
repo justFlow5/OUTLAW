@@ -27,7 +27,6 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
 export default {
     name: 'MenuWatchTemplate',
 
@@ -49,24 +48,16 @@ export default {
             else if (this.sourceType === 'watchesImages')
                 return require(`../assets/${this.sourceType}/${this.thumbnailPath}/${watch}.webp`);
         },
-
-        ...mapActions({ changeCurrentView: 'appStore/changeCurrentView' }),
     },
 
     computed: {
-        ...mapGetters({
-            getWatchByName: 'productsStore/getWatchByName',
-        }),
-
         upperCaseTitle() {
             return this.title.toUpperCase();
         },
         shortDescClass() {
             return {
                 'gallery-type': this.placement === 'gallery',
-                'font-mod':
-                    // this.placement !== 'menu' &&
-                    this.sourceType !== 'watchesCategories',
+                'font-mod': this.sourceType !== 'watchesCategories',
                 'category-watches': this.thumbnailPath === 'categoryGallery',
             };
         },

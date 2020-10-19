@@ -34,25 +34,24 @@
                             </button>
                         </div>
                         <ul v-if="selectedData" class="cart-container">
-                            <transition-group name="slide2" tag="div">
-                                <li
-                                    v-for="watch in selectedData"
-                                    :key="`${watch.bSize}${watch.id}`"
-                                >
-                                    <router-link :to="formatPath(watch.name)">
-                                        <SimplifiedWatch
-                                            :watch="watch"
-                                            :inCart="true"
-                                            :isWishlist="
-                                                activeSelection === 'wishlist'
-                                            "
-                                        />
-                                        <span @click="onRemove(watch.id)"
-                                            ><TrashCan
-                                        /></span>
-                                    </router-link>
-                                </li>
-                            </transition-group>
+                            <li
+                                v-for="watch in selectedData"
+                                :key="`${watch.bSize}${watch.id}`"
+                                @click="changeCurrentView(watch)"
+                            >
+                                <router-link :to="formatPath(watch.name)">
+                                    <SimplifiedWatch
+                                        :watch="watch"
+                                        :inCart="true"
+                                        :isWishlist="
+                                            activeSelection === 'wishlist'
+                                        "
+                                    />
+                                    <span @click="onRemove(watch.id)"
+                                        ><TrashCan
+                                    /></span>
+                                </router-link>
+                            </li>
                         </ul>
                         <p v-else class="no-result">No results found</p>
                     </div>
@@ -98,6 +97,7 @@ export default {
             toggleCart: 'appStore/toggleCart',
             removeProductFromCart: 'userStore/removeProductFromCart',
             removeProductFromWishlist: 'userStore/removeProductFromWishlist',
+            changeCurrentView: 'appStore/changeCurrentView',
         }),
 
         toggleActiveSelection(selection) {
@@ -244,45 +244,6 @@ export default {
                 fill: #daa520;
             }
         }
-    }
-}
-
-.slide2-enter {
-    opacity: 0;
-}
-
-.slide2-move {
-    transition: transform 1s;
-}
-
-.slide2-enter-active {
-    animation: slide-in 0.5s ease-out forwards;
-    transition: opacity 0.5s;
-}
-
-.slide2-leave-active {
-    position: absolute;
-    width: 100%;
-    animation: slide-out 0.5s ease-out forwards;
-    transition: opacity 0.5s;
-    opacity: 0;
-}
-
-@keyframes slide-in {
-    from {
-        transform: translateY(-30px);
-    }
-    to {
-        transform: translateY(0px);
-    }
-}
-
-@keyframes slide-out {
-    from {
-        transform: translateX(0px);
-    }
-    to {
-        transform: translateX(350px);
     }
 }
 </style>

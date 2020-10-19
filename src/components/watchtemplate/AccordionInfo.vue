@@ -124,9 +124,9 @@ export default {
         text-transform: uppercase;
         font-size: 23px;
         color: #daa520;
+        font-weight: 500;
         position: relative;
         padding: 20px 0;
-        font-weight: 300;
     }
 
     & .content {
@@ -206,6 +206,26 @@ export default {
 
 .tech-data {
     line-height: 0.8;
+    display: flex;
+    flex-direction: column;
+    padding: 7px 0;
+    width: 70%;
+
+    & span {
+        padding: 0;
+
+        &:first-child {
+            margin-bottom: 3px;
+        }
+    }
+    @media (min-width: $mobileL) {
+        width: 40%;
+    }
+
+    @media (min-width: $laptop) {
+        flex-direction: row;
+        width: 100%;
+    }
 }
 
 .features-info {
@@ -247,7 +267,6 @@ export default {
             & li {
                 flex: 0 0 49%;
                 margin: unset;
-                /* width: 30% !important; */
             }
         }
     }
@@ -293,7 +312,6 @@ export default {
             position: absolute;
             margin: 5px;
             border-color: #666e6f;
-
             z-index: 1;
         }
 
@@ -310,14 +328,6 @@ export default {
                 margin-right: 0;
             }
         }
-    }
-}
-
-.svg-wrapper {
-    display: block;
-    & > svg {
-        width: 100%;
-        fill: red;
     }
 }
 </style>

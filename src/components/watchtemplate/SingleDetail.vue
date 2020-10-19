@@ -17,9 +17,15 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    margin-bottom: 15px;
+
+    &:nth-child(2n) {
+        align-items: flex-end;
+    }
 
     & label {
         margin-bottom: 6px;
+        width: unset;
     }
 
     & span {

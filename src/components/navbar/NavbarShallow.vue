@@ -13,7 +13,6 @@
                         <span class="desktop-only">Contact</span>
                     </div>
                 </router-link>
-                <!-- <div class="nav-item desktop-only">Story of Banitz</div> -->
             </div>
             <div class="logo">
                 <router-link to="/">
@@ -146,7 +145,7 @@ export default {
     &.navbar--shown {
         background: rgba(255, 255, 255, 1);
         box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);
-        /* transition: all 0.3s ease-in 0.3s; */
+
         & .logo-image {
             background-image: url('../../assets/icons/logo-gold.png');
             transition: all 0.3s;
@@ -225,6 +224,10 @@ export default {
         & .nav-item {
             font-size: 19px;
 
+            &.menu {
+                top: -5px;
+            }
+
             & svg {
                 height: 22px;
                 width: 22px;
@@ -262,7 +265,6 @@ export default {
         }
         & .nav-item {
             padding: 0 8px;
-            /* height: 100%; */
 
             @media (min-width: $mobileL) {
                 padding: 0 13px;
@@ -327,7 +329,6 @@ export default {
             @media (min-width: $laptop) {
                 width: 25px;
                 height: 25px;
-                /* margin-right: 4px; */
             }
         }
     }

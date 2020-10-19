@@ -18,10 +18,11 @@ export default {
     color: red;
     font-size: 16px;
     text-align: left;
-    bottom: -55%;
+    bottom: -50%;
 
     @media (min-width: $mobileL) {
         font-size: 18px;
+        bottom: -35%;
     }
 }
 </style>

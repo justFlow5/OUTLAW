@@ -56,11 +56,11 @@ export default {
         font-family: 'PT Serif', serif;
         color: #d19e1f;
         font-size: 22px;
-        font-size: 20px;
+        font-size: 26px;
         white-space: nowrap;
 
         @media (min-width: $mobileL) {
-            font-size: 26px;
+            font-size: 29px;
         }
 
         @media (min-width: $laptop) {

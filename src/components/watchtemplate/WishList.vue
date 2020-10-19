@@ -38,7 +38,7 @@ export default {
 }
 
 .label {
-    color: #f44336;
+    color: rgb(0, 0, 0);
     font-size: 14px;
     text-transform: uppercase;
     margin-right: 10px;
@@ -56,7 +56,7 @@ export default {
     height: 20px;
     position: relative;
     & svg {
-        fill: #f44336;
+        fill: rgb(0, 0, 0);
         width: 100%;
         height: 100%;
     }

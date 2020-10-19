@@ -79,20 +79,20 @@ export default {
     methods: {
         ...mapActions({
             changeCurrentView: 'appStore/changeCurrentView',
-            // addProductToCart: 'userStore/addProductToCart',
-            // addProductToWishlist: 'userStore/addProductToWishlist',
+            toggleNavbarTheme: 'appStore/toggleNavbarTheme',
         }),
     },
 
     mounted() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
+        const currentURL = this.$route.name;
+        if (currentURL) this.toggleNavbarTheme(false);
     },
 };
 </script>
 
 <style lang="scss" scoped>
 .watches-collection {
-    /* overflow-x: hidden; */
     overflow: hidden;
 }
 
@@ -135,7 +135,6 @@ export default {
 
 .gallery-reference {
     text-align: left;
-    /* margin-bottom: 40px; */
     margin-top: 30px;
     margin-bottom: 20px;
     margin-left: 5px;
@@ -150,9 +149,6 @@ export default {
         margin-top: unset;
 
         font-size: 18px;
-    }
-
-    & h4 {
     }
 
     & a {

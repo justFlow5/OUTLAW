@@ -17,6 +17,10 @@
                         :value="currentView.material"
                     />
 
+                    <SingleDetail label="Type" :value="currentView.type" />
+
+                    <SingleDetail label="For" :value="currentView.sex" />
+
                     <SingleDetail
                         label="Price"
                         :value="formatPrice(currentView.price)"
@@ -40,6 +44,12 @@
                 </div>
                 <div class="cart-button-container" @click="handleButtonClick">
                     <CartButton />
+                </div>
+                <div
+                    class="wishlist-container"
+                    @click="addToSelection(currentView, 'wishlist')"
+                >
+                    <WishList :inWishlist="inWishlist" />
                 </div>
             </div>
         </div>
@@ -72,12 +82,6 @@
                     />
                 </div>
             </div>
-        </div>
-        <div
-            class="wishlist-container"
-            @click="addToSelection(currentView, 'wishlist')"
-        >
-            <WishList :inWishlist="inWishlist" />
         </div>
         <transition name="fade">
             <ConfirmationModal
@@ -245,10 +249,17 @@ export default {
 
 .product-order {
     width: 90%;
-    height: 80%;
+    position: relative;
+    @media (min-width: $mobileL) {
+        width: 80%;
+    }
+
+    @media (min-width: $laptop) {
+        width: 45%;
+    }
 
     & .product-info:not(:first-child) {
-        padding: 20px 0 50px;
+        padding: 20px 0 10px;
         border-top: solid 1px #e2e2e2;
         font-size: 20px;
     }
@@ -260,6 +271,11 @@ export default {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+}
+
+.product-option-primary > div {
+    flex: 0 0 45%;
 }
 
 .watch-presentation {
@@ -267,7 +283,7 @@ export default {
     width: 100%;
 
     position: relative;
-    margin-top: 175px;
+    margin-top: 115px;
 
     @media (min-width: $mobileL) {
         width: 80%;
@@ -327,19 +343,6 @@ export default {
     }
 }
 
-.product-order {
-    width: 90%;
-    position: relative;
-
-    @media (min-width: $mobileL) {
-        width: 80%;
-    }
-
-    @media (min-width: $laptop) {
-        width: 45%;
-    }
-}
-
 .product-quantity {
     display: flex;
     flex-direction: column;
@@ -375,10 +378,23 @@ export default {
     }
 }
 
+.cart-button-container {
+    margin-top: 50px;
+}
+
 .wishlist-container {
     position: absolute;
-    top: 120px;
-    right: 50px;
+    bottom: -10%;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    @media (min-width: $laptop) {
+        bottom: unset;
+        top: -10%;
+        right: 50px;
+        left: unset;
+        transform: unset;
+    }
 }
 
 .fade-enter {
