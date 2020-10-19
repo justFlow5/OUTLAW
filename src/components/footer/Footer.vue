@@ -144,7 +144,9 @@
         <div class="toTop-container">
             <span @click="backtoTop"><ArrowUpIcon /></span>
         </div>
-        <span class="caption">Made by JustFlow | 2020</span>
+        <a class="caption" href="https://github.com/justFlow5" target="_blank"
+            >Made by JustFlow | 2020</a
+        >
     </footer>
 </template>
 
@@ -198,7 +200,6 @@ export default {
     & .toTop-container {
         display: block;
         position: relative;
-        width: 100%;
         text-align: center;
         border-top: 1px solid rgba(255, 255, 255, 0.1);
         margin-top: 30px;
@@ -349,12 +350,12 @@ li {
 }
 
 .caption {
-    font-size: 9px;
+    font-size: 12px;
     position: absolute;
     bottom: 10px;
     right: 10px;
-    z-index: 999;
+    z-index: 10000;
     color: white;
-    pointer-events: none;
+    cursor: pointer;
 }
 </style>
