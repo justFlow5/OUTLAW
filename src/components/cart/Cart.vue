@@ -32,7 +32,13 @@
                             >
                                 Wishlist
                             </button>
+                            <div class="payment-button">
+                                <PaymentButton
+                                    :isCart="activeSelection === 'cart'"
+                                />
+                            </div>
                         </div>
+
                         <ul v-if="selectedData" class="cart-container">
                             <li
                                 v-for="watch in selectedData"
@@ -54,6 +60,10 @@
                             </li>
                         </ul>
                         <p v-else class="no-result">No results found</p>
+                        <PaymentButton
+                            :isCart="activeSelection === 'cart'"
+                            class="payment-button forMobile"
+                        />
                     </div>
                 </div>
             </div>
@@ -65,7 +75,7 @@
 import ExitButton from '../shared/ExitButton';
 import CartHeading from './CartHeading';
 import SimplifiedWatch from '../shared/SimplifiedWatch';
-
+import PaymentButton from './PaymentButton';
 import TrashCan from '../../assets/icons/Trash';
 
 import { mapState, mapActions } from 'vuex';
@@ -119,6 +129,7 @@ export default {
         ExitButton,
         CartHeading,
         SimplifiedWatch,
+        PaymentButton,
         TrashCan,
     },
 };
@@ -190,7 +201,8 @@ export default {
     margin: 15px 10px;
     position: relative;
 
-    & button {
+    & .cart-button,
+    & .wishlist-button {
         font-size: 19px;
         background: transparent;
 
@@ -243,6 +255,20 @@ export default {
             &:hover {
                 fill: #daa520;
             }
+        }
+    }
+}
+.payment-button {
+    display: none;
+    margin-left: auto;
+    @media (min-width: $mobileL) {
+        display: inline-block;
+    }
+    &.forMobile {
+        display: none;
+        @media (max-width: $mobileL) {
+            display: inline-block;
+            margin-bottom: 20px;
         }
     }
 }
