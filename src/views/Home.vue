@@ -54,15 +54,13 @@
 
 <script>
 import VideoBG from '../components/watches/VideoBG';
-import Overlay from '../components/Overlay';
+import Overlay from '../components/shared/Overlay';
 import Heading from '../components/watches/Heading';
 import WatchGallery from '../components/watches/WatchGallery';
 import WatchCategories from '../components/watches/WatchCategory';
 import NewCollectionPanel from '../components/newCollection/newCollection';
 import Timeline from '../components/timeline/Timeline';
-
 import { mapActions } from 'vuex';
-
 export default {
     name: 'Home',
 

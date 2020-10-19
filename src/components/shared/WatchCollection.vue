@@ -22,7 +22,7 @@
 
 <script>
 import easyScroll from 'easy-scroll';
-import Next from '../assets/icons/Next';
+import Next from '../../assets/icons/Next';
 
 export default {
     name: 'Watch-Collection',

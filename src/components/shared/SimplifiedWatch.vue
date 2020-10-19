@@ -2,7 +2,7 @@
     <div class="data-container" :class="{ inCart, isWishlist }">
         <img
             :src="
-                require(`../assets/watchesImages/categoryGallery/${watch.name}.webp`)
+                require(`../../assets/watchesImages/categoryGallery/${watch.name}.webp`)
             "
         />
         <div class="data-wrapper">
@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import { formatPrice } from '../mixins/helpers';
+import { formatPrice } from '../../mixins/helpers';
 export default {
     name: 'SimplifiedWatchData',
     props: ['watch', 'inCart', 'isWishlist'],

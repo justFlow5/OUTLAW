@@ -12,7 +12,7 @@
                     <div class="exit-button-container" @click="toggleMenu">
                         <ExitButton />
                     </div>
-                    <Logo />
+                    <Logo :lightTheme="false" />
                 </div>
                 <WatchesMenuGallery />
                 <ReferenceLinks />
@@ -24,16 +24,13 @@
 
 <script>
 import WatchesMenuGallery from './Watches-Menu-Gallery';
-import ExitButton from '../ExitButton';
-import Logo from '../Logo';
+import ExitButton from '../shared/ExitButton';
+import Logo from '../shared/Logo';
 import ReferenceLinks from './ReferenceLinks';
 
 import { mapState, mapActions } from 'vuex';
 export default {
     name: 'Menu',
-    data() {
-        return {};
-    },
     components: { WatchesMenuGallery, ExitButton, ReferenceLinks, Logo },
 
     computed: {

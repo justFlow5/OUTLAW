@@ -12,7 +12,7 @@
                     <ExitButton type="dark" />
                 </div>
                 <div class="logo-container">
-                    <Logo />
+                    <Logo :lightTheme="true" />
                 </div>
 
                 <div class="searching-section">
@@ -47,9 +47,9 @@
 import SearchInput from './SearchInput';
 import SearchHeading from './SearchHeading';
 import ConfirmSearchButton from './ConfirmSearchButton';
-import ExitButton from '../ExitButton';
-import Logo from '../Logo-v2';
-import SimplifiedWatch from '../SimplifiedWatch';
+import ExitButton from '../shared/ExitButton';
+import Logo from '../shared/Logo';
+import SimplifiedWatch from '../shared/SimplifiedWatch';
 
 import { mapState, mapActions } from 'vuex';
 

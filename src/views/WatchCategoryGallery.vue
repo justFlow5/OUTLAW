@@ -24,9 +24,8 @@
 
 <script>
 import VideoBG from '../components/WatchCategoryGallery/VideoBG';
-import Overlay from '../components/Overlay';
+import Overlay from '../components/shared/Overlay';
 import Header from '../components/WatchCategoryGallery/Header';
-
 import WatchCategoryImageGallery from '../components/WatchCategoryGallery/WatchCategoryImageGallery';
 import { mapState, mapGetters } from 'vuex';
 

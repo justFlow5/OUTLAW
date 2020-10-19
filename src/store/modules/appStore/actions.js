@@ -15,8 +15,8 @@ export default {
         context.commit('TOGGLE_NAVBAR', data);
     },
 
-    changeCurrentView(commit, watch) {
-        commit('CHANGE_CURRENT_VIEW', watch);
+    changeCurrentView(context, watch) {
+        context.commit('CHANGE_CURRENT_VIEW', watch);
     },
 
     addProductToCart(context, watch) {

@@ -1,5 +1,5 @@
 <template>
-    <div class="logo">
+    <div class="logo" :class="{ lightTheme }">
         <div class="logo-image"></div>
         <span class="logo-name">Banitz</span>
     </div>
@@ -8,6 +8,7 @@
 <script>
 export default {
     name: 'Logo',
+    props: ['lightTheme'],
 };
 </script>
 
@@ -41,7 +42,7 @@ export default {
     }
 
     & .logo-image {
-        background-image: url('../assets/icons/logo-white.png');
+        background-image: url('../../assets/icons/logo-white.png');
         width: 30px;
         height: 30px;
         background-position: center;
@@ -53,6 +54,14 @@ export default {
             width: 55px;
             height: 55px;
         }
+    }
+    &.lightTheme .logo-name {
+        color: #252727;
+        text-shadow: 1px 1px 1px rgba(218, 165, 32, 0.8);
+    }
+
+    &.lightTheme .logo-image {
+        background-image: url('../../assets/icons/logo-gold.png');
     }
 }
 </style>

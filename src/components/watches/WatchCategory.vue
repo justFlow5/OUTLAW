@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import WatchTemplate from '../WatchTemplate';
+import WatchTemplate from '../shared/WatchTemplate';
 import { mapActions } from 'vuex';
 
 export default {

@@ -22,7 +22,7 @@
 
 <script>
 import { mapState, mapGetters, mapActions } from 'vuex';
-import WatchTemplate from '../WatchTemplate';
+import WatchTemplate from '../shared/WatchTemplate';
 
 export default {
     name: 'WatchCategoryImageGallery',

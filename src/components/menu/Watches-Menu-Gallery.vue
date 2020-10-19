@@ -22,8 +22,8 @@
 </template>
 
 <script>
-import WatchCollection from '../../components/WatchCollection';
-import WatchTemplate from '../../components/WatchTemplate';
+import WatchCollection from '../shared/WatchCollection';
+import WatchTemplate from '../shared/WatchTemplate';
 import { mapGetters, mapActions } from 'vuex';
 
 // import { watches } from '../../assets/watchesData/watchesData';

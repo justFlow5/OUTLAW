@@ -44,9 +44,9 @@ export default {
     methods: {
         getImgPath(watch) {
             if (this.sourceType === 'watchesCategories')
-                return require(`../assets/${this.sourceType}/${watch}.webp`);
+                return require(`../../assets/${this.sourceType}/${watch}.webp`);
             else if (this.sourceType === 'watchesImages')
-                return require(`../assets/${this.sourceType}/${this.thumbnailPath}/${watch}.webp`);
+                return require(`../../assets/${this.sourceType}/${this.thumbnailPath}/${watch}.webp`);
         },
     },
 

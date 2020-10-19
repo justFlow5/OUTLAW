@@ -62,9 +62,9 @@
 </template>
 
 <script>
-import ExitButton from '../ExitButton';
+import ExitButton from '../shared/ExitButton';
 import CartHeading from './CartHeading';
-import SimplifiedWatch from '../SimplifiedWatch';
+import SimplifiedWatch from '../shared/SimplifiedWatch';
 
 import TrashCan from '../../assets/icons/Trash';
 
