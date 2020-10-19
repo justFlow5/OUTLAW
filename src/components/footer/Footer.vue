@@ -6,26 +6,24 @@
                     <h5 class="section-title">Banitz watches</h5>
                     <ul>
                         <li>
-                            <router-link to="/bar">Banitz watches</router-link>
+                            <router-link to="/">Banitz watches</router-link>
                         </li>
                         <li>
-                            <router-link to="/bar"
-                                >New watches 2020</router-link
-                            >
+                            <router-link to="/">New watches 2020</router-link>
                         </li>
                         <li>
-                            <router-link to="/bar"
+                            <router-link to="/"
                                 >Configure your watch</router-link
                             >
                         </li>
                         <li>
-                            <router-link to="/bar">Watch finder</router-link>
+                            <router-link to="/">Watch finder</router-link>
                         </li>
                         <li>
-                            <router-link to="/bar">Women's watches</router-link>
+                            <router-link to="/">Women's watches</router-link>
                         </li>
                         <li>
-                            <router-link to="/bar"
+                            <router-link to="/"
                                 >History & Watchmaking</router-link
                             >
                         </li>
@@ -36,22 +34,22 @@
                     <h5 class="section-title">Services</h5>
                     <ul>
                         <li>
-                            <router-link to="/bar">Find a retailer</router-link>
+                            <router-link to="/">Find a retailer</router-link>
                         </li>
                         <li>
-                            <router-link to="/bar"
+                            <router-link to="/"
                                 >Watch care & service</router-link
                             >
                         </li>
                         <li>
-                            <router-link to="/bar">Your selection</router-link>
+                            <router-link to="/">Your selection</router-link>
                         </li>
                         <li>
-                            <router-link to="/bar"
+                            <router-link to="/"
                                 >Frequently Asked Questions</router-link
                             >
                         </li>
-                        <li><router-link to="/bar">Newsroom</router-link></li>
+                        <li><router-link to="/">Newsroom</router-link></li>
                     </ul>
                 </div>
             </div>

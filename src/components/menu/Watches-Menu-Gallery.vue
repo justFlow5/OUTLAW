@@ -4,7 +4,7 @@
             <li
                 v-for="(watch, index) in watchesData"
                 :key="index"
-                @click="changeCurrentView(watch)"
+                @click="handleWatchSelection(watch)"
             >
                 <div class="watch-template-container">
                     <WatchTemplate
@@ -26,8 +26,6 @@ import WatchCollection from '../shared/WatchCollection';
 import WatchTemplate from '../shared/WatchTemplate';
 import { mapGetters, mapActions } from 'vuex';
 
-// import { watches } from '../../assets/watchesData/watchesData';
-
 export default {
     name: 'Watches-Menu-Gallery',
 
@@ -37,22 +35,19 @@ export default {
         }),
 
         watchesData() {
-            // const classics = this.getWatchesByCategory('classic', 6);
-            // const professionals = this.getWatchesByCategory('professional', 6);
-            // console.log('classics: ', classics);
-            // return [...classics, ...professionals];
             return this.getWatchesByCategory('tagline');
         },
     },
     methods: {
-        ...mapActions({ changeCurrentView: 'appStore/changeCurrentView' }),
+        ...mapActions({
+            changeCurrentView: 'appStore/changeCurrentView',
+            toggleMenu: 'appStore/toggleMenu',
+        }),
 
-        // getWatches() {
-        //     const classics= getWatchesByCategory('classic', 7)
-        //     const professionals= getWatchesByCategory('professional', 7)
-
-        //     return  [...classics, ...professionals]
-        // }
+        handleWatchSelection(watch) {
+            this.changeCurrentView(watch);
+            this.toggleMenu();
+        },
     },
 
     components: { WatchCollection, WatchTemplate },
