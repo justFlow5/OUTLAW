@@ -47,7 +47,7 @@
                                             activeSelection === 'wishlist'
                                         "
                                     />
-                                    <span @click="onRemove(watch.id)"
+                                    <span @click.stop="onRemove(watch.id)"
                                         ><TrashCan
                                     /></span>
                                 </router-link>

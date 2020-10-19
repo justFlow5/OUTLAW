@@ -15,11 +15,11 @@ export default {
         context.commit('TOGGLE_NAVBAR', data);
     },
 
-    changeCurrentView(context, data) {
-        context.commit('CHANGE_CURRENT_VIEW', data);
+    changeCurrentView(commit, watch) {
+        commit('CHANGE_CURRENT_VIEW', watch);
     },
 
-    addProductToCart(context, data) {
-        context.commit('ADD_PRODUCT_TO_CART', data);
+    addProductToCart(context, watch) {
+        context.commit('ADD_PRODUCT_TO_CART', watch);
     },
 };
