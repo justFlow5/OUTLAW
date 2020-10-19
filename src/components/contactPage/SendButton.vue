@@ -1,10 +1,15 @@
 <template>
-    <a>Send request <span></span> <span></span></a>
+    <a @click="handleClick">Send request <span></span> <span></span></a>
 </template>
 
 <script>
 export default {
     name: 'SendButton',
+    methods: {
+        handleClick() {
+            this.$emit('send-message');
+        },
+    },
 };
 </script>
 
@@ -26,7 +31,7 @@ a {
     transition: all 0.4s;
     @media (min-width: $mobileL) {
         font-size: 18px;
-        /* font-size: 22px; */
+
         margin: 25px 0;
     }
 
@@ -38,13 +43,15 @@ a {
 
 a::after,
 a::before {
-    display: block;
-    position: relative;
-    content: '';
-    border-bottom: solid 2px#c4941d;
-    transform: scaleX(0);
-    transform-origin: 100% 50%;
-    transition: transform 250ms ease-in-out;
+    @media (min-width: $laptop) {
+        display: block;
+        position: relative;
+        content: '';
+        border-bottom: solid 2px#c4941d;
+        transform: scaleX(0);
+        transform-origin: 100% 50%;
+        transition: transform 250ms ease-in-out;
+    }
 }
 
 a::after {

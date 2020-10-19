@@ -11,7 +11,8 @@
             required
             autocomplete="off"
             spellcheck="false"
-            v-on:input="$emit('input', $event.target.value)"
+            :value="text"
+            @input="updateInput"
         />
 
         <textarea
@@ -26,7 +27,8 @@
             required
             autocomplete="off"
             spellcheck="false"
-            v-on:input="$emit('input', $event.target.value)"
+            :value="text"
+            @input="updateInput"
         />
         <label :for="label" class="form__label">{{ label }}</label>
     </div>
@@ -35,7 +37,16 @@
 <script>
 export default {
     name: 'InputField',
-    props: ['inputType', 'text', 'label'],
+    props: ['inputType', 'textFieldType', 'text', 'label'],
+    methods: {
+        updateInput(e) {
+            const newValue = {
+                textFieldType: this.textFieldType,
+                content: e.target.value,
+            };
+            this.$emit('input-update', newValue);
+        },
+    },
 };
 </script>
 
