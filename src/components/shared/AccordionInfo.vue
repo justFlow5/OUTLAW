@@ -67,12 +67,14 @@ export default {
     data() {
         return {
             isOpen: false,
+            windowWidth: '',
         };
     },
 
     methods: {
         toggleOpen() {
-            this.isOpen = !this.isOpen;
+            if (this.windowWidth > 1024) return;
+            else this.isOpen = !this.isOpen;
         },
 
         enter(el) {
@@ -94,6 +96,18 @@ export default {
                 el.style.height = 0;
             });
         },
+
+        handleResize() {
+            this.windowWidth = window.innerWidth;
+        },
+    },
+
+    created() {
+        window.addEventListener('resize', this.handleResize);
+        this.handleResize();
+    },
+    destroyed() {
+        window.removeEventListener('resize', this.handleResize);
     },
 
     components: {
@@ -113,7 +127,6 @@ export default {
     cursor: pointer;
 
     @media (min-width: $laptop) {
-        /* pointer-events: none; */
         cursor: auto;
     }
 
